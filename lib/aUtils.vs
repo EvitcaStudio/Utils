@@ -1,23 +1,37 @@
 #ENABLE LOCALCLIENTCODE
 #BEGIN CLIENTCODE
-#BEGIN SERVERCODE
 #BEGIN JAVASCRIPT
 (function() {
 	let engineWaitId = setInterval(function() {
 		if (VS.Client) {
-			VS.Client.___EVITCA_aUtils = true;
 			clearInterval(engineWaitId);
-			VS.global.aUtils = buildUtils();
-			VS.Client.aUtils = VS.global.aUtils;
+			buildUtils();
 		}
 	});
 
 	let buildUtils = function() {
 		let aUtils = {};
 
+		VS.Client.___EVITCA_aUtils = true;
+		VS.Client.aUtils = aUtils;
+		VS.World.global.aUtils = aUtils;
+
+		// object storing all things being transitioned at the moment
+		aUtils.transitions = {};
+
 		aUtils.decimalRand = function(pNum1, pNum2, pPlaces = 1) {
 			let result = Number((Math.random() * (pNum1 - pNum2) + pNum2).toFixed(pPlaces))
 			return (result >= 1 ? Math.floor(result) : result)		
+		}
+
+		aUtils.generateID = function(pID = 7) {
+			var ID = '';
+			var chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+
+			for (var i = 0; i < pID; i++) {
+				ID += chars.charAt(Math.floor(Math.random() * chars.length));
+			}
+			return ID;
 		}
 
 		aUtils.grabColor = function(pSwitch = this.getRandomColor(), g, b) {
@@ -53,11 +67,93 @@
 			return color;
 		}
 
-		return aUtils;
+		aUtils.transitionColor = function(pDiob, pStartColor, pEndColor, pDuration, pIterativeCallback, pEndCallback) {
+			const MAX_ELAPSED_MS = 100;
+			const INTERVAL_RATE = (1000/60);
+			const TIME_SCALE = (VS.Client.timeScale ? VS.Client.timeScale : 1);
+
+			let ID;
+			let isParticle;
+
+			var rgbStartColor;
+			var rgbEndColor;
+
+			if (pDiob) {
+				ID = pDiob.id;
+				isParticle = (pDiob.type === 'GeneratedParticle');
+				if (this.transitions[ID]) {
+					clearInterval(this.transitions[ID].intervalID);
+				}
+			} else {
+				ID = this.generateID();
+				while (Object.keys(this.transitions).includes(ID)) {
+					ID = this.generateID();
+				}				
+			}
+				
+			this.transitions[ID] = { 'deltaTime': 0, 'lastTime': Date.now(), 'elapsedMS': 0, 'counter': 0, 'timeTracker': 0, 'rate': 0 };
+			var iterations = pDuration / INTERVAL_RATE;
+
+			this.transitions[ID].rate = 1 / iterations;
+			this.transitions[ID].counter = 0;
+			this.transitions[ID].timeTracker = isParticle ? pDiob.info.lifetime : 0;
+
+			if (pStartColor.includes('#')) {
+				rgbStartColor = this.grabColor(pStartColor).rgbArray;
+			}
+
+			if (pEndColor.includes('#')) {
+				rgbEndColor = this.grabColor(pEndColor).rgbArray;
+			}
+
+			this.transitions[ID].intervalID = setInterval(function() {
+				if (VS.Client.___EVITCA_aPause) {
+					if (aPause.paused) {
+						return;
+					}
+				}
+				var currentTime = Date.now();
+				if (currentTime > this.transitions[ID].lastTime) {
+					this.transitions[ID].elapsedMS = currentTime - this.transitions[ID].lastTime;
+
+					if (this.transitions[ID].elapsedMS > MAX_ELAPSED_MS) {
+						this.transitions[ID].elapsedMS = MAX_ELAPSED_MS;
+					} else {
+						this.transitions[ID].deltaTime = 1;
+					}
+					
+					this.transitions[ID].deltaTime = (this.transitions[ID].elapsedMS / INTERVAL_RATE) * TIME_SCALE;
+				}
+
+				this.transitions[ID].lastTime = currentTime;
+				this.transitions[ID].counter += this.transitions[ID].rate;
+				this.transitions[ID].timeTracker += this.transitions[ID].elapsedMS;
+				
+				var r = parseInt(VS.Math.lerp(rgbStartColor[0], rgbEndColor[0], this.transitions[ID].counter));
+				var g = parseInt(VS.Math.lerp(rgbStartColor[1], rgbEndColor[1], this.transitions[ID].counter));
+				var b = parseInt(VS.Math.lerp(rgbStartColor[2], rgbEndColor[2], this.transitions[ID].counter));
+				var color = this.grabColor(r, g, b).decimal;
+
+				if (pIterativeCallback) {
+					pIterativeCallback(color);
+				}
+
+				if (pDiob) {
+					pDiob.color = { 'tint': color };
+				}
+
+				if (this.transitions[ID].counter >= 1 || this.transitions[ID].timeTracker >= pDuration) {
+					clearInterval(this.transitions[ID].intervalID);
+					delete this.transitions[ID];
+					if (pEndCallback) {
+						pEndCallback(color);
+					}
+				}
+			}.bind(this), INTERVAL_RATE);
+		}
 	}
 }
 )();
 
 #END JAVASCRIPT
 #END CLIENTCODE
-#END SERVERCODE

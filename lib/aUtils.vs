@@ -34,6 +34,10 @@
 			return ID;
 		}
 
+		aUtils.decimalToHex = function(pDecimal, pChars=6) {
+			return '#' + (pDecimal + Math.pow(16, pChars)).toString(16).slice(-pChars).toUpperCase();
+		}
+
 		aUtils.grabColor = function(pSwitch = this.getRandomColor(), g, b) {
 			let hex, cr, cg, cb;
 			if (typeof(pSwitch) === 'number' && typeof(g) === 'number' && typeof(b) === 'number') {
@@ -45,6 +49,9 @@
 				}
 				hex = '#' + [cr, cg, cb].map(craftString).join('');
 			} else {
+				if (typeof(pSwitch) === 'number') {
+					pSwitch = this.decimalToHex(pSwitch);
+				}
 				hex = pSwitch;
 				pSwitch = pSwitch.replace('#', '');
 				if (pSwitch.length === 3) {
@@ -67,9 +74,9 @@
 			return color;
 		}
 
-		aUtils.transitionColor = function(pDiob, pStartColor, pEndColor, pDuration, pIterativeCallback, pEndCallback) {
-			const MAX_ELAPSED_MS = 100;
-			const INTERVAL_RATE = (1000/60);
+		aUtils.transitionColor = function(pDiob, pStartColor='#000', pEndColor='#fff', pDuration, pIterativeCallback, pEndCallback) {
+			const MAX_ELAPSED_MS = 500;
+			const INTERVAL_RATE = 1000/60;
 			const TIME_SCALE = (VS.Client.timeScale ? VS.Client.timeScale : 1);
 
 			let ID;
@@ -98,12 +105,20 @@
 			this.transitions[ID].counter = 0;
 			this.transitions[ID].timeTracker = isParticle ? pDiob.info.lifetime : 0;
 
-			if (pStartColor.includes('#')) {
+			if (Number.isInteger(pStartColor)) {
+				rgbStartColor = this.grabColor(this.decimalToHex(pStartColor)).rgbArray;
+			} else if (pStartColor.includes('#')) {
 				rgbStartColor = this.grabColor(pStartColor).rgbArray;
+			} else {
+				console.error('aUtils Module [transitionColor]: Invalid variable type for %cpStartColor', 'font-weight: bold', 'hex or decimal colors only.');
 			}
 
-			if (pEndColor.includes('#')) {
+			if (Number.isInteger(pEndColor)) {
+				rgbEndColor = this.grabColor(this.decimalToHex(pEndColor)).rgbArray;
+			} else if (pEndColor.includes('#')) {
 				rgbEndColor = this.grabColor(pEndColor).rgbArray;
+			} else {
+				console.error('aUtils Module [transitionColor]: Invalid variable type for %cpEndColor', 'font-weight: bold', 'hex or decimal colors only.');
 			}
 
 			this.transitions[ID].intervalID = setInterval(function() {
@@ -118,28 +133,26 @@
 
 					if (this.transitions[ID].elapsedMS > MAX_ELAPSED_MS) {
 						this.transitions[ID].elapsedMS = MAX_ELAPSED_MS;
-					} else {
-						this.transitions[ID].deltaTime = 1;
 					}
 					
 					this.transitions[ID].deltaTime = (this.transitions[ID].elapsedMS / INTERVAL_RATE) * TIME_SCALE;
 				}
-
+		
 				this.transitions[ID].lastTime = currentTime;
-				this.transitions[ID].counter += this.transitions[ID].rate;
+				this.transitions[ID].counter += this.transitions[ID].rate * this.transitions[ID].deltaTime;
 				this.transitions[ID].timeTracker += this.transitions[ID].elapsedMS;
 				
 				var r = parseInt(VS.Math.lerp(rgbStartColor[0], rgbEndColor[0], this.transitions[ID].counter));
 				var g = parseInt(VS.Math.lerp(rgbStartColor[1], rgbEndColor[1], this.transitions[ID].counter));
 				var b = parseInt(VS.Math.lerp(rgbStartColor[2], rgbEndColor[2], this.transitions[ID].counter));
-				var color = this.grabColor(r, g, b).decimal;
+				var color = this.grabColor(r, g, b);
 
 				if (pIterativeCallback) {
 					pIterativeCallback(color);
 				}
 
 				if (pDiob) {
-					pDiob.color = { 'tint': color };
+					pDiob.color = { 'tint': color.decimal };
 				}
 
 				if (this.transitions[ID].counter >= 1 || this.transitions[ID].timeTracker >= pDuration) {
@@ -148,6 +161,7 @@
 					if (pEndCallback) {
 						pEndCallback(color);
 					}
+					return;
 				}
 			}.bind(this), INTERVAL_RATE);
 		}

@@ -123,7 +123,7 @@
 
 			this.transitions[ID].intervalID = setInterval(function() {
 				if (VS.Client.___EVITCA_aPause) {
-					if (aPause.paused) {
+					if (VS.Client.aPause.paused) {
 						return;
 					}
 				}

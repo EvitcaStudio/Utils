@@ -34,8 +34,33 @@
 			return ID;
 		}
 
-		aUtils.decimalToHex = function(pDecimal, pChars=6) {
+		aUtils.decimalToHex = function(pDecimal, pChars = 6) {
 			return '#' + (pDecimal + Math.pow(16, pChars)).toString(16).slice(-pChars).toUpperCase();
+		}
+
+		aUtils.addIntensity = function(pColor, pPercent) {
+			let rgb = this.grabColor(pColor).rgbArray;
+			let r = rgb[0];
+			let g = rgb[1];
+			let b = rgb[2];
+			let rr = 0;
+			let rg = 0;
+			let rb = 0;
+			let black = (r === 0 && g === 0 && b === 0) ? true : false;
+
+			if (r || black) {
+				rr = r + Math.floor((255 * pPercent) / 100);
+			}
+
+			if (g || black) {
+				rg = g + Math.floor((255 * pPercent) / 100);
+			}
+
+			if (b || black) {
+				rb = b + Math.floor((255 * pPercent) / 100);
+			}
+
+			return this.grabColor(Math.clamp(rr, 0, 255), Math.clamp(rg, 0, 255), Math.clamp(rb, 0, 255)).hex
 		}
 
 		aUtils.grabColor = function(pSwitch = this.getRandomColor(), g, b) {
@@ -62,7 +87,7 @@
 				cg = Math.clamp(parseInt(pSwitch[1], 16), 0, 255);
 				cb = Math.clamp(parseInt(pSwitch[2], 16), 0, 255);
 			}
-			return { 'hex': hex.toLowerCase(), 'hexTagless': hex.replace('#', '').toLowerCase(), 'rgb': 'rgb('+cr+','+cg+','+cb+')', 'rgbArray': [cr, cg, cb], 'rgbNormal': [Math.round(cr/255 * 100) / 100, Math.round(cg/255 * 100) / 100, Math.round(cb/255 * 100) / 100], 'decimal': (cr << 16 | cg << 8 | cb) };
+			return { 'hex': hex.toLowerCase(), 'hexTagless': hex.replace('#', '').toLowerCase(), 'rgb': 'rgb('+cr+','+cg+','+cb+')', 'rgbArray': [cr, cg, cb], 'rgbObject': { 'r': cr, 'g': cg, 'b': cb }, 'rgbNormal': [Math.round(cr/255 * 100) / 100, Math.round(cg/255 * 100) / 100, Math.round(cb/255 * 100) / 100], 'decimal': (cr << 16 | cg << 8 | cb) };
 		}
 
 		aUtils.getRandomColor = function() {

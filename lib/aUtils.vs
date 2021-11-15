@@ -106,6 +106,7 @@
 
 			let ID;
 			let isParticle;
+			let isObject;
 
 			var rgbStartColor;
 			var rgbEndColor;
@@ -113,6 +114,7 @@
 			if (pDiob) {
 				ID = pDiob.id;
 				isParticle = (pDiob.type === 'GeneratedParticle');
+				isObject = (pDiob.type ? false : true);
 				if (this.transitions[ID]) {
 					clearInterval(this.transitions[ID].intervalID);
 				}
@@ -177,7 +179,11 @@
 				}
 
 				if (pDiob) {
-					pDiob.color = { 'tint': color.decimal };
+					if (isObject) {
+						pDiob.color = color.decimal;
+					} else {
+						pDiob.color = { 'tint': color.decimal };
+					}
 				}
 
 				if (this.transitions[ID].counter >= 1 || this.transitions[ID].timeTracker >= pDuration) {

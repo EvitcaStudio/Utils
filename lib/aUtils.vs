@@ -24,6 +24,19 @@
 			return (result >= 1 ? Math.floor(result) : result)		
 		}
 
+		aUtils.getPercentage = function(pPercent, pNum) {
+ 			return (pPercent / 100) * pNum;
+		}
+		
+		aUtils.round = function (pNumber, pPlace=1) {
+			return Math.round(pPlace * pNumber) / pPlace;
+		}
+
+		aUtils.normalize = function(pVal, pMin, pMax) {
+			if (pMax - pMin === 0) return 1;
+			return (pVal - pMin) / (pMax - pMin);
+		}
+
 		aUtils.generateID = function(pID = 7) {
 			var ID = '';
 			var chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
@@ -60,15 +73,15 @@
 				rb = b + Math.floor((255 * pPercent) / 100);
 			}
 
-			return this.grabColor(Math.clamp(rr, 0, 255), Math.clamp(rg, 0, 255), Math.clamp(rb, 0, 255)).hex
+			return this.grabColor(VS.Math.clamp(rr, 0, 255), VS.Math.clamp(rg, 0, 255), VS.Math.clamp(rb, 0, 255)).hex
 		}
 
 		aUtils.grabColor = function(pSwitch = this.getRandomColor(), g, b) {
 			let hex, cr, cg, cb;
 			if (typeof(pSwitch) === 'number' && typeof(g) === 'number' && typeof(b) === 'number') {
-				cr = Math.clamp(pSwitch, 0, 255);
-				cg = Math.clamp(g, 0, 255);
-				cb = Math.clamp(b, 0, 255);
+				cr = VS.Math.clamp(pSwitch, 0, 255);
+				cg = VS.Math.clamp(g, 0, 255);
+				cb = VS.Math.clamp(b, 0, 255);
 				let craftString = function(pColor) {
 					return pColor.toString(16).padStart(2, '0');
 				}
@@ -83,9 +96,9 @@
 					pSwitch = pSwitch.replace(new RegExp('(.)', 'g'), '$1$1');
 				}
 				pSwitch = pSwitch.match(new RegExp('..', 'g'));
-				cr = Math.clamp(parseInt(pSwitch[0], 16), 0, 255);
-				cg = Math.clamp(parseInt(pSwitch[1], 16), 0, 255);
-				cb = Math.clamp(parseInt(pSwitch[2], 16), 0, 255);
+				cr = VS.Math.clamp(parseInt(pSwitch[0], 16), 0, 255);
+				cg = VS.Math.clamp(parseInt(pSwitch[1], 16), 0, 255);
+				cb = VS.Math.clamp(parseInt(pSwitch[2], 16), 0, 255);
 			}
 			return { 'hex': hex.toLowerCase(), 'hexTagless': hex.replace('#', '').toLowerCase(), 'rgb': 'rgb('+cr+','+cg+','+cb+')', 'rgbArray': [cr, cg, cb], 'rgbObject': { 'r': cr, 'g': cg, 'b': cb }, 'rgbNormal': [Math.round(cr/255 * 100) / 100, Math.round(cg/255 * 100) / 100, Math.round(cb/255 * 100) / 100], 'decimal': (cr << 16 | cg << 8 | cb) };
 		}

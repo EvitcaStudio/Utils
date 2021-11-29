@@ -16,6 +16,7 @@
 		VS.Client.aUtils = aUtils;
 		VS.World.global.aUtils = aUtils;
 
+		aUtils.version = 'v1.0.0';
 		// object storing all things being transitioned at the moment
 		aUtils.transitions = {};
 
@@ -35,6 +36,10 @@
 		aUtils.normalize = function(pVal, pMin, pMax) {
 			if (pMax - pMin === 0) return 1;
 			return (pVal - pMin) / (pMax - pMin);
+		}
+
+		aUtils.formatNumber = function(pNum) {
+			return pNum.toFixed().toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,');
 		}
 
 		aUtils.generateID = function(pID = 7) {

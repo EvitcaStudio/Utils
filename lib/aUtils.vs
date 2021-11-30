@@ -187,9 +187,9 @@
 				this.transitions[ID].counter += this.transitions[ID].rate * this.transitions[ID].deltaTime;
 				this.transitions[ID].timeTracker += this.transitions[ID].elapsedMS;
 				
-				var r = parseInt(VS.Math.lerp(rgbStartColor[0], rgbEndColor[0], this.transitions[ID].counter));
-				var g = parseInt(VS.Math.lerp(rgbStartColor[1], rgbEndColor[1], this.transitions[ID].counter));
-				var b = parseInt(VS.Math.lerp(rgbStartColor[2], rgbEndColor[2], this.transitions[ID].counter));
+				var r = parseInt(VS.Math.lerp(rgbStartColor[0], rgbEndColor[0], this.transitions[ID].counter), 10);
+				var g = parseInt(VS.Math.lerp(rgbStartColor[1], rgbEndColor[1], this.transitions[ID].counter), 10);
+				var b = parseInt(VS.Math.lerp(rgbStartColor[2], rgbEndColor[2], this.transitions[ID].counter), 10);
 				var color = this.grabColor(r, g, b);
 
 				if (pIterativeCallback) {

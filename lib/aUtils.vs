@@ -15,8 +15,8 @@
 		VS.Client.___EVITCA_aUtils = true;
 		VS.Client.aUtils = aUtils;
 		VS.World.global.aUtils = aUtils;
-
 		aUtils.version = 'v1.0.0';
+
 		// object storing all things being transitioned at the moment
 		aUtils.transitions = {};
 
@@ -172,6 +172,11 @@
 						return;
 					}
 				}
+				if (isParticle) {
+					if (pDiob.info?.owner?.settings?.paused) {
+						return;
+					}
+				}
 				var currentTime = Date.now();
 				if (currentTime > this.transitions[ID].lastTime) {
 					this.transitions[ID].elapsedMS = currentTime - this.transitions[ID].lastTime;
@@ -200,7 +205,8 @@
 					if (isObject) {
 						pDiob.color = color.decimal;
 					} else {
-						pDiob.color = { 'tint': color.decimal };
+						pDiob.color.tint = color.decimal;
+						pDiob.color = pDiob.color;
 					}
 				}
 

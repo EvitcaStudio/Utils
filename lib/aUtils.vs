@@ -178,24 +178,24 @@
 					}
 				}
 				var currentTime = Date.now();
-				if (currentTime > this.transitions[ID].lastTime) {
-					this.transitions[ID].elapsedMS = currentTime - this.transitions[ID].lastTime;
+				if (currentTime > aUtils.transitions[ID].lastTime) {
+					aUtils.transitions[ID].elapsedMS = currentTime - aUtils.transitions[ID].lastTime;
 
-					if (this.transitions[ID].elapsedMS > MAX_ELAPSED_MS) {
-						this.transitions[ID].elapsedMS = MAX_ELAPSED_MS;
+					if (aUtils.transitions[ID].elapsedMS > MAX_ELAPSED_MS) {
+						aUtils.transitions[ID].elapsedMS = MAX_ELAPSED_MS;
 					}
 					
-					this.transitions[ID].deltaTime = (this.transitions[ID].elapsedMS / INTERVAL_RATE) * TIME_SCALE;
+					aUtils.transitions[ID].deltaTime = (aUtils.transitions[ID].elapsedMS / INTERVAL_RATE) * TIME_SCALE;
 				}
 		
-				this.transitions[ID].lastTime = currentTime;
-				this.transitions[ID].counter += this.transitions[ID].rate * this.transitions[ID].deltaTime;
-				this.transitions[ID].timeTracker += this.transitions[ID].elapsedMS;
+				aUtils.transitions[ID].lastTime = currentTime;
+				aUtils.transitions[ID].counter += aUtils.transitions[ID].rate * aUtils.transitions[ID].deltaTime;
+				aUtils.transitions[ID].timeTracker += aUtils.transitions[ID].elapsedMS;
 				
-				var r = parseInt(VS.Math.lerp(rgbStartColor[0], rgbEndColor[0], this.transitions[ID].counter), 10);
-				var g = parseInt(VS.Math.lerp(rgbStartColor[1], rgbEndColor[1], this.transitions[ID].counter), 10);
-				var b = parseInt(VS.Math.lerp(rgbStartColor[2], rgbEndColor[2], this.transitions[ID].counter), 10);
-				var color = this.grabColor(r, g, b);
+				var r = parseInt(VS.Math.lerp(rgbStartColor[0], rgbEndColor[0], aUtils.transitions[ID].counter), 10);
+				var g = parseInt(VS.Math.lerp(rgbStartColor[1], rgbEndColor[1], aUtils.transitions[ID].counter), 10);
+				var b = parseInt(VS.Math.lerp(rgbStartColor[2], rgbEndColor[2], aUtils.transitions[ID].counter), 10);
+				var color = aUtils.grabColor(r, g, b);
 
 				if (pIterativeCallback) {
 					pIterativeCallback(color);
@@ -210,15 +210,15 @@
 					}
 				}
 
-				if (this.transitions[ID].counter >= 1 || this.transitions[ID].timeTracker >= pDuration) {
-					clearInterval(this.transitions[ID].intervalID);
-					delete this.transitions[ID];
+				if (aUtils.transitions[ID].counter >= 1 || aUtils.transitions[ID].timeTracker >= pDuration) {
+					clearInterval(aUtils.transitions[ID].intervalID);
+					delete aUtils.transitions[ID];
 					if (pEndCallback) {
 						pEndCallback(color);
 					}
 					return;
 				}
-			}.bind(this), INTERVAL_RATE);
+			}, INTERVAL_RATE);
 		}
 	}
 }

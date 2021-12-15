@@ -120,7 +120,7 @@
 		aUtils.transitionColor = function(pDiob, pStartColor='#000', pEndColor='#fff', pDuration, pIterativeCallback, pEndCallback) {
 			const MAX_ELAPSED_MS = 500;
 			const INTERVAL_RATE = 1000/60;
-			const TIME_SCALE = (VS.Client.timeScale ? VS.Client.timeScale : 1);
+			const TIME_SCALE = (VS.Client.timeScale || VS.Client.timeScale === 0 ? VS.Client.timeScale : 1);
 
 			let ID;
 			let isParticle;

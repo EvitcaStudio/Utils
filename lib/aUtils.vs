@@ -205,7 +205,11 @@
 					if (isObject) {
 						pDiob.color = color.decimal;
 					} else {
-						pDiob.color.tint = color.decimal;
+						if (typeof(pDiob.color) === 'object') {
+							pDiob.color.tint = color.decimal;
+						} else {
+							pDiob.color = color.hex;
+						}
 						pDiob.color = pDiob.color;
 					}
 				}

@@ -118,8 +118,8 @@
 		}
 
 		aUtils.transitionColor = function(pDiob, pStartColor='#000', pEndColor='#fff', pDuration, pIterativeCallback, pEndCallback) {
-			const MAX_ELAPSED_MS = 500;
-			const INTERVAL_RATE = 1000/60;
+			const MAX_ELAPSED_MS = 100;
+			const INTERVAL_RATE = 16.67;
 			const TIME_SCALE = (VS.Client.timeScale || VS.Client.timeScale === 0 ? VS.Client.timeScale : 1);
 
 			let ID;
@@ -140,7 +140,7 @@
 				ID = this.generateID();
 				while (Object.keys(this.transitions).includes(ID)) {
 					ID = this.generateID();
-				}				
+				}			
 			}
 				
 			this.transitions[ID] = { 'deltaTime': 0, 'lastTime': Date.now(), 'elapsedMS': 0, 'counter': 0, 'timeTracker': 0, 'rate': 0 };
@@ -186,8 +186,9 @@
 					}
 					
 					aUtils.transitions[ID].deltaTime = (aUtils.transitions[ID].elapsedMS / INTERVAL_RATE) * TIME_SCALE;
+					aUtils.transitions[ID].elapsedMS *= TIME_SCALE;
 				}
-		
+
 				aUtils.transitions[ID].lastTime = currentTime;
 				aUtils.transitions[ID].counter += aUtils.transitions[ID].rate * aUtils.transitions[ID].deltaTime;
 				aUtils.transitions[ID].timeTracker += aUtils.transitions[ID].elapsedMS;

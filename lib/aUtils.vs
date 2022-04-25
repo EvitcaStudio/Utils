@@ -1,16 +1,16 @@
 #ENABLE LOCALCLIENTCODE
 #BEGIN CLIENTCODE
 #BEGIN JAVASCRIPT
-(function() {
-	let engineWaitId = setInterval(function() {
+(() => {
+	const engineWaitId = setInterval(() => {
 		if (VS.Client) {
 			clearInterval(engineWaitId);
 			buildUtils();
 		}
 	});
 
-	let buildUtils = function() {
-		let aUtils = {};
+	const buildUtils = () => {
+		const aUtils = {};
 
 		VS.Client.___EVITCA_aUtils = true;
 		VS.Client.aUtils = aUtils;
@@ -21,7 +21,7 @@
 		aUtils.transitions = {};
 
 		aUtils.decimalRand = function(pNum1, pNum2, pPlaces = 1) {
-			let result = Number((Math.random() * (pNum1 - pNum2) + pNum2).toFixed(pPlaces))
+			const result = Number((Math.random() * (pNum1 - pNum2) + pNum2).toFixed(pPlaces))
 			return (result >= 1 ? Math.floor(result) : result)		
 		}
 
@@ -43,10 +43,10 @@
 		}
 
 		aUtils.generateID = function(pID = 7) {
-			var ID = '';
-			var chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+			let ID = '';
+			const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
 
-			for (var i = 0; i < pID; i++) {
+			for (let i = 0; i < pID; i++) {
 				ID += chars.charAt(Math.floor(Math.random() * chars.length));
 			}
 			return ID;
@@ -57,14 +57,14 @@
 		}
 
 		aUtils.addIntensity = function(pColor, pPercent) {
-			let rgb = this.grabColor(pColor).rgbArray;
-			let r = rgb[0];
-			let g = rgb[1];
-			let b = rgb[2];
+			const rgb = this.grabColor(pColor).rgbArray;
+			const r = rgb[0];
+			const g = rgb[1];
+			const b = rgb[2];
 			let rr = 0;
 			let rg = 0;
 			let rb = 0;
-			let black = (r === 0 && g === 0 && b === 0) ? true : false;
+			const black = (r === 0 && g === 0 && b === 0) ? true : false;
 
 			if (r || black) {
 				rr = r + Math.floor((255 * pPercent) / 100);
@@ -87,7 +87,7 @@
 				cr = VS.Math.clamp(pSwitch, 0, 255);
 				cg = VS.Math.clamp(g, 0, 255);
 				cb = VS.Math.clamp(b, 0, 255);
-				let craftString = function(pColor) {
+				const craftString = function(pColor) {
 					return pColor.toString(16).padStart(2, '0');
 				}
 				hex = '#' + [cr, cg, cb].map(craftString).join('');
@@ -109,7 +109,7 @@
 		}
 
 		aUtils.getRandomColor = function() {
-			let chars = '0123456789ABCDEF';
+			const chars = '0123456789ABCDEF';
 			let color = '#';
 			for (let i = 0; i < 6; i++) {
 				color += chars[Math.floor(Math.random() * 16)];
@@ -119,15 +119,15 @@
 
 		aUtils.transitionColor = function(pDiob, pStartColor='#000', pEndColor='#fff', pDuration, pIterativeCallback, pEndCallback) {
 			const MAX_ELAPSED_MS = 100;
-			const INTERVAL_RATE = 16.67;
+			const INTERVAL_RATE = 1000/60;
 			const TIME_SCALE = (VS.Client.timeScale || VS.Client.timeScale === 0 ? VS.Client.timeScale : 1);
 
 			let ID;
 			let isParticle;
 			let isObject;
 
-			var rgbStartColor;
-			var rgbEndColor;
+			let rgbStartColor;
+			let rgbEndColor;
 
 			if (pDiob) {
 				ID = pDiob.id;
@@ -140,11 +140,11 @@
 				ID = this.generateID();
 				while (Object.keys(this.transitions).includes(ID)) {
 					ID = this.generateID();
-				}			
+				}				
 			}
 				
 			this.transitions[ID] = { 'deltaTime': 0, 'lastTime': Date.now(), 'elapsedMS': 0, 'counter': 0, 'timeTracker': 0, 'rate': 0 };
-			var iterations = pDuration / INTERVAL_RATE;
+			const iterations = pDuration / INTERVAL_RATE;
 
 			this.transitions[ID].rate = 1 / iterations;
 			this.transitions[ID].counter = 0;
@@ -177,7 +177,7 @@
 						return;
 					}
 				}
-				var currentTime = Date.now();
+				const currentTime = Date.now();
 				if (currentTime > aUtils.transitions[ID].lastTime) {
 					aUtils.transitions[ID].elapsedMS = currentTime - aUtils.transitions[ID].lastTime;
 
@@ -193,10 +193,10 @@
 				aUtils.transitions[ID].counter += aUtils.transitions[ID].rate * aUtils.transitions[ID].deltaTime;
 				aUtils.transitions[ID].timeTracker += aUtils.transitions[ID].elapsedMS;
 				
-				var r = parseInt(VS.Math.lerp(rgbStartColor[0], rgbEndColor[0], aUtils.transitions[ID].counter), 10);
-				var g = parseInt(VS.Math.lerp(rgbStartColor[1], rgbEndColor[1], aUtils.transitions[ID].counter), 10);
-				var b = parseInt(VS.Math.lerp(rgbStartColor[2], rgbEndColor[2], aUtils.transitions[ID].counter), 10);
-				var color = aUtils.grabColor(r, g, b);
+				const r = parseInt(VS.Math.lerp(rgbStartColor[0], rgbEndColor[0], aUtils.transitions[ID].counter), 10);
+				const g = parseInt(VS.Math.lerp(rgbStartColor[1], rgbEndColor[1], aUtils.transitions[ID].counter), 10);
+				const b = parseInt(VS.Math.lerp(rgbStartColor[2], rgbEndColor[2], aUtils.transitions[ID].counter), 10);
+				const color = aUtils.grabColor(r, g, b);
 
 				if (pIterativeCallback) {
 					pIterativeCallback(color);

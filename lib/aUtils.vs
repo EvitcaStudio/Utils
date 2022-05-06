@@ -173,8 +173,10 @@
 					}
 				}
 				if (isParticle) {
-					if (pDiob.info?.owner?.settings?.paused) {
-						return;
+					if (pDiob.info.owner) {
+						if (pDiob.info.owner.settings.paused) {
+							return;
+						}
 					}
 				}
 				const currentTime = Date.now();

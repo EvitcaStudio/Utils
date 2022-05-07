@@ -206,7 +206,7 @@
 
 				if (pDiob) {
 					if (isObject) {
-						pDiob.color = color.decimal;
+						pDiob.color.tint = color.decimal;
 					} else {
 						if (typeof(pDiob.color) === 'object') {
 							pDiob.color.tint = color.decimal;

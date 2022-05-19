@@ -1,5 +1,5 @@
 # aUtils
-A small library full of useful things.
+A small plugin full of useful things.
 
 #INCLUDE SCRIPT aUtils.js
 

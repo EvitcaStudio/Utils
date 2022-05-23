@@ -137,8 +137,8 @@
 			return (pVal - pMin) / (pMax - pMin);
 		}
 
-		aUtils.within = function (pX, pMin, pMax) {
-  			return pX >= pMin && pX <= pMax;
+		aUtils.within = function (pVal, pMin, pMax) {
+  			return pVal >= pMin && pVal <= pMax;
 		}
 
 		aUtils.formatNumber = function(pNum) {

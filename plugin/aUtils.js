@@ -137,6 +137,10 @@
 			return (pVal - pMin) / (pMax - pMin);
 		}
 
+		aUtils.within = function (pX, pMin, pMax) {
+  			return pX >= pMin && pX <= pMax;
+		}
+
 		aUtils.formatNumber = function(pNum) {
 			return pNum.toFixed().toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,');
 		}

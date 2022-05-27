@@ -276,10 +276,16 @@
 					}
 				}
 				if (isParticle) {
-					if (pDiob.info.owner) {
-						if (pDiob.info.owner.settings.paused) {
-							return;
+					if (pDiob.info) {
+						if (pDiob.info.owner) {
+							if (pDiob.info.owner.settings.paused) {
+								return;
+							}
 						}
+					} else {
+						clearInterval(aUtils.transitions[ID].intervalID);
+						delete aUtils.transitions[ID];
+						return;				
 					}
 				}
 				const currentTime = Date.now();

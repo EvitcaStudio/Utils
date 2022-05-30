@@ -21,11 +21,11 @@
 		// This will not be available on the server this API functionality is only available on the CLIENT SIDE
 		if (VS.World.getCodeType() !== 'server') {
 			// Create a interface where you can display the text to mouse elements
-			VS.Client.createInterface('aUtils_ttm_interface');
+			VS.Client.createInterface('aUtils_textToMouse_interface');
 			// show this interface
-			VS.Client.showInterface('aUtils_ttm_interface');
-			VS.Client.addWebStyle('aUtils_ttm_style', `
-				.aUtilsTTM {
+			VS.Client.showInterface('aUtils_textToMouse_interface');
+			VS.Client.addWebStyle('aUtils_textToMouse_style', `
+				.aUtilsTextToMouse {
 					text-align: center;
 					font-weight: bold;
 					font-size: 20px;
@@ -41,28 +41,28 @@
 					user-select: none;
 					text-shadow: rgb(0, 0, 0) 2px 0px 0px, rgb(0, 0, 0) 1.75517px 0.958851px 0px, rgb(0, 0, 0) 1.0806px 1.68294px 0px, rgb(0, 0, 0) 0.141474px 1.99499px 0px, rgb(0, 0, 0) -0.832294px 1.81859px 0px, rgb(0, 0, 0) -1.60229px 1.19694px 0px, rgb(0, 0, 0) -1.97998px 0.28224px 0px, rgb(0, 0, 0) -1.87291px -0.701566px 0px, rgb(0, 0, 0) -1.30729px -1.5136px 0px, rgb(0, 0, 0) -0.421592px -1.95506px 0px, rgb(0, 0, 0) 0.567324px -1.91785px 0px, rgb(0, 0, 0) 1.41734px -1.41108px 0px, rgb(0, 0, 0) 1.92034px -0.558831px 0px;
 				}
-				.aUtilsTTM::-webkit-scrollbar {
+				.aUtilsTextToMouse::-webkit-scrollbar {
 					display: none;
 				}
 				`
 			);
 
-			// array full of TTM elements that are to be updated
-			aUtils.activeTTM = [];
-			// array full of TTM elements that can be used when requesting to use ttm
-			aUtils.idleTTM = [];
-			// an interval running at 60fps to update the ttm elements that are active.
-			aUtils.ttmAnimatorInterval = setInterval(() => {
-				for (let i = aUtils.activeTTM.length - 1; i >= 0; i--) {
-					const ttmElement = aUtils.activeTTM[i];
-					ttmElement.yPos--;
-					ttmElement.alpha += (0 - ttmElement.alpha) * 0.075;
-					if (ttmElement.alpha <= 0.015 || ttmElement.yPos <= ttmElement.spawnPosY - 75) aUtils.removeTTM(ttmElement);
+			// array full of textToMouse elements that are to be updated
+			aUtils.activeTextToMouseElements = [];
+			// array full of textToMouse elements that can be used when requesting to use textToMouse
+			aUtils.idleTextToMouseElements = [];
+			// an interval running at 60fps to update the textToMouse elements that are active.
+			aUtils.textToMouseAnimatorInterval = setInterval(() => {
+				for (let i = aUtils.activeTextToMouseElements.length - 1; i >= 0; i--) {
+					const textToMouseElement = aUtils.activeTextToMouseElements[i];
+					textToMouseElement.yPos--;
+					textToMouseElement.alpha += (0 - textToMouseElement.alpha) * 0.075;
+					if (textToMouseElement.alpha <= 0.015 || textToMouseElement.yPos <= textToMouseElement.spawnPosY - 75) aUtils.removeTextToMouse(textToMouseElement);
 				}
 			}, 16);
 
 			// Text To Mouse
-			aUtils.TTM = function(pText) {
+			aUtils.textToMouse = function(pText) {
 				if (pText) {
 					const mousePos = VS.Client.getMousePos();
 					const spawnPos = { 'x': mousePos.x - 100, 'y':  mousePos.y };
@@ -70,10 +70,10 @@
 					let textElem;
 
 					if (VS.Client.___EVITCA_aRecycle) {
-						textElem = VS.Client.aRecycle.isInCollection('Interface', 1, this.idleTTM);
+						textElem = VS.Client.aRecycle.isInCollection('Interface', 1, this.idleTextToMouseElements);
 					} else {
-						if (this.idleTTM.length) {
-							textElem = this.idleTTM.pop();
+						if (this.idleTextToMouseElements.length) {
+							textElem = this.idleTextToMouseElements.pop();
 						} else {
 							textElem = VS.newDiob('Interface');
 						}
@@ -91,21 +91,21 @@
 					// Other libraries use the plane of: 1999998. Adding this layer should allow this element to layer above
 					textElem.plane = 1999998;
 					textElem.layer = 1999998;
-					textElem.text = '<div class="aUtilsTTM">' + text + '</div>';
-					if (textElem.getInterfaceName() !== 'aUtils_ttm_interface') VS.Client.addInterfaceElement(textElem, 'aUtils_ttm_interface');
+					textElem.text = '<div class="aUtilsTextToMouse">' + text + '</div>';
+					if (textElem.getInterfaceName() !== 'aUtils_textToMouse_interface') VS.Client.addInterfaceElement(textElem, 'aUtils_textToMouse_interface');
 					textElem.show();
-					if (!this.activeTTM.includes(textElem)) this.activeTTM.push(textElem);
+					if (!this.activeTextToMouseElements.includes(textElem)) this.activeTextToMouseElements.push(textElem);
 				}
 			}
 
-			aUtils.removeTTM = function(pTextElem) {
+			aUtils.removeTextToMouse = function(pTextElem) {
 				if (pTextElem) {
-					if (this.activeTTM.includes(pTextElem)) this.activeTTM.splice(this.activeTTM.indexOf(pTextElem), 1);
+					if (this.activeTextToMouseElements.includes(pTextElem)) this.activeTextToMouseElements.splice(this.activeTextToMouseElements.indexOf(pTextElem), 1);
 					if (VS.Client.___EVITCA_aRecycle) {
 						// pTextElem can possibly be deleted in this function if the collection is too full
-						VS.Client.aRecycle.collect(pTextElem, this.idleTTM);
+						VS.Client.aRecycle.collect(pTextElem, this.idleTextToMouseElements);
 					} else {
-						if (!this.idleTTM.includes(pTextElem)) this.idleTTM.push(pTextElem);
+						if (!this.idleTextToMouseElements.includes(pTextElem)) this.idleTextToMouseElements.push(pTextElem);
 					}
 					// This is a check to see if the element was deleted
 					if (pTextElem && Object.keys(pTextElem).length) {

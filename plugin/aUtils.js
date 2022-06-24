@@ -17,6 +17,7 @@
 		aUtils.version = 'v1.0.0';
 		// object storing all color objects being transitioned at the moment
 		aUtils.transitions = {};
+		aUtils.storedIDs = [];
 
 		// This will not be available on the server this API functionality is only available on the CLIENT SIDE
 		if (VS.World.getCodeType() !== 'server') {
@@ -146,12 +147,19 @@
 		}
 
 		aUtils.generateID = function(pID = 7) {
-			let ID = '';
 			const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-
-			for (let i = 0; i < pID; i++) {
-				ID += chars.charAt(Math.floor(Math.random() * chars.length));
+			const makeID = function() {
+				let ID = '';
+				for (let i = 0; i < pID; i++) {
+					ID += chars.charAt(Math.floor(Math.random() * chars.length));
+				}
+				return ID;
 			}
+			let ID = makeID();
+			while(this.storedIDs.includes(ID)) {
+				ID = makeID();
+			}
+			this.storedIDs.push(ID);
 			return ID;
 		}
 
@@ -240,10 +248,7 @@
 					clearInterval(this.transitions[ID].intervalID);
 				}
 			} else {
-				ID = this.generateID();
-				while (Object.keys(this.transitions).includes(ID)) {
-					ID = this.generateID();
-				}				
+				ID = this.generateID();			
 			}
 				
 			this.transitions[ID] = { 'deltaTime': 0, 'lastTime': Date.now(), 'elapsedMS': 0, 'counter': 0, 'timeTracker': 0, 'rate': 0 };

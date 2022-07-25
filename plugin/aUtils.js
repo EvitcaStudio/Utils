@@ -12,7 +12,8 @@
 
 		VS.Client.___EVITCA_aUtils = true;
 		VS.Client.aUtils = aUtils;
-		VS.World.global.aUtils = aUtils;
+		VS.global.aUtils = aUtils;
+		window.aUtils = aUtils;
 
 		aUtils.version = 'v1.0.0';
 		// object storing all color objects being transitioned at the moment

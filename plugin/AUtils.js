@@ -261,7 +261,7 @@
 	
 			this.transitions[ID].intervalID = setInterval(function() {
 				if (VYLO.Client.___EVITCA_aPause) {
-					if (VYLO.Client.aPause.paused) {
+					if (aPause && aPause.paused) {
 						return;
 					}
 				}

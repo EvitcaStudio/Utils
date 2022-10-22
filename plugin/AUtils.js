@@ -11,27 +11,24 @@
 			this.activeTextToMouseElements = [];
 			// Array full of textToMouse elements that can be used when requesting to use textToMouse
 			this.idleTextToMouseElements = [];
-			// This will not be available on the server this API functionality is only available on the CLIENT SIDE
-			if (VYLO.World.getCodeType() !== 'server') {
-				const self = this;
-				// An interval running at 60fps to update the textToMouse elements that are active.
-				this.textToMouseAnimatorInterval = setInterval(() => {
-					for (let i = self.activeTextToMouseElements.length - 1; i >= 0; i--) {
-						const textToMouseElement = self.activeTextToMouseElements[i];
-						textToMouseElement.yPos--;
-						textToMouseElement.alpha += (0 - textToMouseElement.alpha) * 0.075;
-						if (textToMouseElement.alpha <= 0.015 || textToMouseElement.yPos <= textToMouseElement.spawnPosY - 75) self.removeTextToMouse(textToMouseElement);
-					}
-				}, 16);
-			}
-			if (VS.World.getCodeType() !== 'server') VS.Type.setVariables('Client', {___EVITCA_AUtils: true });
+			const self = this;
+			// An interval running at 60fps to update the textToMouse elements that are active.
+			this.textToMouseAnimatorInterval = setInterval(() => {
+				for (let i = self.activeTextToMouseElements.length - 1; i >= 0; i--) {
+					const textToMouseElement = self.activeTextToMouseElements[i];
+					textToMouseElement.yPos--;
+					textToMouseElement.alpha += (0 - textToMouseElement.alpha) * 0.075;
+					if (textToMouseElement.alpha <= 0.015 || textToMouseElement.yPos <= textToMouseElement.spawnPosY - 75) self.removeTextToMouse(textToMouseElement);
+				}
+			}, 16);
+			VYLO.Type.setVariables('Client', {___EVITCA_AUtils: true });
 
 			// The version of this library
 			this.version = '1.0.0';
 		}
 
 		textToMouse(pText) {
-			if (VS.World.getCodeType() === 'server' || !VYLO.Client) {
+			if (!VYLO.Client) {
 				console.error('AUtils: %cClient not found! This cannot be used until the client exists', 'font-weight: bold');
 				return;
 			}
@@ -175,18 +172,9 @@
 			let rg = 0;
 			let rb = 0;
 			const black = (r === 0 && g === 0 && b === 0) ? true : false;
-	
-			if (r || black) {
-				rr = r + Math.floor((255 * pPercent) / 100);
-			}
-	
-			if (g || black) {
-				rg = g + Math.floor((255 * pPercent) / 100);
-			}
-	
-			if (b || black) {
-				rb = b + Math.floor((255 * pPercent) / 100);
-			}
+			if (r || black) rr = r + Math.floor((255 * pPercent) / 100);
+			if (g || black) rg = g + Math.floor((255 * pPercent) / 100);
+			if (b || black) rb = b + Math.floor((255 * pPercent) / 100);
 	
 			return this.grabColor(VYLO.Math.clamp(rr, 0, 255), VYLO.Math.clamp(rg, 0, 255), VYLO.Math.clamp(rb, 0, 255)).hex
 		}
@@ -240,9 +228,7 @@
 				ID = pInstance.id;
 				isParticle = (pInstance.type === 'GeneratedParticle');
 				isTintObject = (typeof(pInstance.color) === 'object' && pInstance.color.constructor === Object ? true : false);
-				if (this.transitions[ID]) {
-					clearInterval(this.transitions[ID].intervalID);
-				}
+				if (this.transitions[ID]) clearInterval(this.transitions[ID].intervalID);
 			} else {
 				ID = this.generateID();			
 			}
@@ -261,9 +247,7 @@
 	
 			this.transitions[ID].intervalID = setInterval(function() {
 				if (VYLO.Client.___EVITCA_aPause) {
-					if (aPause && aPause.paused) {
-						return;
-					}
+					if (aPause && aPause.paused) return;
 				}
 				if (isParticle) {
 					if (pInstance.info) {
@@ -292,23 +276,21 @@
 				const b = parseInt(VYLO.Math.lerp(rgbStartColor[2], rgbEndColor[2], self.transitions[ID].counter), 10);
 				const color = self.grabColor(r, g, b);
 	
-				if (typeof(pIterativeCallback) === 'function') {
-					pIterativeCallback(color);
-				}
-	
-				if (isTintObject) {
-					pInstance.color.tint = color.decimal;
-					pInstance.color = pInstance.color;
-				} else {
-					pInstance.color = color.hex;
+				if (typeof(pIterativeCallback) === 'function') pIterativeCallback(color);
+
+				if (pInstance) {
+					if (isTintObject) {
+						pInstance.color.tint = color.decimal;
+						pInstance.color = pInstance.color;
+					} else {
+						pInstance.color = color.hex;
+					}
 				}
 	
 				if (self.transitions[ID].counter >= 1 || self.transitions[ID].timeTracker >= pDuration) {
 					clearInterval(self.transitions[ID].intervalID);
 					delete self.transitions[ID];
-					if (typeof(pEndCallback) === 'function') {
-						pEndCallback(color);
-					}
+					if (typeof(pEndCallback) === 'function') pEndCallback(color);
 					return;
 				}
 			}, INTERVAL_RATE);

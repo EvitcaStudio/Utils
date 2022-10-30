@@ -108,6 +108,8 @@ window.EUtilsManager = class EUtilsManager {
 	transitionColor(pInstance, pStartColor='#000', pEndColor='#fff', pDuration=1000, pIterativeCallback, pEndCallback) {
 		const INTERVAL_RATE = 1000/60;
 		const iterations = pDuration / INTERVAL_RATE;
+		const iterativeCallback = typeof(pIterativeCallback) === 'function' ? pIterativeCallback : null;
+		const endCallback = typeof(pEndCallback) === 'function' ? pEndCallback : null;
 		let id;
 		let isParticle;
 		let isTintObject;
@@ -119,7 +121,7 @@ window.EUtilsManager = class EUtilsManager {
 			id = pInstance.id ? pInstance.id : this.generateID();
 			isParticle = (pInstance.type === 'GeneratedParticle');
 			isTintObject = (typeof(pInstance.color) === 'object' && pInstance.color.constructor === Object ? true : false);
-			if (this.transitions[id]) clearTimeout(this.transitions[id].timeoutId);
+			if (this.transitions[id]) this.cancelTransitionColor(id);
 		} else {
 			id = this.generateID();			
 		}
@@ -134,55 +136,63 @@ window.EUtilsManager = class EUtilsManager {
 		rgbEndColor = this.grabColor(pEndColor).rgbArray;
 
 		const self = this;
-		const transitionID = this.transitions[id];
-		transitionID.step = (pTimeStamp) => {
-			if (isParticle) {
-				if (pInstance.info) {
-					if (pInstance.info.owner) {
-						if (pInstance.info.owner.settings.paused) {
-							return;
+		this.transitions[id].step = (pTimeStamp) => {
+			if (self.transitions[id]) {
+				if (isParticle) {
+					if (pInstance.info) {
+						if (pInstance.info.owner) {
+							if (pInstance.info.owner.settings.paused) {
+								return;
+							}
 						}
+					} else {
+						if (self.transitions[id]) this.cancelTransitionColor(id);
+						return;				
 					}
-				} else {
-					window.cancelAnimationFrame(transitionID.req);
-					delete self.transitions[id];
-					return;				
 				}
-			}
 
-			const now = performance.now();
-			const elapsed = now - transitionID.lastTime;
-			// The max value of counter is 1, so we clamp it at 1
-			transitionID.counter = Math.min(transitionID.counter + transitionID.rate, 1);
-			// Time tracker is used rather than lastStamp - startStamp because this currently takes into account particles passed in (this will be removed in the future and use the former method)
-			transitionID.timeTracker += elapsed;
-			
-			const r = parseInt(self.lerp(rgbStartColor[0], rgbEndColor[0], transitionID.counter), 10);
-			const g = parseInt(self.lerp(rgbStartColor[1], rgbEndColor[1], transitionID.counter), 10);
-			const b = parseInt(self.lerp(rgbStartColor[2], rgbEndColor[2], transitionID.counter), 10);
-			const color = self.grabColor(r, g, b);
+				const now = performance.now();
+				if (!self.transitions[id].lastTime) self.transitions[id].lastTime = now;
+				const elapsed = now - self.transitions[id].lastTime;
+				// The max value of counter is 1, so we clamp it at 1
+				self.transitions[id].counter = Math.min(self.transitions[id].counter + self.transitions[id].rate, 1);
+				// Time tracker is used rather than lastStamp - startStamp because this currently takes into account particles passed in (this will be removed in the future and use the former method)
+				self.transitions[id].timeTracker += elapsed;
+				
+				const r = parseInt(self.lerp(rgbStartColor[0], rgbEndColor[0], self.transitions[id].counter), 10);
+				const g = parseInt(self.lerp(rgbStartColor[1], rgbEndColor[1], self.transitions[id].counter), 10);
+				const b = parseInt(self.lerp(rgbStartColor[2], rgbEndColor[2], self.transitions[id].counter), 10);
+				const color = self.grabColor(r, g, b);
 
-			if (typeof(pIterativeCallback) === 'function') pIterativeCallback(color);
+				if (iterativeCallback) iterativeCallback(color);
 
-			if (pInstance) {
-				if (isTintObject) {
-					pInstance.color.tint = color.decimal;
-					pInstance.color = pInstance.color;
-				} else {
-					pInstance.color = color.hex;
+				if (pInstance) {
+					if (isTintObject) {
+						pInstance.color.tint = color.decimal;
+						pInstance.color = pInstance.color;
+					} else {
+						pInstance.color = color.hex;
+					}
 				}
-			}
 
-			if (transitionID.counter >= 1 || transitionID.timeTracker >= pDuration) {
-				cancelAnimationFrame(transitionID.req);
-				delete self.transitions[id];
-				if (typeof(pEndCallback) === 'function') pEndCallback(color);
-				return;
+				if (self.transitions[id].counter >= 1 || self.transitions[id].timeTracker >= pDuration) {
+					if (self.transitions[id]) this.cancelTransitionColor(id);
+					if (endCallback) endCallback(color);
+					return;
+				}
+				self.transitions[id].req = window.requestAnimationFrame(self.transitions[id].step);
+				self.transitions[id].lastTime = now;
 			}
-			transitionID.req = window.requestAnimationFrame(transitionID.step);
 		}
 
-		transitionID.req = window.requestAnimationFrame(transitionID.step);
+		this.transitions[id].req = window.requestAnimationFrame(this.transitions[id].step);
+		return id;
+	}
+	cancelTransitionColor(pID) {
+		if (this.transitions[pID]) {
+			window.cancelAnimationFrame(this.transitions[pID].req);
+			delete this.transitions[pID];
+		}
 	}
 }
 const EUtils = new EUtilsManager();

@@ -1,4 +1,4 @@
-(typeof(window) !== 'undefined' ? window : global).EUtils = class EUtils {
+window.EUtilsManager = class EUtilsManager {
 	constructor() {
 		// Object storing all color objects being transitioned at the moment
 		this.transitions = {};
@@ -13,6 +13,12 @@
 	}
 	getPercentage(pValue, pTotalValue) {
 		return (100 * pValue) / pTotalValue;
+	}
+	clamp(a, min = 0, max = 1) {
+		return Math.min(max, Math.max(min, a));
+	}
+	lerp(x, y, a) {
+		return x * (1 - a) + y * a;
 	}
 	round(pNumber, pPlace=1) {
 		return Math.round(pPlace * pNumber) / pPlace;
@@ -45,7 +51,6 @@
 		this.storedIDs.push(ID);
 		return ID;
 	}
-
 	decimalToHex(pDecimal, pChars = 6) {
 		return '#' + (pDecimal + Math.pow(16, pChars)).toString(16).slice(-pChars).toUpperCase();
 	}
@@ -62,16 +67,15 @@
 		if (r || black) rr = r + Math.floor((255 * pPercent) / 100);
 		if (g || black) rg = g + Math.floor((255 * pPercent) / 100);
 		if (b || black) rb = b + Math.floor((255 * pPercent) / 100);
-
-		return this.grabColor(VYLO.Math.clamp(rr, 0, 255), VYLO.Math.clamp(rg, 0, 255), VYLO.Math.clamp(rb, 0, 255)).hex
+		return this.grabColor(this.clamp(rr, 0, 255), this.clamp(rg, 0, 255), this.clamp(rb, 0, 255)).hex
 	}
 	// Convert a color to different formats or get a random color
 	grabColor(pSwitch = this.getRandomColor(), g, b) {
 		let hex, cr, cg, cb;
 		if (typeof(pSwitch) === 'number' && typeof(g) === 'number' && typeof(b) === 'number') {
-			cr = VYLO.Math.clamp(pSwitch, 0, 255);
-			cg = VYLO.Math.clamp(g, 0, 255);
-			cb = VYLO.Math.clamp(b, 0, 255);
+			cr = this.clamp(pSwitch, 0, 255);
+			cg = this.clamp(g, 0, 255);
+			cb = this.clamp(b, 0, 255);
 			const craftString = function(pColor) {
 				return pColor.toString(16).padStart(2, '0');
 			}
@@ -86,9 +90,9 @@
 				pSwitch = pSwitch.replace(new RegExp('(.)', 'g'), '$1$1');
 			}
 			pSwitch = pSwitch.match(new RegExp('..', 'g'));
-			cr = VYLO.Math.clamp(parseInt(pSwitch[0], 16), 0, 255);
-			cg = VYLO.Math.clamp(parseInt(pSwitch[1], 16), 0, 255);
-			cb = VYLO.Math.clamp(parseInt(pSwitch[2], 16), 0, 255);
+			cr = this.clamp(parseInt(pSwitch[0], 16), 0, 255);
+			cg = this.clamp(parseInt(pSwitch[1], 16), 0, 255);
+			cb = this.clamp(parseInt(pSwitch[2], 16), 0, 255);
 		}
 		return { 'hex': hex.toLowerCase(), 'hexTagless': hex.replace('#', '').toLowerCase(), 'rgb': 'rgb('+cr+','+cg+','+cb+')', 'rgbArray': [cr, cg, cb], 'rgbObject': { 'r': cr, 'g': cg, 'b': cb }, 'rgbNormal': [Math.round(cr/255 * 100) / 100, Math.round(cg/255 * 100) / 100, Math.round(cb/255 * 100) / 100], 'decimal': (cr << 16 | cg << 8 | cb) };
 	}
@@ -103,7 +107,8 @@
 	// Transition a color to another color in pDuration time.
 	transitionColor(pInstance, pStartColor='#000', pEndColor='#fff', pDuration=1000, pIterativeCallback, pEndCallback) {
 		const INTERVAL_RATE = 1000/60;
-		let ID;
+		const iterations = pDuration / INTERVAL_RATE;
+		let id;
 		let isParticle;
 		let isTintObject;
 
@@ -111,30 +116,26 @@
 		let rgbEndColor;
 
 		if (pInstance) {
-			ID = pInstance.id;
+			id = pInstance.id ? pInstance.id : this.generateID();
 			isParticle = (pInstance.type === 'GeneratedParticle');
 			isTintObject = (typeof(pInstance.color) === 'object' && pInstance.color.constructor === Object ? true : false);
-			if (this.transitions[ID]) clearInterval(this.transitions[ID].intervalID);
+			if (this.transitions[id]) clearTimeout(this.transitions[id].timeoutId);
 		} else {
-			ID = this.generateID();			
+			id = this.generateID();			
 		}
 			
-		this.transitions[ID] = { 'lastTime': 0, 'counter': 0, 'timeTracker': 0, 'rate': 0 };
-		const iterations = pDuration / INTERVAL_RATE;
-
-		this.transitions[ID].rate = 1 / iterations;
-		this.transitions[ID].counter = 0;
-		this.transitions[ID].timeTracker = isParticle ? pInstance.info.lifetime : 0;
+		this.transitions[id] = {
+			'rate': 1 / iterations,
+			'counter': 0,
+			'timeTracker': isParticle ? pInstance.info.lifetime : 0
+		};
 
 		rgbStartColor = this.grabColor(pStartColor).rgbArray;
 		rgbEndColor = this.grabColor(pEndColor).rgbArray;
 
 		const self = this;
-
-		this.transitions[ID].intervalID = setInterval(function() {
-			if (VYLO.Client.___EVITCA_aPause) {
-				if (aPause && aPause.paused) return;
-			}
+		const transitionID = this.transitions[id];
+		transitionID.step = (pTimeStamp) => {
 			if (isParticle) {
 				if (pInstance.info) {
 					if (pInstance.info.owner) {
@@ -143,23 +144,22 @@
 						}
 					}
 				} else {
-					clearInterval(self.transitions[ID].intervalID);
-					delete self.transitions[ID];
+					window.cancelAnimationFrame(transitionID.req);
+					delete self.transitions[id];
 					return;				
 				}
 			}
-			const now = Date.now();
-			if (!self.transitions[ID].lastTime) self.transitions[ID].lastTime = now;
-			const elapsedMS = now - self.transitions[ID].lastTime;
-			let dt = (now - self.transitions[ID].lastTime) / 1000;
-			if (dt > 0.033) dt = 0.033;
-			self.transitions[ID].lastTime = now;
-			self.transitions[ID].counter += self.transitions[ID].rate;
-			self.transitions[ID].timeTracker += elapsedMS;
+
+			const now = performance.now();
+			const elapsed = now - transitionID.lastTime;
+			// The max value of counter is 1, so we clamp it at 1
+			transitionID.counter = Math.min(transitionID.counter + transitionID.rate, 1);
+			// Time tracker is used rather than lastStamp - startStamp because this currently takes into account particles passed in (this will be removed in the future and use the former method)
+			transitionID.timeTracker += elapsed;
 			
-			const r = parseInt(VYLO.Math.lerp(rgbStartColor[0], rgbEndColor[0], self.transitions[ID].counter), 10);
-			const g = parseInt(VYLO.Math.lerp(rgbStartColor[1], rgbEndColor[1], self.transitions[ID].counter), 10);
-			const b = parseInt(VYLO.Math.lerp(rgbStartColor[2], rgbEndColor[2], self.transitions[ID].counter), 10);
+			const r = parseInt(self.lerp(rgbStartColor[0], rgbEndColor[0], transitionID.counter), 10);
+			const g = parseInt(self.lerp(rgbStartColor[1], rgbEndColor[1], transitionID.counter), 10);
+			const b = parseInt(self.lerp(rgbStartColor[2], rgbEndColor[2], transitionID.counter), 10);
 			const color = self.grabColor(r, g, b);
 
 			if (typeof(pIterativeCallback) === 'function') pIterativeCallback(color);
@@ -173,13 +173,19 @@
 				}
 			}
 
-			if (self.transitions[ID].counter >= 1 || self.transitions[ID].timeTracker >= pDuration) {
-				clearInterval(self.transitions[ID].intervalID);
-				delete self.transitions[ID];
+			if (transitionID.counter >= 1 || transitionID.timeTracker >= pDuration) {
+				cancelAnimationFrame(transitionID.req);
+				delete self.transitions[id];
 				if (typeof(pEndCallback) === 'function') pEndCallback(color);
 				return;
 			}
-		}, INTERVAL_RATE);
+			transitionID.req = window.requestAnimationFrame(transitionID.step);
+		}
+
+		transitionID.req = window.requestAnimationFrame(transitionID.step);
 	}
 }
+const EUtils = new EUtilsManager();
+VYLO.global.EUtils = EUtils;
+window.EUtils = EUtils;
 console.log("%cEUtils.js: ✅ EUtils.js@" + EUtils.version, "font-family:arial;");

@@ -226,7 +226,7 @@
 		}
 	}
 	const EUtils = new EUtilsManager();
-	if (typeof(VYLO.global) !== 'undefined') VYLO.global.EUtils = EUtils;
+	if (typeof(VYLO) !== 'undefined') VYLO.global.EUtils = EUtils;
 	window.EUtils = EUtils;
 	console.log("%cEUtils.js: ✅ EUtils.js@" + EUtils.version, "font-family:arial;");	
 })();

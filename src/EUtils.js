@@ -21,6 +21,9 @@
 		lerp(x, y, a) {
 			return x * (1 - a) + y * a;
 		}
+		flooredLerp(x, y, a) {
+			return Math.floor(this.lerp(x, y, a));
+		}
 		round(pNumber, pPlace=1) {
 			return Math.round(pPlace * pNumber) / pPlace;
 		}
@@ -105,8 +108,13 @@
 			}
 			return color;
 		}
+		getRandomColorBetween(u = Math.random(), c1, c2) {
+			return this.flooredLerp(u, c1, c2);
+		}
 		// Transition a color to another color in pDuration time.
 		transitionColor(pInstance, pStartColor='#000', pEndColor='#fff', pDuration=1000, pIterativeCallback, pEndCallback) {
+			// Cannot use this API on the server
+			if (!globalThis.window) return;
 			const INTERVAL_RATE = 1000/60;
 			const iterations = pDuration / INTERVAL_RATE;
 			const iterativeCallback = typeof(pIterativeCallback) === 'function' ? pIterativeCallback : null;
@@ -124,7 +132,7 @@
 				isTintObject = (typeof(pInstance.color) === 'object' && pInstance.color.constructor === Object ? true : false);
 				if (this.transitions[id]) this.cancelTransitionColor(id);
 			} else {
-				id = this.generateID();			
+				id = this.generateID();
 			}
 				
 			this.transitions[id] = {
@@ -181,17 +189,17 @@
 						if (endCallback) endCallback(color);
 						return;
 					}
-					self.transitions[id].req = window.requestAnimationFrame(self.transitions[id].step);
+					self.transitions[id].req = globalThis.requestAnimationFrame(self.transitions[id].step);
 					self.transitions[id].lastTime = now;
 				}
 			}
 	
-			this.transitions[id].req = window.requestAnimationFrame(this.transitions[id].step);
+			this.transitions[id].req = globalThis.requestAnimationFrame(this.transitions[id].step);
 			return id;
 		}
 		cancelTransitionColor(pID) {
 			if (this.transitions[pID]) {
-				window.cancelAnimationFrame(this.transitions[pID].req);
+				globalThis.cancelAnimationFrame(this.transitions[pID].req);
 				delete this.transitions[pID];
 			}
 		}
@@ -227,6 +235,6 @@
 	}
 	const EUtils = new EUtilsManager();
 	if (typeof(VYLO) !== 'undefined') VYLO.global.EUtils = EUtils;
-	window.EUtils = EUtils;
+	globalThis.EUtils = EUtils;
 	console.log("%cEUtils.js: ✅ EUtils.js@" + EUtils.version, "font-family:arial;");	
 })();

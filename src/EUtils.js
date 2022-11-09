@@ -15,14 +15,14 @@
 		getPercentage(pValue, pTotalValue) {
 			return (100 * pValue) / pTotalValue;
 		}
-		clamp(a, min = 0, max = 1) {
-			return Math.min(max, Math.max(min, a));
+		clamp(pNumber, pMin = 0, pMax = 1) {
+			return Math.max(pMin, Math.min(pNumber, pMax));
 		}
-		lerp(x, y, a) {
-			return x * (1 - a) + y * a;
+		lerp(pStart, pEnd, pAmount) {
+			return (1-pAmount)*pStart+pAmount*pEnd;
 		}
-		flooredLerp(x, y, a) {
-			return Math.floor(this.lerp(x, y, a));
+		flooredLerp(pStart, pEnd, pAmount) {
+			return Math.floor(this.lerp(pStart, pEnd, pAmount));
 		}
 		round(pNumber, pPlace=1) {
 			return Math.round(pPlace * pNumber) / pPlace;
@@ -108,8 +108,9 @@
 			}
 			return color;
 		}
-		getRandomColorBetween(u = Math.random(), c1, c2) {
-			return this.flooredLerp(u, c1, c2);
+		getRandomColorBetween(pAmount = Math.random(), pColor1, pColor2) {
+			// u is the amount of the lerp 0-1
+			return this.flooredLerp(pAmount, this.grabColor(pColor1).decimal, this.grabColor(pColor2).decimal);
 		}
 		// Transition a color to another color in pDuration time.
 		transitionColor(pInstance, pStartColor='#000', pEndColor='#fff', pDuration=1000, pIterativeCallback, pEndCallback) {

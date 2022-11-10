@@ -208,18 +208,17 @@
 			// cx, cy - center of square coordinates
 			// x, y - coordinates of a corner point of the square
 			// theta is the angle of rotation
-	
-			const cx = pRect.x + pRect.width / 2;
-			const cy = pRect.y + pRect.height / 2;
-	
+			const cx = pRect.x + pRect.width * pRect.anchor.x;
+			const cy = pRect.y + pRect.height * pRect.anchor.y;
+
 			// translate point to origin
 			const tempX = pPoint.x - cx;
 			const tempY = pPoint.y - cy;
-	
+
 			// now apply rotation
-			const rotatedX = tempX*Math.cos(pTheta) - tempY*Math.sin(pTheta);
-			const rotatedY = tempX*Math.sin(pTheta) + tempY*Math.cos(pTheta);
-	
+			const rotatedX = tempX*Math.cos(pTheta) - tempY*(-Math.sin(pTheta));
+			const rotatedY = tempX*(-Math.sin(pTheta)) + tempY*Math.cos(pTheta);
+
 			// translate back
 			const x = rotatedX + cx;
 			const y = rotatedY + cy;

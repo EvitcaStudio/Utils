@@ -1,6 +1,6 @@
 # EUtils
 A small plugin full of useful things.
 
-#INCLUDE SCRIPT EUtils.min.js
+#INCLUDE SCRIPT eutils.min.js
 
 **🚧🚧 Docs coming soon 🚧🚧**

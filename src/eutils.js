@@ -116,16 +116,11 @@
 		transitionColor(pInstance, pStartColor='#000', pEndColor='#fff', pDuration=1000, pIterativeCallback, pEndCallback) {
 			// Cannot use this API on the server
 			if (!globalThis.window) return;
-			const INTERVAL_RATE = 1000/60;
-			const iterations = pDuration / INTERVAL_RATE;
 			const iterativeCallback = typeof(pIterativeCallback) === 'function' ? pIterativeCallback : null;
 			const endCallback = typeof(pEndCallback) === 'function' ? pEndCallback : null;
 			let id;
 			let isParticle;
 			let isTintObject;
-	
-			let rgbStartColor;
-			let rgbEndColor;
 	
 			if (pInstance) {
 				id = pInstance.id ? pInstance.id : this.generateID();
@@ -137,13 +132,12 @@
 			}
 				
 			this.transitions[id] = {
-				'rate': 1 / iterations,
-				'counter': 0,
+				'duration': pDuration,
 				'timeTracker': isParticle ? pInstance.info.lifetime : 0
 			};
 	
-			rgbStartColor = this.grabColor(pStartColor).rgbArray;
-			rgbEndColor = this.grabColor(pEndColor).rgbArray;
+			const rgbStartColor = this.grabColor(pStartColor).rgbArray;
+			const rgbEndColor = this.grabColor(pEndColor).rgbArray;
 	
 			const self = this;
 			this.transitions[id].step = (pTimeStamp) => {
@@ -161,17 +155,17 @@
 						}
 					}
 	
-					const now = performance.now();
+					const now = pTimeStamp;
 					if (!self.transitions[id].lastTime) self.transitions[id].lastTime = now;
 					const elapsed = now - self.transitions[id].lastTime;
-					// The max value of counter is 1, so we clamp it at 1
-					self.transitions[id].counter = Math.min(self.transitions[id].counter + self.transitions[id].rate, 1);
 					// Time tracker is used rather than lastStamp - startStamp because this currently takes into account particles passed in (this will be removed in the future and use the former method)
 					self.transitions[id].timeTracker += elapsed;
+					// The max value of percentage is 1, so we clamp it at 1
+					const percentage = Math.min(self.transitions[id].timeTracker / self.transitions[id].duration, 1);
 					
-					const r = parseInt(self.lerp(rgbStartColor[0], rgbEndColor[0], self.transitions[id].counter), 10);
-					const g = parseInt(self.lerp(rgbStartColor[1], rgbEndColor[1], self.transitions[id].counter), 10);
-					const b = parseInt(self.lerp(rgbStartColor[2], rgbEndColor[2], self.transitions[id].counter), 10);
+					const r = parseInt(self.lerp(rgbStartColor[0], rgbEndColor[0], percentage), 10);
+					const g = parseInt(self.lerp(rgbStartColor[1], rgbEndColor[1], percentage), 10);
+					const b = parseInt(self.lerp(rgbStartColor[2], rgbEndColor[2], percentage), 10);
 					const color = self.grabColor(r, g, b);
 	
 					if (iterativeCallback) iterativeCallback(color);
@@ -185,7 +179,7 @@
 						}
 					}
 	
-					if (self.transitions[id].counter >= 1 || self.transitions[id].timeTracker >= pDuration) {
+					if (percentage >= 1 || self.transitions[id].timeTracker >= pDuration) {
 						if (self.transitions[id]) this.cancelTransitionColor(id);
 						if (endCallback) endCallback(color);
 						return;

@@ -2,9 +2,7 @@
 /**
 * A utilities class
 * @class EUtilsSingleton
-* @license
-* EUtils does not have a license at this time.
-* For licensing contact the author
+* @license EUtils does not have a license at this time. For licensing contact the author
 * @author https://github.com/doubleactii
 * Copyright (c) 2023 Evitca Studio
 */

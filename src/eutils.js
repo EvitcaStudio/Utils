@@ -125,6 +125,7 @@ class EUtilsSingleton {
 	}
 	/**
 	 * Converts degrees to radians.
+	 * 
 	 * @param {number} pDegrees - The angle in degrees.
 	 * @returns {number} The angle in radians.
 	 */
@@ -133,6 +134,7 @@ class EUtilsSingleton {
 	}
 	/**
 	 * Converts radians to degrees.
+	 * 
 	 * @param {number} pRadians - The angle in radians.
 	 * @returns {number} The angle in degrees.
 	 */
@@ -148,6 +150,23 @@ class EUtilsSingleton {
 	pick(pArray) {
 		const randomIndex = Math.floor(Math.random() * pArray.length);
 		return pArray[randomIndex];
+	}
+	/**
+	 * Returns true with probability proportional to the given number.
+	 * The higher the number, the higher the chance of returning true.
+	 * 
+	 * @param {number} pChance - The probability value, between 0 and 100 (inclusive).
+	 * @returns {boolean} - Returns true or false, based on the probability value.
+	 */
+	prob(pChance) {
+		if (pChance <= 0) {
+			return false;
+		}
+		if (pChance >= 100) {
+			return true;
+		}
+		const randomNumber = Math.floor(Math.random() * 100) + 1;
+		return randomNumber <= pChance;
 	}
 	/**
 	 * Gets the inverse direction of the direction passed

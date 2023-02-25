@@ -476,4 +476,3 @@ class EUtilsSingleton {
 	}
 }
 export const EUtils = new EUtilsSingleton();
-

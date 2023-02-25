@@ -124,6 +124,32 @@ class EUtilsSingleton {
 		return pNum.toFixed().toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,');
 	}
 	/**
+	 * Converts degrees to radians.
+	 * @param {number} pDegrees - The angle in degrees.
+	 * @returns {number} The angle in radians.
+	 */
+	degreesToRadians(pDegrees) {
+		return pDegrees * (Math.PI / 180);
+	}
+	/**
+	 * Converts radians to degrees.
+	 * @param {number} pRadians - The angle in radians.
+	 * @returns {number} The angle in degrees.
+	 */
+	radiansToDegrees(pRadians) {
+		return pRadians * (180 / Math.PI);
+	}
+	/**
+	 * Returns a random element from the given array.
+	 * 
+	 * @param {Array} pArray - The input array.
+	 * @returns {*} A random element from the array.
+	 */
+	pick(pArray) {
+		const randomIndex = Math.floor(Math.random() * pArray.length);
+		return pArray[randomIndex];
+	}
+	/**
 	 * Gets the inverse direction of the direction passed
 	 * 
 	 * @param {string} pDir - The direction to get the inverse of.

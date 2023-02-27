@@ -438,6 +438,12 @@ window.esdocSearchIndex = [
     "method"
   ],
   [
+    "src/eutils.js~eutilssingleton#rand",
+    "class/src/eutils.js~EUtilsSingleton.html#instance-method-rand",
+    "src/eutils.js~EUtilsSingleton#rand",
+    "method"
+  ],
+  [
     "src/eutils.js~eutilssingleton#round",
     "class/src/eutils.js~EUtilsSingleton.html#instance-method-round",
     "src/eutils.js~EUtilsSingleton#round",
@@ -465,12 +471,6 @@ window.esdocSearchIndex = [
     "src/eutils.js~eutilssingleton#within",
     "class/src/eutils.js~EUtilsSingleton.html#instance-method-within",
     "src/eutils.js~EUtilsSingleton#within",
-    "method"
-  ],
-  [
-    "src/eutils.js~eutilssingleton.rand",
-    "class/src/eutils.js~EUtilsSingleton.html#static-method-rand",
-    "src/eutils.js~EUtilsSingleton.rand",
     "method"
   ],
   [

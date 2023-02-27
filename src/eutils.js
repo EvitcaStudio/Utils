@@ -44,7 +44,7 @@ class EUtilsSingleton {
 	 * @param {number} pNum2 - The second number to use for generating the random decimal number.
 	 * @returns {number} A random decimal number between the two numbers with the specified number of decimal places.
 	 */
-	static rand(pNum1, pNum2) {
+	rand(pNum1, pNum2) {
 		const result = Number((Math.random() * (pNum1 - pNum2) + pNum2));
 		return Math.round(result);
 	}

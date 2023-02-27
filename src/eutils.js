@@ -488,7 +488,6 @@ class EUtilsSingleton {
 		return { 'x': x, 'y': y };
 	}
 	/**
-	/**
 	 * Calculates the position of a rectangle's corner points and center point after rotating it around a center point by a given angle.
 	 * 
 	 * @param {object} pRect - The rectangle object to rotate the point around.

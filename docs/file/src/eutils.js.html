@@ -76,6 +76,17 @@ class EUtilsSingleton {
 		return (result &gt;= 1 ? Math.floor(result) : result);
 	}
 	/**
+	 * Generates a random decimal number between two numbers with a specified number of decimal places.
+	 * 
+	 * @param {number} pNum1 - The first number to use for generating the random decimal number.
+	 * @param {number} pNum2 - The second number to use for generating the random decimal number.
+	 * @returns {number} A random decimal number between the two numbers with the specified number of decimal places.
+	 */
+	static rand(pNum1, pNum2) {
+		const result = Number((Math.random() * (pNum1 - pNum2) + pNum2));
+		return Math.round(result);
+	}
+	/**
 	 * Calculates the percentage of a value relative to a total value.
 	 * 
 	 * @param {number} pValue - The value to calculate the percentage of.

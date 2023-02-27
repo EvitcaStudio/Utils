@@ -468,6 +468,12 @@ window.esdocSearchIndex = [
     "method"
   ],
   [
+    "src/eutils.js~eutilssingleton.rand",
+    "class/src/eutils.js~EUtilsSingleton.html#static-method-rand",
+    "src/eutils.js~EUtilsSingleton.rand",
+    "method"
+  ],
+  [
     "src/eutils.js~eutilssingleton.version",
     "class/src/eutils.js~EUtilsSingleton.html#static-member-version",
     "src/eutils.js~EUtilsSingleton.version",

@@ -307,6 +307,60 @@ class EUtilsSingleton {
 		return this.grabColor(this.clamp(rr, 0, 255), this.clamp(rg, 0, 255), this.clamp(rb, 0, 255)).hex
 	}
 	/**
+	 * Converts an RGB color value to a hexadecimal color value.
+	 * 
+	 * @param {number} pR - The red component of the RGB color value (0-255).
+	 * @param {number} pG - The green component of the RGB color value (0-255).
+	 * @param {number} pB - The blue component of the RGB color value (0-255).
+	*/
+	rgbToHex(pR, pG, pB) {
+		const r = this.clamp(pR, 0, 255);
+		const g = this.clamp(pG, 0, 255);
+		const b = this.clamp(pB, 0, 255);
+		const craftString = function(pColor) {
+			return pColor.toString(16).padStart(2, '0');
+		}
+		const hex = '#' + [r, g, b].map(craftString).join('');
+		return hex;		
+	}
+	/**
+	 * Converts a hexadecimal color value to an RGB color value.
+	 * 
+	 * @param {string} pHex - The hexadecimal color value to convert (e.g. "#FF0000" for red).
+	 * @returns {Array} - An array containing the red, green, and blue components of the RGB color value.
+	*/
+	hexToRgb(pHex) {
+		pHex = pHex.replace('#', '');
+		if (pHex.length === 3) {
+			pHex = pHex.replace(new RegExp('(.)', 'g'), '$1$1');
+		}
+		pHex = pHex.match(new RegExp('..', 'g'));
+		const r = this.clamp(parseInt(pHex[0], 16), 0, 255);
+		const g = this.clamp(parseInt(pHex[1], 16), 0, 255);
+		const b = this.clamp(parseInt(pHex[2], 16), 0, 255);
+		return [r, g, b];
+	}
+	/**
+	 * Converts RGB color values to a decimal value.
+	 * 
+	 * @param {number} pR - The red component of the RGB color value (0-255).
+	 * @param {number} pG - The green component of the RGB color value (0-255).
+	 * @param {number} pB - The blue component of the RGB color value (0-255).
+	*/
+	rgbToDecimal(pR, pG, pB) {
+		return (pR << 16 | pG << 8 | pB);
+	}
+	/**
+	 * Converts a hexadecimal color value to a decimal value.
+	 * 
+	 * @param {string} pHex - The hexadecimal color value to convert (e.g. "#FF0000" for red).
+	 * @returns {number} - The decimal representation of the hexadecimal color value.
+	*/
+	hexToDecimal(pHex) {
+		pHex = pHex.replace('#', '');
+		return parseInt(pHex, 16);
+	}
+	/**
 	 * Convert a color to different formats or get a random color
 	 * 
 	 * @param {string|number} pSwitch - A hex string representing a color (with or without the tag)
@@ -316,31 +370,29 @@ class EUtilsSingleton {
 	 * @returns {ColorObject} A color object with various different export options.
 	 * hex, hexTagless, rgb, rgbArray, rgbObject, rgbNormal, decimal formats.
 	 */
-	grabColor(pSwitch = this.getRandomColor(), g, b) {
-		let hex, cr, cg, cb;
-		if (typeof(pSwitch) === 'number' && typeof(g) === 'number' && typeof(b) === 'number') {
-			cr = this.clamp(pSwitch, 0, 255);
-			cg = this.clamp(g, 0, 255);
-			cb = this.clamp(b, 0, 255);
-			const craftString = function(pColor) {
-				return pColor.toString(16).padStart(2, '0');
-			}
-			hex = '#' + [cr, cg, cb].map(craftString).join('');
+	grabColor(pSwitch = this.getRandomColor(), pG, pB) {
+		let hex, rgb;
+		// Convert rgb to hex
+		if (typeof(pSwitch) === 'number' && typeof(pG) === 'number' && typeof(pB) === 'number') {
+			hex = this.rgbToHex(pSwitch, pG, pB);
 		} else {
+			// Convert decimal to hex
 			if (typeof(pSwitch) === 'number') {
 				pSwitch = this.decimalToHex(pSwitch);
 			}
 			hex = pSwitch;
-			pSwitch = pSwitch.replace('#', '');
-			if (pSwitch.length === 3) {
-				pSwitch = pSwitch.replace(new RegExp('(.)', 'g'), '$1$1');
-			}
-			pSwitch = pSwitch.match(new RegExp('..', 'g'));
-			cr = this.clamp(parseInt(pSwitch[0], 16), 0, 255);
-			cg = this.clamp(parseInt(pSwitch[1], 16), 0, 255);
-			cb = this.clamp(parseInt(pSwitch[2], 16), 0, 255);
+			// Convert hex to rgb
+			rgb = this.hexToRgb(hex);
 		}
-		return { 'hex': hex.toLowerCase(), 'hexTagless': hex.replace('#', '').toLowerCase(), 'rgb': 'rgb('+cr+','+cg+','+cb+')', 'rgbArray': [cr, cg, cb], 'rgbObject': { 'r': cr, 'g': cg, 'b': cb }, 'rgbNormal': [Math.round(cr/255 * 100) / 100, Math.round(cg/255 * 100) / 100, Math.round(cb/255 * 100) / 100], 'decimal': (cr << 16 | cg << 8 | cb) };
+		return { 
+			'hex': hex.toLowerCase(), 
+			'hexTagless': hex.replace('#', '').toLowerCase(), 
+			'rgb': 'rgb('+rgb[0]+','+rgb[1]+','+rgb[2]+')', 
+			'rgbArray': rgb, 
+			'rgbObject': { 'r': rgb[0], 'g': rgb[1], 'b': rgb[2] }, 
+			'rgbNormal': [Math.round(rgb[0]/255 * 100) / 100, Math.round(rgb[1]/255 * 100) / 100, Math.round(rgb[2]/255 * 100) / 100], 
+			'decimal': this.hexToDecimal(hex) 
+		};
 	}
 	/**
 	 * Gets a random color

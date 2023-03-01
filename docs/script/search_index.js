@@ -408,6 +408,18 @@ window.esdocSearchIndex = [
     "method"
   ],
   [
+    "src/eutils.js~eutilssingleton#hextodecimal",
+    "class/src/eutils.js~EUtilsSingleton.html#instance-method-hexToDecimal",
+    "src/eutils.js~EUtilsSingleton#hexToDecimal",
+    "method"
+  ],
+  [
+    "src/eutils.js~eutilssingleton#hextorgb",
+    "class/src/eutils.js~EUtilsSingleton.html#instance-method-hexToRgb",
+    "src/eutils.js~EUtilsSingleton#hexToRgb",
+    "method"
+  ],
+  [
     "src/eutils.js~eutilssingleton#lerp",
     "class/src/eutils.js~EUtilsSingleton.html#instance-method-lerp",
     "src/eutils.js~EUtilsSingleton#lerp",
@@ -447,6 +459,18 @@ window.esdocSearchIndex = [
     "src/eutils.js~eutilssingleton#removeproperties",
     "class/src/eutils.js~EUtilsSingleton.html#instance-method-removeProperties",
     "src/eutils.js~EUtilsSingleton#removeProperties",
+    "method"
+  ],
+  [
+    "src/eutils.js~eutilssingleton#rgbtodecimal",
+    "class/src/eutils.js~EUtilsSingleton.html#instance-method-rgbToDecimal",
+    "src/eutils.js~EUtilsSingleton#rgbToDecimal",
+    "method"
+  ],
+  [
+    "src/eutils.js~eutilssingleton#rgbtohex",
+    "class/src/eutils.js~EUtilsSingleton.html#instance-method-rgbToHex",
+    "src/eutils.js~EUtilsSingleton#rgbToHex",
     "method"
   ],
   [

@@ -444,6 +444,12 @@ window.esdocSearchIndex = [
     "method"
   ],
   [
+    "src/eutils.js~eutilssingleton#removeproperties",
+    "class/src/eutils.js~EUtilsSingleton.html#instance-method-removeProperties",
+    "src/eutils.js~EUtilsSingleton#removeProperties",
+    "method"
+  ],
+  [
     "src/eutils.js~eutilssingleton#round",
     "class/src/eutils.js~EUtilsSingleton.html#instance-method-round",
     "src/eutils.js~EUtilsSingleton#round",

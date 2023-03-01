@@ -163,6 +163,23 @@ class EUtilsSingleton {
 		return pArray[randomIndex];
 	}
 	/**
+	 * Removes properties from an object except those listed in the exclude array.
+	 * 
+	 * @param {object} pObject - The object to remove properties from.
+	 * @param {Array} pExclude - The array of property names to exclude from removal.
+	*/
+	removeProperties(pObject, pExclude) {
+		if (typeof(pObject) === 'object') {
+			for (const prop in pObject) {
+				// Do not reset these properties.
+				if (Array.isArray(pExclude) && pExclude.includes(prop)) continue;
+				if (pObject.hasOwnProperty(prop)) {
+					delete pObject[prop];
+				}
+			}
+		}	
+	}
+	/**
 	 * Returns true with probability proportional to the given number.
 	 * The higher the number, the higher the chance of returning true.
 	 * 

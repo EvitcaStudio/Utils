@@ -1,0 +1,22 @@
+{
+  "name": "eutils",
+  "version": "1.0.0",
+  "description": "A utilities class",
+  "main": "eutils.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/EvitcaStudio/EUtils.git"
+  },
+  "author": "https://github.com/doubleactii",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/EvitcaStudio/EUtils/issues"
+  },
+  "homepage": "https://github.com/EvitcaStudio/EUtils#readme"
+}

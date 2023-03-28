@@ -1,14 +1,14 @@
 window.esdocSearchIndex = [
   [
-    "./src/eutils.js~eutils",
+    "eutils/src/eutils.mjs~eutils",
     "variable/index.html#static-variable-EUtils",
-    "<span>EUtils</span> <span class=\"search-result-import-path\">./src/eutils.js</span>",
+    "<span>EUtils</span> <span class=\"search-result-import-path\">eutils/src/eutils.mjs</span>",
     "variable"
   ],
   [
-    "./src/eutils.js~eutilssingleton",
-    "class/src/eutils.js~EUtilsSingleton.html",
-    "<span>EUtilsSingleton</span> <span class=\"search-result-import-path\">./src/eutils.js</span>",
+    "eutils/src/eutils.mjs~eutilssingleton",
+    "class/src/eutils.mjs~EUtilsSingleton.html",
+    "<span>EUtilsSingleton</span> <span class=\"search-result-import-path\">eutils/src/eutils.mjs</span>",
     "class"
   ],
   [
@@ -294,219 +294,219 @@ window.esdocSearchIndex = [
     "external"
   ],
   [
-    "src/eutils.js",
-    "file/src/eutils.js.html",
-    "src/eutils.js",
+    "src/eutils.mjs",
+    "file/src/eutils.mjs.html",
+    "src/eutils.mjs",
     "file"
   ],
   [
-    "src/eutils.js~eutilssingleton#addintensity",
-    "class/src/eutils.js~EUtilsSingleton.html#instance-method-addIntensity",
-    "src/eutils.js~EUtilsSingleton#addIntensity",
+    "src/eutils.mjs~eutilssingleton#addintensity",
+    "class/src/eutils.mjs~EUtilsSingleton.html#instance-method-addIntensity",
+    "src/eutils.mjs~EUtilsSingleton#addIntensity",
     "method"
   ],
   [
-    "src/eutils.js~eutilssingleton#canceltransitioncolor",
-    "class/src/eutils.js~EUtilsSingleton.html#instance-method-cancelTransitionColor",
-    "src/eutils.js~EUtilsSingleton#cancelTransitionColor",
+    "src/eutils.mjs~eutilssingleton#canceltransitioncolor",
+    "class/src/eutils.mjs~EUtilsSingleton.html#instance-method-cancelTransitionColor",
+    "src/eutils.mjs~EUtilsSingleton#cancelTransitionColor",
     "method"
   ],
   [
-    "src/eutils.js~eutilssingleton#clamp",
-    "class/src/eutils.js~EUtilsSingleton.html#instance-method-clamp",
-    "src/eutils.js~EUtilsSingleton#clamp",
+    "src/eutils.mjs~eutilssingleton#clamp",
+    "class/src/eutils.mjs~EUtilsSingleton.html#instance-method-clamp",
+    "src/eutils.mjs~EUtilsSingleton#clamp",
     "method"
   ],
   [
-    "src/eutils.js~eutilssingleton#constructor",
-    "class/src/eutils.js~EUtilsSingleton.html#instance-constructor-constructor",
-    "src/eutils.js~EUtilsSingleton#constructor",
+    "src/eutils.mjs~eutilssingleton#constructor",
+    "class/src/eutils.mjs~EUtilsSingleton.html#instance-constructor-constructor",
+    "src/eutils.mjs~EUtilsSingleton#constructor",
     "method"
   ],
   [
-    "src/eutils.js~eutilssingleton#decimalrand",
-    "class/src/eutils.js~EUtilsSingleton.html#instance-method-decimalRand",
-    "src/eutils.js~EUtilsSingleton#decimalRand",
+    "src/eutils.mjs~eutilssingleton#decimalrand",
+    "class/src/eutils.mjs~EUtilsSingleton.html#instance-method-decimalRand",
+    "src/eutils.mjs~EUtilsSingleton#decimalRand",
     "method"
   ],
   [
-    "src/eutils.js~eutilssingleton#decimaltohex",
-    "class/src/eutils.js~EUtilsSingleton.html#instance-method-decimalToHex",
-    "src/eutils.js~EUtilsSingleton#decimalToHex",
+    "src/eutils.mjs~eutilssingleton#decimaltohex",
+    "class/src/eutils.mjs~EUtilsSingleton.html#instance-method-decimalToHex",
+    "src/eutils.mjs~EUtilsSingleton#decimalToHex",
     "method"
   ],
   [
-    "src/eutils.js~eutilssingleton#degreestoradians",
-    "class/src/eutils.js~EUtilsSingleton.html#instance-method-degreesToRadians",
-    "src/eutils.js~EUtilsSingleton#degreesToRadians",
+    "src/eutils.mjs~eutilssingleton#degreestoradians",
+    "class/src/eutils.mjs~EUtilsSingleton.html#instance-method-degreesToRadians",
+    "src/eutils.mjs~EUtilsSingleton#degreesToRadians",
     "method"
   ],
   [
-    "src/eutils.js~eutilssingleton#flooredlerp",
-    "class/src/eutils.js~EUtilsSingleton.html#instance-method-flooredLerp",
-    "src/eutils.js~EUtilsSingleton#flooredLerp",
+    "src/eutils.mjs~eutilssingleton#flooredlerp",
+    "class/src/eutils.mjs~EUtilsSingleton.html#instance-method-flooredLerp",
+    "src/eutils.mjs~EUtilsSingleton#flooredLerp",
     "method"
   ],
   [
-    "src/eutils.js~eutilssingleton#formatintegerwithcommas",
-    "class/src/eutils.js~EUtilsSingleton.html#instance-method-formatIntegerWithCommas",
-    "src/eutils.js~EUtilsSingleton#formatIntegerWithCommas",
+    "src/eutils.mjs~eutilssingleton#formatintegerwithcommas",
+    "class/src/eutils.mjs~EUtilsSingleton.html#instance-method-formatIntegerWithCommas",
+    "src/eutils.mjs~EUtilsSingleton#formatIntegerWithCommas",
     "method"
   ],
   [
-    "src/eutils.js~eutilssingleton#generateid",
-    "class/src/eutils.js~EUtilsSingleton.html#instance-method-generateID",
-    "src/eutils.js~EUtilsSingleton#generateID",
+    "src/eutils.mjs~eutilssingleton#generateid",
+    "class/src/eutils.mjs~EUtilsSingleton.html#instance-method-generateID",
+    "src/eutils.mjs~EUtilsSingleton#generateID",
     "method"
   ],
   [
-    "src/eutils.js~eutilssingleton#getanglefromdir",
-    "class/src/eutils.js~EUtilsSingleton.html#instance-method-getAngleFromDir",
-    "src/eutils.js~EUtilsSingleton#getAngleFromDir",
+    "src/eutils.mjs~eutilssingleton#getanglefromdir",
+    "class/src/eutils.mjs~EUtilsSingleton.html#instance-method-getAngleFromDir",
+    "src/eutils.mjs~EUtilsSingleton#getAngleFromDir",
     "method"
   ],
   [
-    "src/eutils.js~eutilssingleton#getinversedir",
-    "class/src/eutils.js~EUtilsSingleton.html#instance-method-getInverseDir",
-    "src/eutils.js~EUtilsSingleton#getInverseDir",
+    "src/eutils.mjs~eutilssingleton#getinversedir",
+    "class/src/eutils.mjs~EUtilsSingleton.html#instance-method-getInverseDir",
+    "src/eutils.mjs~EUtilsSingleton#getInverseDir",
     "method"
   ],
   [
-    "src/eutils.js~eutilssingleton#getpercentage",
-    "class/src/eutils.js~EUtilsSingleton.html#instance-method-getPercentage",
-    "src/eutils.js~EUtilsSingleton#getPercentage",
+    "src/eutils.mjs~eutilssingleton#getpercentage",
+    "class/src/eutils.mjs~EUtilsSingleton.html#instance-method-getPercentage",
+    "src/eutils.mjs~EUtilsSingleton#getPercentage",
     "method"
   ],
   [
-    "src/eutils.js~eutilssingleton#getpointrotated",
-    "class/src/eutils.js~EUtilsSingleton.html#instance-method-getPointRotated",
-    "src/eutils.js~EUtilsSingleton#getPointRotated",
+    "src/eutils.mjs~eutilssingleton#getpointrotated",
+    "class/src/eutils.mjs~EUtilsSingleton.html#instance-method-getPointRotated",
+    "src/eutils.mjs~EUtilsSingleton#getPointRotated",
     "method"
   ],
   [
-    "src/eutils.js~eutilssingleton#getpointsofrotatedrect",
-    "class/src/eutils.js~EUtilsSingleton.html#instance-method-getPointsOfRotatedRect",
-    "src/eutils.js~EUtilsSingleton#getPointsOfRotatedRect",
+    "src/eutils.mjs~eutilssingleton#getpointsofrotatedrect",
+    "class/src/eutils.mjs~EUtilsSingleton.html#instance-method-getPointsOfRotatedRect",
+    "src/eutils.mjs~EUtilsSingleton#getPointsOfRotatedRect",
     "method"
   ],
   [
-    "src/eutils.js~eutilssingleton#getrandomcolor",
-    "class/src/eutils.js~EUtilsSingleton.html#instance-method-getRandomColor",
-    "src/eutils.js~EUtilsSingleton#getRandomColor",
+    "src/eutils.mjs~eutilssingleton#getrandomcolor",
+    "class/src/eutils.mjs~EUtilsSingleton.html#instance-method-getRandomColor",
+    "src/eutils.mjs~EUtilsSingleton#getRandomColor",
     "method"
   ],
   [
-    "src/eutils.js~eutilssingleton#getrandomcolorbetween",
-    "class/src/eutils.js~EUtilsSingleton.html#instance-method-getRandomColorBetween",
-    "src/eutils.js~EUtilsSingleton#getRandomColorBetween",
+    "src/eutils.mjs~eutilssingleton#getrandomcolorbetween",
+    "class/src/eutils.mjs~EUtilsSingleton.html#instance-method-getRandomColorBetween",
+    "src/eutils.mjs~EUtilsSingleton#getRandomColorBetween",
     "method"
   ],
   [
-    "src/eutils.js~eutilssingleton#grabcolor",
-    "class/src/eutils.js~EUtilsSingleton.html#instance-method-grabColor",
-    "src/eutils.js~EUtilsSingleton#grabColor",
+    "src/eutils.mjs~eutilssingleton#grabcolor",
+    "class/src/eutils.mjs~EUtilsSingleton.html#instance-method-grabColor",
+    "src/eutils.mjs~EUtilsSingleton#grabColor",
     "method"
   ],
   [
-    "src/eutils.js~eutilssingleton#hextodecimal",
-    "class/src/eutils.js~EUtilsSingleton.html#instance-method-hexToDecimal",
-    "src/eutils.js~EUtilsSingleton#hexToDecimal",
+    "src/eutils.mjs~eutilssingleton#hextodecimal",
+    "class/src/eutils.mjs~EUtilsSingleton.html#instance-method-hexToDecimal",
+    "src/eutils.mjs~EUtilsSingleton#hexToDecimal",
     "method"
   ],
   [
-    "src/eutils.js~eutilssingleton#hextorgb",
-    "class/src/eutils.js~EUtilsSingleton.html#instance-method-hexToRgb",
-    "src/eutils.js~EUtilsSingleton#hexToRgb",
+    "src/eutils.mjs~eutilssingleton#hextorgb",
+    "class/src/eutils.mjs~EUtilsSingleton.html#instance-method-hexToRgb",
+    "src/eutils.mjs~EUtilsSingleton#hexToRgb",
     "method"
   ],
   [
-    "src/eutils.js~eutilssingleton#lerp",
-    "class/src/eutils.js~EUtilsSingleton.html#instance-method-lerp",
-    "src/eutils.js~EUtilsSingleton#lerp",
+    "src/eutils.mjs~eutilssingleton#lerp",
+    "class/src/eutils.mjs~EUtilsSingleton.html#instance-method-lerp",
+    "src/eutils.mjs~EUtilsSingleton#lerp",
     "method"
   ],
   [
-    "src/eutils.js~eutilssingleton#normalize",
-    "class/src/eutils.js~EUtilsSingleton.html#instance-method-normalize",
-    "src/eutils.js~EUtilsSingleton#normalize",
+    "src/eutils.mjs~eutilssingleton#normalize",
+    "class/src/eutils.mjs~EUtilsSingleton.html#instance-method-normalize",
+    "src/eutils.mjs~EUtilsSingleton#normalize",
     "method"
   ],
   [
-    "src/eutils.js~eutilssingleton#pick",
-    "class/src/eutils.js~EUtilsSingleton.html#instance-method-pick",
-    "src/eutils.js~EUtilsSingleton#pick",
+    "src/eutils.mjs~eutilssingleton#pick",
+    "class/src/eutils.mjs~EUtilsSingleton.html#instance-method-pick",
+    "src/eutils.mjs~EUtilsSingleton#pick",
     "method"
   ],
   [
-    "src/eutils.js~eutilssingleton#prob",
-    "class/src/eutils.js~EUtilsSingleton.html#instance-method-prob",
-    "src/eutils.js~EUtilsSingleton#prob",
+    "src/eutils.mjs~eutilssingleton#prob",
+    "class/src/eutils.mjs~EUtilsSingleton.html#instance-method-prob",
+    "src/eutils.mjs~EUtilsSingleton#prob",
     "method"
   ],
   [
-    "src/eutils.js~eutilssingleton#radianstodegrees",
-    "class/src/eutils.js~EUtilsSingleton.html#instance-method-radiansToDegrees",
-    "src/eutils.js~EUtilsSingleton#radiansToDegrees",
+    "src/eutils.mjs~eutilssingleton#radianstodegrees",
+    "class/src/eutils.mjs~EUtilsSingleton.html#instance-method-radiansToDegrees",
+    "src/eutils.mjs~EUtilsSingleton#radiansToDegrees",
     "method"
   ],
   [
-    "src/eutils.js~eutilssingleton#rand",
-    "class/src/eutils.js~EUtilsSingleton.html#instance-method-rand",
-    "src/eutils.js~EUtilsSingleton#rand",
+    "src/eutils.mjs~eutilssingleton#rand",
+    "class/src/eutils.mjs~EUtilsSingleton.html#instance-method-rand",
+    "src/eutils.mjs~EUtilsSingleton#rand",
     "method"
   ],
   [
-    "src/eutils.js~eutilssingleton#removeproperties",
-    "class/src/eutils.js~EUtilsSingleton.html#instance-method-removeProperties",
-    "src/eutils.js~EUtilsSingleton#removeProperties",
+    "src/eutils.mjs~eutilssingleton#removeproperties",
+    "class/src/eutils.mjs~EUtilsSingleton.html#instance-method-removeProperties",
+    "src/eutils.mjs~EUtilsSingleton#removeProperties",
     "method"
   ],
   [
-    "src/eutils.js~eutilssingleton#rgbtodecimal",
-    "class/src/eutils.js~EUtilsSingleton.html#instance-method-rgbToDecimal",
-    "src/eutils.js~EUtilsSingleton#rgbToDecimal",
+    "src/eutils.mjs~eutilssingleton#rgbtodecimal",
+    "class/src/eutils.mjs~EUtilsSingleton.html#instance-method-rgbToDecimal",
+    "src/eutils.mjs~EUtilsSingleton#rgbToDecimal",
     "method"
   ],
   [
-    "src/eutils.js~eutilssingleton#rgbtohex",
-    "class/src/eutils.js~EUtilsSingleton.html#instance-method-rgbToHex",
-    "src/eutils.js~EUtilsSingleton#rgbToHex",
+    "src/eutils.mjs~eutilssingleton#rgbtohex",
+    "class/src/eutils.mjs~EUtilsSingleton.html#instance-method-rgbToHex",
+    "src/eutils.mjs~EUtilsSingleton#rgbToHex",
     "method"
   ],
   [
-    "src/eutils.js~eutilssingleton#round",
-    "class/src/eutils.js~EUtilsSingleton.html#instance-method-round",
-    "src/eutils.js~EUtilsSingleton#round",
+    "src/eutils.mjs~eutilssingleton#round",
+    "class/src/eutils.mjs~EUtilsSingleton.html#instance-method-round",
+    "src/eutils.mjs~EUtilsSingleton#round",
     "method"
   ],
   [
-    "src/eutils.js~eutilssingleton#storedids",
-    "class/src/eutils.js~EUtilsSingleton.html#instance-member-storedIDs",
-    "src/eutils.js~EUtilsSingleton#storedIDs",
+    "src/eutils.mjs~eutilssingleton#storedids",
+    "class/src/eutils.mjs~EUtilsSingleton.html#instance-member-storedIDs",
+    "src/eutils.mjs~EUtilsSingleton#storedIDs",
     "member"
   ],
   [
-    "src/eutils.js~eutilssingleton#transitioncolor",
-    "class/src/eutils.js~EUtilsSingleton.html#instance-method-transitionColor",
-    "src/eutils.js~EUtilsSingleton#transitionColor",
+    "src/eutils.mjs~eutilssingleton#transitioncolor",
+    "class/src/eutils.mjs~EUtilsSingleton.html#instance-method-transitionColor",
+    "src/eutils.mjs~EUtilsSingleton#transitionColor",
     "method"
   ],
   [
-    "src/eutils.js~eutilssingleton#transitions",
-    "class/src/eutils.js~EUtilsSingleton.html#instance-member-transitions",
-    "src/eutils.js~EUtilsSingleton#transitions",
+    "src/eutils.mjs~eutilssingleton#transitions",
+    "class/src/eutils.mjs~EUtilsSingleton.html#instance-member-transitions",
+    "src/eutils.mjs~EUtilsSingleton#transitions",
     "member"
   ],
   [
-    "src/eutils.js~eutilssingleton#within",
-    "class/src/eutils.js~EUtilsSingleton.html#instance-method-within",
-    "src/eutils.js~EUtilsSingleton#within",
+    "src/eutils.mjs~eutilssingleton#within",
+    "class/src/eutils.mjs~EUtilsSingleton.html#instance-method-within",
+    "src/eutils.mjs~EUtilsSingleton#within",
     "method"
   ],
   [
-    "src/eutils.js~eutilssingleton.version",
-    "class/src/eutils.js~EUtilsSingleton.html#static-member-version",
-    "src/eutils.js~EUtilsSingleton.version",
+    "src/eutils.mjs~eutilssingleton.version",
+    "class/src/eutils.mjs~EUtilsSingleton.html#static-member-version",
+    "src/eutils.mjs~EUtilsSingleton.version",
     "member"
   ]
 ]

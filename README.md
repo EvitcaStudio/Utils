@@ -111,3 +111,4 @@ getPointRotated(pRect, pTheta, pPoint)v
 getPointsOfRotatedRect(pRect, pTheta)
 - @param {object} pRect - The rectangle object to rotate the point around. **`pRect.anchor.x`** and **`pRecent.anchor.y`** is used to control the "center" of the rectangle.
 - @param {number} pTheta - The angle (in radians) to rotate the point by.
+- @returns {object} An object with the rotated rectangle's new corner points and center points.

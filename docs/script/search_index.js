@@ -378,9 +378,9 @@ window.esdocSearchIndex = [
     "method"
   ],
   [
-    "src/utils.mjs~utilssingleton#getanglefromdir",
-    "class/src/utils.mjs~UtilsSingleton.html#instance-method-getAngleFromDir",
-    "src/utils.mjs~UtilsSingleton#getAngleFromDir",
+    "src/utils.mjs~utilssingleton#getanglefromdirection",
+    "class/src/utils.mjs~UtilsSingleton.html#instance-method-getAngleFromDirection",
+    "src/utils.mjs~UtilsSingleton#getAngleFromDirection",
     "method"
   ],
   [
@@ -396,9 +396,9 @@ window.esdocSearchIndex = [
     "method"
   ],
   [
-    "src/utils.mjs~utilssingleton#getinversedir",
-    "class/src/utils.mjs~UtilsSingleton.html#instance-method-getInverseDir",
-    "src/utils.mjs~UtilsSingleton#getInverseDir",
+    "src/utils.mjs~utilssingleton#getinversedirection",
+    "class/src/utils.mjs~UtilsSingleton.html#instance-method-getInverseDirection",
+    "src/utils.mjs~UtilsSingleton#getInverseDirection",
     "method"
   ],
   [

@@ -57,10 +57,10 @@ removeProperties(pObject, pExclude)
 prob(pChance)
 - Returns true with a probability of **`pChance`**, and false with a probability of **`100 - pChance`**.
 
-getInverseDir(pDir)
+getInverseDirection(pDir)
 - Returns the opposite direction of **`pDir`**.
 
-getAngleFromDir(pDir)
+getAngleFromDirection(pDir)
 - Returns the angle in radians corresponding to **`pDir`**.
 
 generateID(pIDLength)

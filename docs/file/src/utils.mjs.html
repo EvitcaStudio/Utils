@@ -237,7 +237,7 @@ class UtilsSingleton {
 	 * @param {string} pDir - The direction to get the inverse of.
 	 * @returns {string} The inverse direction
 	 */
-	getInverseDir(pDir) {
+	getInverseDirection(pDir) {
 		switch (pDir) {
 			case &apos;north&apos;:
 				return &apos;south&apos;;
@@ -266,7 +266,7 @@ class UtilsSingleton {
 	 * @returns {number} The angle (in radians) associated with the given direction.
 	 * @throws {Error} Throws an error if the direction is not recognized.
 	 */
-	getAngleFromDir(pDir) {
+	getAngleFromDirection(pDir) {
 		switch (pDir) {
 			case &apos;north&apos;:
 				return (Math.PI / 2);

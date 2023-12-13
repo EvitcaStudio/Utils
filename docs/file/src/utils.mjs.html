@@ -355,21 +355,20 @@ class UtilsSingleton {
 	 * @param {number} pPoint.x - The initial x-coordinate of the point.
 	 * @param {number} pPoint.y - The initial y-coordinate of the point.
 	 * @param {number} pDistance - The distance by which to move the point.
-	 * @param {number} pAngleInDegrees - The angle (in degrees) at which to move the point.
+	 * @param {number} pAngle - The angle (in radians) at which to move the point.
 	 * @returns {Object} The new position of the point after moving by the specified distance and angle.
 	 *
 	 * @example
 	 * const initialPosition = { x: 10, y: 20 };
 	 * const distance = 5;
-	 * const angleInDegrees = 45;
+	 * const angleInRadians = 0.785398; // 45 degrees
 	 * const newPosition = calculateNewPositionFromDistanceAndAngle(initialPosition, distance, angleInDegrees);
 	 * // Returns the new position of the point after moving by 5 units at a 45-degree angle.
 	 */
-	calculateNewPositionFromDistanceAndAngle(pPoint, pDistance, pAngleInDegrees) {
+	calculateNewPositionFromDistanceAndAngle(pPoint, pDistance, pAngle) {
 		const newPosition = { x: 0, y: 0 };
-		const angleInRadians = this.toRadians(pAngleInDegrees);
-		newPosition.x = pPoint.x - pDistance * Math.cos(angleInRadians);
-		newPosition.y = pPoint.y - pDistance * Math.sin(angleInRadians);
+		newPosition.x = pPoint.x - pDistance * Math.cos(pAngle);
+		newPosition.y = pPoint.y - pDistance * Math.sin(pAngle);
 		return newPosition;
 	};
 	/**

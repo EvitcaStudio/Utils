@@ -462,6 +462,12 @@ window.esdocSearchIndex = [
     "method"
   ],
   [
+    "src/utils.mjs~utilssingleton#logger",
+    "class/src/utils.mjs~UtilsSingleton.html#instance-member-logger",
+    "src/utils.mjs~UtilsSingleton#logger",
+    "member"
+  ],
+  [
     "src/utils.mjs~utilssingleton#normalize",
     "class/src/utils.mjs~UtilsSingleton.html#instance-method-normalize",
     "src/utils.mjs~UtilsSingleton#normalize",

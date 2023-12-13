@@ -4,7 +4,7 @@ const packageJSON = require('./package.json');
 
 module.exports = {
     entry: {
-        logger: './src/utils.mjs',
+        utils: './src/utils.mjs',
     },
     output: {
       filename: '[name].min.mjs',
@@ -18,13 +18,27 @@ module.exports = {
       },
     },
     plugins: [
-    new webpack.DefinePlugin({
+      new webpack.DefinePlugin({
         '__VERSION__': JSON.stringify(packageJSON.version),
-    }),
+      }),
     ],
+    module: {
+      rules: [
+        {
+          test: /\.js$/,
+          exclude: /node_modules/,
+          use: {
+            loader: 'babel-loader',
+            options: {
+              presets: ['@babel/preset-env']
+            }
+          }
+        }
+      ]
+    },
     experiments: {
-        outputModule: true
-      },
+      outputModule: true
+    },
     /**
      * development: This mode is optimized for development, and includes features like fast build times, easier debugging, and detailed error messages.
      * production: This mode is optimized for production, and includes features like minification, tree shaking, and other performance optimizations.
@@ -38,4 +52,4 @@ module.exports = {
      * This means that you can simply make changes to your code and refresh your browser to see the changes in real time.
      */
     watch: false
-};
+  };

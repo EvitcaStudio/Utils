@@ -1,3 +1,4 @@
+import { Logger } from './vendor/logger.min.mjs';
 
 /**
 * A utilities class
@@ -21,6 +22,14 @@ class UtilsSingleton {
 		 * @type {Array}
 		 */
 		this.storedIDs = [];
+        // Create a logger
+        /** The logger module this module uses to log errors / logs
+         * @private
+         * @type {Object}
+         */
+        this.logger = new Logger();
+        this.logger.registerType('Utils-Module', '#ff6600');
+        this.logger.prefix('Utils-Module').log(`✅@v${__VERSION__}`);
 	}
 	/**
 	 * Generates a random decimal number between two numbers with a specified number of decimal places.
@@ -218,7 +227,7 @@ class UtilsSingleton {
 			case 'southwest':
 				return 'northeast';
 			default:
-				console.error(`The direction ${pDirection} is not supported.`);
+				this.logger.prefix('Utils-Module').error(`The direction ${pDirection} is not supported.`);
 		}
 	}
 	/**
@@ -247,7 +256,7 @@ class UtilsSingleton {
 			case 'southeast':
 				return (Math.PI * 7) / 4;
 			default:
-				console.error(`The direction ${pDirection} is not supported.`);
+				this.logger.prefix('Utils-Module').error(`The direction ${pDirection} is not supported.`);
 		}
 	}
 	/**

@@ -36,7 +36,8 @@
 </nav>
 
 <div class="content" data-ice="content"><h1 data-ice="title">src/utils.mjs</h1>
-<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">
+<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">import { Logger } from &apos;./vendor/logger.min.mjs&apos;;
+
 /**
 * A utilities class
 * @class UtilsSingleton
@@ -59,6 +60,14 @@ class UtilsSingleton {
 		 * @type {Array}
 		 */
 		this.storedIDs = [];
+        // Create a logger
+        /** The logger module this module uses to log errors / logs
+         * @private
+         * @type {Object}
+         */
+        this.logger = new Logger();
+        this.logger.registerType(&apos;Utils-Module&apos;, &apos;#ff6600&apos;);
+        this.logger.prefix(&apos;Utils-Module&apos;).log(`&#x2705;@v${__VERSION__}`);
 	}
 	/**
 	 * Generates a random decimal number between two numbers with a specified number of decimal places.
@@ -256,7 +265,7 @@ class UtilsSingleton {
 			case &apos;southwest&apos;:
 				return &apos;northeast&apos;;
 			default:
-				console.error(`The direction ${pDirection} is not supported.`);
+				this.logger.prefix(&apos;Utils-Module&apos;).error(`The direction ${pDirection} is not supported.`);
 		}
 	}
 	/**
@@ -285,7 +294,7 @@ class UtilsSingleton {
 			case &apos;southeast&apos;:
 				return (Math.PI * 7) / 4;
 			default:
-				console.error(`The direction ${pDirection} is not supported.`);
+				this.logger.prefix(&apos;Utils-Module&apos;).error(`The direction ${pDirection} is not supported.`);
 		}
 	}
 	/**

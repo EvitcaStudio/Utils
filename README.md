@@ -42,10 +42,10 @@ within(pVal, pMin, pMax)
 formatIntegerWithCommas(pNum)
 - Formats **`pNum`** as a string with commas between every three digits.
 
-degreesToRadians(pDegrees)
+toRadians(pDegrees)
 - Converts degrees to radians.
 
-radiansToDegrees(pRadians)
+toDegrees(pRadians)
 - Converts radians to degrees.
 
 pick(pArray)

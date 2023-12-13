@@ -175,7 +175,7 @@ class UtilsSingleton {
 	 * @param {number} pDegrees - The angle in degrees.
 	 * @returns {number} The angle in radians.
 	 */
-	degreesToRadians(pDegrees) {
+	toRadians(pDegrees) {
 		return pDegrees * (Math.PI / 180);
 	}
 	/**
@@ -184,7 +184,7 @@ class UtilsSingleton {
 	 * @param {number} pRadians - The angle in radians.
 	 * @returns {number} The angle in degrees.
 	 */
-	radiansToDegrees(pRadians) {
+	toDegrees(pRadians) {
 		return pRadians * (180 / Math.PI);
 	}
 	/**
@@ -367,7 +367,7 @@ class UtilsSingleton {
 	 */
 	calculateNewPositionFromDistanceAndAngle(pPoint, pDistance, pAngleInDegrees) {
 		const newPosition = { x: 0, y: 0 };
-		const angleInRadians = this.degreesToRadians(pAngleInDegrees);
+		const angleInRadians = this.toRadians(pAngleInDegrees);
 		newPosition.x = pPoint.x - pDistance * Math.cos(angleInRadians);
 		newPosition.y = pPoint.y - pDistance * Math.sin(angleInRadians);
 		return newPosition;

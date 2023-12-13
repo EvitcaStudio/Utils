@@ -354,12 +354,6 @@ window.esdocSearchIndex = [
     "method"
   ],
   [
-    "src/utils.mjs~utilssingleton#degreestoradians",
-    "class/src/utils.mjs~UtilsSingleton.html#instance-method-degreesToRadians",
-    "src/utils.mjs~UtilsSingleton#degreesToRadians",
-    "method"
-  ],
-  [
     "src/utils.mjs~utilssingleton#flooredlerp",
     "class/src/utils.mjs~UtilsSingleton.html#instance-method-flooredLerp",
     "src/utils.mjs~UtilsSingleton#flooredLerp",
@@ -486,12 +480,6 @@ window.esdocSearchIndex = [
     "method"
   ],
   [
-    "src/utils.mjs~utilssingleton#radianstodegrees",
-    "class/src/utils.mjs~UtilsSingleton.html#instance-method-radiansToDegrees",
-    "src/utils.mjs~UtilsSingleton#radiansToDegrees",
-    "method"
-  ],
-  [
     "src/utils.mjs~utilssingleton#rand",
     "class/src/utils.mjs~UtilsSingleton.html#instance-method-rand",
     "src/utils.mjs~UtilsSingleton#rand",
@@ -526,6 +514,18 @@ window.esdocSearchIndex = [
     "class/src/utils.mjs~UtilsSingleton.html#instance-member-storedIDs",
     "src/utils.mjs~UtilsSingleton#storedIDs",
     "member"
+  ],
+  [
+    "src/utils.mjs~utilssingleton#todegrees",
+    "class/src/utils.mjs~UtilsSingleton.html#instance-method-toDegrees",
+    "src/utils.mjs~UtilsSingleton#toDegrees",
+    "method"
+  ],
+  [
+    "src/utils.mjs~utilssingleton#toradians",
+    "class/src/utils.mjs~UtilsSingleton.html#instance-method-toRadians",
+    "src/utils.mjs~UtilsSingleton#toRadians",
+    "method"
   ],
   [
     "src/utils.mjs~utilssingleton#transitioncolor",

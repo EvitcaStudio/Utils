@@ -306,9 +306,27 @@ window.esdocSearchIndex = [
     "method"
   ],
   [
+    "src/utils.mjs~utilssingleton#calculatenewpositionfromdistanceandangle",
+    "class/src/utils.mjs~UtilsSingleton.html#instance-method-calculateNewPositionFromDistanceAndAngle",
+    "src/utils.mjs~UtilsSingleton#calculateNewPositionFromDistanceAndAngle",
+    "method"
+  ],
+  [
+    "src/utils.mjs~utilssingleton#calculateproportionallength",
+    "class/src/utils.mjs~UtilsSingleton.html#instance-method-calculateProportionalLength",
+    "src/utils.mjs~UtilsSingleton#calculateProportionalLength",
+    "method"
+  ],
+  [
     "src/utils.mjs~utilssingleton#canceltransitioncolor",
     "class/src/utils.mjs~UtilsSingleton.html#instance-method-cancelTransitionColor",
     "src/utils.mjs~UtilsSingleton#cancelTransitionColor",
+    "method"
+  ],
+  [
+    "src/utils.mjs~utilssingleton#centerrectangleonparent",
+    "class/src/utils.mjs~UtilsSingleton.html#instance-method-centerRectangleOnParent",
+    "src/utils.mjs~UtilsSingleton#centerRectangleOnParent",
     "method"
   ],
   [
@@ -360,9 +378,27 @@ window.esdocSearchIndex = [
     "method"
   ],
   [
+    "src/utils.mjs~utilssingleton#getangle",
+    "class/src/utils.mjs~UtilsSingleton.html#instance-method-getAngle",
+    "src/utils.mjs~UtilsSingleton#getAngle",
+    "method"
+  ],
+  [
     "src/utils.mjs~utilssingleton#getanglefromdir",
     "class/src/utils.mjs~UtilsSingleton.html#instance-method-getAngleFromDir",
     "src/utils.mjs~UtilsSingleton#getAngleFromDir",
+    "method"
+  ],
+  [
+    "src/utils.mjs~utilssingleton#getdirection",
+    "class/src/utils.mjs~UtilsSingleton.html#instance-method-getDirection",
+    "src/utils.mjs~UtilsSingleton#getDirection",
+    "method"
+  ],
+  [
+    "src/utils.mjs~utilssingleton#getdistance",
+    "class/src/utils.mjs~UtilsSingleton.html#instance-method-getDistance",
+    "src/utils.mjs~UtilsSingleton#getDistance",
     "method"
   ],
   [
@@ -423,6 +459,12 @@ window.esdocSearchIndex = [
     "src/utils.mjs~utilssingleton#lerp",
     "class/src/utils.mjs~UtilsSingleton.html#instance-method-lerp",
     "src/utils.mjs~UtilsSingleton#lerp",
+    "method"
+  ],
+  [
+    "src/utils.mjs~utilssingleton#lineardecay",
+    "class/src/utils.mjs~UtilsSingleton.html#instance-method-linearDecay",
+    "src/utils.mjs~UtilsSingleton#linearDecay",
     "method"
   ],
   [

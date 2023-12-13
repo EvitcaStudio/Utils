@@ -289,6 +289,146 @@ class UtilsSingleton {
 		}
 	}
 	/**
+	 * Centers a rectangle (defined by its dimensions) within a parent rectangle.
+	 *
+	 * @param {number} pChildWidth - The width of the child rectangle.
+	 * @param {number} pChildHeight - The height of the child rectangle.
+	 * @param {number} pParentWidth - The width of the parent rectangle.
+	 * @param {number} pParentHeight - The height of the parent rectangle.
+	 * @param {number} pParentX - The x-coordinate of the parent rectangle.
+	 * @param {number} pParentY - The y-coordinate of the parent rectangle.
+	 * @returns {Object} An object representing the new coordinates of the centered rectangle: { x: centerX, y: centerY }.
+	 *
+	 * @example
+	 * const childWidth = 50;
+	 * const childHeight = 30;
+	 * const parentWidth = 100;
+	 * const parentHeight = 80;
+	 * const parentX = 20;
+	 * const parentY = 10;
+	 * const centeredCoordinates = centerRectangleOnParent(childWidth, childHeight, parentWidth, parentHeight, parentX, parentY);
+	 * // Returns {x: 45, y: 35}
+	 */
+	centerRectangleOnParent(pChildWidth, pChildHeight, pParentWidth, pParentHeight, pParentX, pParentY) {
+		const centerX = pParentX + ((pParentWidth - pChildWidth) / 2);
+		const centerY = pParentY + ((pParentHeight - pChildHeight) / 2);
+		return { x: centerX, y: centerY };
+	}
+	/**
+	 * Gets the angle between two points
+	 * 
+	 * @param {Object} pStartPoint - The starting point
+	 * @param {Object} pEndPoint - The ending point
+	 * @returns {number} The angle between the starting point and the ending point
+	 */
+	getAngle(pStartPoint, pEndPoint) {
+		const y = pStartPoint.y - pEndPoint.y;
+		const x = pStartPoint.x - pEndPoint.x;
+		return -Math.atan2(y, x) - Math.PI;
+	}
+	/**
+	 * Calculates the Euclidean distance between two points in a two-dimensional space.
+	 *
+	 * @param {Object} pStartPoint - The starting point with x and y coordinates.
+	 * @param {number} pStartPoint.x - The x-coordinate of the starting point.
+	 * @param {number} pStartPoint.y - The y-coordinate of the starting point.
+	 * @param {Object} pEndPoint - The ending point with x and y coordinates.
+	 * @param {number} pEndPoint.x - The x-coordinate of the ending point.
+	 * @param {number} pEndPoint.y - The y-coordinate of the ending point.
+	 * @returns {number} The Euclidean distance between the two points.
+	 *
+	 * @example
+	 * const startPoint = { x: 1, y: 2 };
+	 * const endPoint = { x: 4, y: 6 };
+	 * const distance = getDistance(startPoint, endPoint); // 5
+	 * // Returns the Euclidean distance between the points (1, 2) and (4, 6).
+	 */
+	getDistance(pStartPoint, pEndPoint) {
+		const y = (pStartPoint.y - pEndPoint.y);
+		const x = (pStartPoint.x - pEndPoint.x);
+		return Math.sqrt((x * x) + (y * y));
+	}
+	/**
+	 * Calculates the new position of a point based on distance and angle.
+	 *
+	 * @param {Object} pPoint - The initial position of the point with x and y coordinates.
+	 * @param {number} pPoint.x - The initial x-coordinate of the point.
+	 * @param {number} pPoint.y - The initial y-coordinate of the point.
+	 * @param {number} pDistance - The distance by which to move the point.
+	 * @param {number} pAngleInDegrees - The angle (in degrees) at which to move the point.
+	 * @returns {Object} The new position of the point after moving by the specified distance and angle.
+	 *
+	 * @example
+	 * const initialPosition = { x: 10, y: 20 };
+	 * const distance = 5;
+	 * const angleInDegrees = 45;
+	 * const newPosition = calculateNewPositionFromDistanceAndAngle(initialPosition, distance, angleInDegrees);
+	 * // Returns the new position of the point after moving by 5 units at a 45-degree angle.
+	 */
+	calculateNewPositionFromDistanceAndAngle(pPoint, pDistance, pAngleInDegrees) {
+		const newPosition = { x: 0, y: 0 };
+		const angleInRadians = this.degreesToRadians(pAngleInDegrees);
+		newPosition.x = pPoint.x - pDistance * Math.cos(angleInRadians);
+		newPosition.y = pPoint.y - pDistance * Math.sin(angleInRadians);
+		return newPosition;
+	};
+	/**
+	 * Calculates the proportional length based on a current value, a maximum value, and a specified total length.
+	 *
+	 * @param {number} pCurrent - The current value to be scaled.
+	 * @param {number} pMax - The maximum value for scaling.
+	 * @param {number} pTotalLength - The specified total length.
+	 * @returns {number} The proportional length based on the current value, maximum value, and total length.
+	 *
+	 * @example
+	 * const current = 25;
+	 * const max = 50;
+	 * const totalLength = 100;
+	 * const proportionalLength = calculateProportionalLength(current, max, totalLength); // 50
+	 * // Returns the proportional length based on the current value, maximum value, and total length.
+	 */
+	calculateProportionalLength(pCurrent, pMax, pTotalLength) {
+		return (pCurrent / pMax) * pTotalLength;
+	}
+	/**
+	 * Calculates the compass direction based on the given angle.
+	 *
+	 * @param {number} pAngle - The angle in radians.
+	 * @returns {string} The compass direction (e.g., &apos;east&apos;, &apos;southeast&apos;, &apos;south&apos;, etc.).
+	 *
+	 * @example
+	 * const angle = Math.PI / 4; // 45 degrees in radians
+	 * const direction = getDirection(angle); // Returns &apos;northeast&apos;
+	 */
+	getDirection(pAngle) {
+		const degree = Math.abs(Math.floor(((pAngle * (180 / Math.PI)) / 45) + 0.5));
+		const compassDirections = [&apos;east&apos;, &apos;northeast&apos;, &apos;north&apos;, &apos;northwest&apos;, &apos;west&apos;, &apos;southwest&apos;, &apos;south&apos;, &apos;southeast&apos;];
+		return compassDirections[(degree % 8)];
+	}
+	/**
+	 * Calculates the linear decay of a variable over time.
+	 *
+	 * @param {number} pInitialValue - The initial value of the variable.
+	 * @param {number} pCurrentTime - The current time at which to calculate the variable value.
+	 * @param {number} pMaxTime - The maximum time for the decay process.
+	 * @param {number} [pDecayRate=0.5] - The decay rate (default is 0.5).
+	 * @returns {number} The remaining value of the variable after linear decay.
+	 *
+	 * @example
+	 * const initialValue = 100;
+	 * const currentTime = 50;
+	 * const maxTime = 1000;
+	 * const decayRate = 0.3;
+	 * const remainingValue = linearDecay(initialValue, currentTime, maxTime, decayRate);
+	 * // Returns the remaining value after linear decay.
+	 */
+	linearDecay(pInitialValue, pCurrentTime, pMaxTime, pDecayRate = 0.5) {
+		// Calculate the variable value at the current time
+		const proportionOfTimePassed = pCurrentTime / pMaxTime;
+		const remainingValue = Math.max(pInitialValue * (1 - (proportionOfTimePassed * pDecayRate)), 1);
+		return remainingValue;
+	}
+	/**
 	 * Generates a unique id
 	 * 
 	 * @param {string} pIDLength - The length of the ID to create 

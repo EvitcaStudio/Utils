@@ -196,11 +196,11 @@ class UtilsSingleton {
 	/**
 	 * Gets the inverse direction of the direction passed
 	 * 
-	 * @param {string} pDir - The direction to get the inverse of.
+	 * @param {string} pDirection - The direction to get the inverse of.
 	 * @returns {string} The inverse direction
 	 */
-	getInverseDirection(pDir) {
-		switch (pDir) {
+	getInverseDirection(pDirection) {
+		switch (pDirection) {
 			case 'north':
 				return 'south';
 			case 'south':
@@ -218,18 +218,18 @@ class UtilsSingleton {
 			case 'southwest':
 				return 'northeast';
 			default:
-				console.error(`The direction ${pDir} is not supported.`);
+				console.error(`The direction ${pDirection} is not supported.`);
 		}
 	}
 	/**
 	 * Calculates the angle (in radians) from a given direction.
 	 * 
-	 * @param {string} pDir - The direction to calculate the angle from.
+	 * @param {string} pDirection - The direction to calculate the angle from.
 	 * @returns {number} The angle (in radians) associated with the given direction.
 	 * @throws {Error} Throws an error if the direction is not recognized.
 	 */
-	getAngleFromDirection(pDir) {
-		switch (pDir) {
+	getAngleFromDirection(pDirection) {
+		switch (pDirection) {
 			case 'north':
 				return (Math.PI / 2);
 			case 'south':
@@ -247,7 +247,7 @@ class UtilsSingleton {
 			case 'southeast':
 				return (Math.PI * 7) / 4;
 			default:
-				console.error(`The direction ${pDir} is not supported.`);
+				console.error(`The direction ${pDirection} is not supported.`);
 		}
 	}
 	/**

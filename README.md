@@ -1,15 +1,15 @@
-# EUtils
+# Utils
 
-EUtils is a lightweight and versatile JavaScript utility class designed to provide commonly used functions for web development. It is a collection of various helper functions that can be used in a variety of projects.
+Utils is a lightweight and versatile JavaScript utility class designed to provide commonly used functions for web development. It is a collection of various helper functions that can be used in a variety of projects.
 
 # Usage
-To use EUtils in your project, simply import it as follows:
+To use Utils in your project, simply import it as follows:
 
 ```js
-import { EUtils } from './eutils.min.mjs';
+import { Utils } from './utils.min.mjs';
 ```
 
-You can then call any of the functions available in the EUtils class.
+You can then call any of the functions available in the Utils class.
 
 # API
 decimalRand(pNum1, pNum2, pPlaces)

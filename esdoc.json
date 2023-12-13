@@ -16,9 +16,9 @@
         "typeInference": {"enable": true},
         "brand": {
           "logo": "./evitcastudio_round_branding.png",
-          "title": "EUtils",
-          "description": "A small plugin full of useful things.",
-          "repository": "https://github.com/EvitcaStudio/EUtils",
+          "title": "Utils",
+          "description": "A utilities class",
+          "repository": "https://github.com/EvitcaStudio/Utils",
           "author": "https://github.com/doubleactii",
           "image": "./evitcastudio_round_branding.png"
         }

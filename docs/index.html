@@ -3,12 +3,12 @@
 <head>
   <meta charset="utf-8">
   <base data-ice="baseUrl">
-  <title data-ice="title">Home | EUtils</title>
+  <title data-ice="title">Home | Utils</title>
   <link type="text/css" rel="stylesheet" href="css/style.css">
   <link type="text/css" rel="stylesheet" href="css/prettify-tomorrow.css">
   <script src="script/prettify/prettify.js"></script>
   <script src="script/manual.js"></script>
-<meta name="description" content="A small plugin full of useful things."><meta property="og:type" content="website"><meta property="og:url" content="https://github.com/EvitcaStudio/EUtils#readme"><meta property="og:site_name" content="EUtils"><meta property="og:title" content="EUtils"><meta property="og:image" content="./evitcastudio_round_branding.png"><meta property="og:description" content="A small plugin full of useful things."><meta property="og:author" content="https://github.com/doubleactii"><meta property="twitter:card" content="summary"><meta property="twitter:title" content="EUtils"><meta property="twitter:description" content="A small plugin full of useful things."><meta property="twitter:image" content="./evitcastudio_round_branding.png"></head>
+<meta name="description" content="A utilities class"><meta property="og:type" content="website"><meta property="og:url" content="https://github.com/EvitcaStudio/Utils#readme"><meta property="og:site_name" content="Utils"><meta property="og:title" content="Utils"><meta property="og:image" content="./evitcastudio_round_branding.png"><meta property="og:description" content="A utilities class"><meta property="og:author" content="https://github.com/doubleactii"><meta property="twitter:card" content="summary"><meta property="twitter:title" content="Utils"><meta property="twitter:description" content="A utilities class"><meta property="twitter:image" content="./evitcastudio_round_branding.png"></head>
 <body class="layout-container" data-ice="rootContainer">
 
 <header>
@@ -24,22 +24,22 @@
   </span>
     <ul class="search-result"></ul>
   </div>
-<a style="position:relative; top:3px;" href="https://github.com/EvitcaStudio/EUtils"><img width="20px" src="./image/github.png"></a></header>
+<a style="position:relative; top:3px;" href="https://github.com/EvitcaStudio/Utils"><img width="20px" src="./image/github.png"></a></header>
 
 <nav class="navigation" data-ice="nav"><div>
   <ul>
     
-  <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/eutils.mjs~EUtilsSingleton.html">EUtilsSingleton</a></span></span></li>
-<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-EUtils">EUtils</a></span></span></li>
+  <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/utils.mjs~UtilsSingleton.html">UtilsSingleton</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-Utils">Utils</a></span></span></li>
 </ul>
 </div>
 </nav>
 
-<div class="content" data-ice="content"><div data-ice="index" class="github-markdown"><h1 id="eutils">EUtils</h1><p>EUtils is a lightweight and versatile JavaScript utility class designed to provide commonly used functions for web development. It is a collection of various helper functions that can be used in a variety of projects.</p>
-<h1 id="usage">Usage</h1><p>To use EUtils in your project, simply import it as follows:</p>
-<pre><code class="lang-js"><code class="source-code prettyprint">import { EUtils } from &apos;./eutils.min.mjs&apos;;</code>
+<div class="content" data-ice="content"><div data-ice="index" class="github-markdown"><h1 id="utils">Utils</h1><p>Utils is a lightweight and versatile JavaScript utility class designed to provide commonly used functions for web development. It is a collection of various helper functions that can be used in a variety of projects.</p>
+<h1 id="usage">Usage</h1><p>To use Utils in your project, simply import it as follows:</p>
+<pre><code class="lang-js"><code class="source-code prettyprint">import { Utils } from &apos;./utils.min.mjs&apos;;</code>
 </code></pre>
-<p>You can then call any of the functions available in the EUtils class.</p>
+<p>You can then call any of the functions available in the Utils class.</p>
 <h1 id="api">API</h1><p>decimalRand(pNum1, pNum2, pPlaces)</p>
 <ul>
 <li>Generates a random decimal number between <strong><code>pNum1</code></strong> and <strong><code>pNum2</code></strong> with <strong><code>pPlaces</code></strong> decimal places.</li>
@@ -170,6 +170,7 @@
 <ul>
 <li>@param {object} pRect - The rectangle object to rotate the point around. <strong><code>pRect.anchor.x</code></strong> and <strong><code>pRecent.anchor.y</code></strong> is used to control the &quot;center&quot; of the rectangle.</li>
 <li>@param {number} pTheta - The angle (in radians) to rotate the point by.</li>
+<li>@returns {object} An object with the rotated rectangle&apos;s new corner points and center points.</li>
 </ul>
 </div>
 </div>

@@ -333,7 +333,27 @@ class UtilsSingleton {
 	getAngle(pStartPoint, pEndPoint) {
 		const y = pStartPoint.y - pEndPoint.y;
 		const x = pStartPoint.x - pEndPoint.x;
-		return -Math.atan2(y, x) - Math.PI;
+		return Math.atan2(y, x);
+	}
+	/**
+	 * Gets the angle between two points but in VYLO / PIXI coordinate space. Removes 180 degrees from a raw angle
+	 * 
+	 * @param {Object} pStartPoint - The starting point
+	 * @param {Object} pEndPoint - The ending point
+	 * @returns {number} The angle between the starting point and the ending point
+	 */
+	getAngle2(pStartPoint, pEndPoint) {
+		const y = pStartPoint.y - pEndPoint.y;
+		const x = pStartPoint.x - pEndPoint.x;
+		return (Math.atan2(y, x) - Math.PI) * -1;
+	}
+	/**
+	 * Converts a raw angle to be the proper angle in Vylocity. By removing 180 degrees
+	 * @param {number} pAngle - The angle to convert.
+	 * @returns The converted angle
+	 */
+	convertRaWAngleToVyloCoords(pAngle) {
+		return (pAngle - Math.PI) * -1;
 	}
 	/**
 	 * Calculates the Euclidean distance between two points in a two-dimensional space.

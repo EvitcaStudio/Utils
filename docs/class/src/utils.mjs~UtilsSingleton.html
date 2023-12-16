@@ -402,6 +402,35 @@
           
           
           
+          <span class="code" data-ice="name"><span><a href="class/src/utils.mjs~UtilsSingleton.html#instance-method-convertRaWAngleToVyloCoords">convertRaWAngleToVyloCoords</a></span></span><span class="code" data-ice="signature">(pAngle: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span>): <span>*</span></span>
+        </p>
+      </div>
+      <div>
+        
+        
+        <div data-ice="description"><p>Converts a raw angle to be the proper angle in Vylocity.</p>
+</div>
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+          
+          
+          
           <span class="code" data-ice="name"><span><a href="class/src/utils.mjs~UtilsSingleton.html#instance-method-decimalRand">decimalRand</a></span></span><span class="code" data-ice="signature">(pNum1: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span>, pNum2: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span>, pPlaces: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span>): <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span></span>
         </p>
       </div>
@@ -554,6 +583,35 @@
         
         
         <div data-ice="description"><p>Gets the angle between two points</p>
+</div>
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+          
+          
+          
+          <span class="code" data-ice="name"><span><a href="class/src/utils.mjs~UtilsSingleton.html#instance-method-getAngle2">getAngle2</a></span></span><span class="code" data-ice="signature">(pStartPoint: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></span>, pEndPoint: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></span>): <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span></span>
+        </p>
+      </div>
+      <div>
+        
+        
+        <div data-ice="description"><p>Gets the angle between two points but in VYLO / PIXI coordinate space.</p>
 </div>
       </div>
     </td>
@@ -1519,7 +1577,7 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/utils.mjs.html#lineNumber440">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/utils.mjs.html#lineNumber460">source</a></span></span>
     </span>
   </h3>
 
@@ -1599,7 +1657,7 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/utils.mjs.html#lineNumber339">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/utils.mjs.html#lineNumber359">source</a></span></span>
     </span>
   </h3>
 
@@ -1712,7 +1770,7 @@ const newPosition = calculateNewPositionFromDistanceAndAngle(initialPosition, di
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/utils.mjs.html#lineNumber360">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/utils.mjs.html#lineNumber380">source</a></span></span>
     </span>
   </h3>
 
@@ -1811,7 +1869,7 @@ const proportionalLength = calculateProportionalLength(current, max, totalLength
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/utils.mjs.html#lineNumber667">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/utils.mjs.html#lineNumber687">source</a></span></span>
     </span>
   </h3>
 
@@ -2074,6 +2132,80 @@ const centeredCoordinates = centerRectangleOnParent(childWidth, childHeight, par
   
 </div>
 <div class="detail" data-ice="detail">
+  <h3 data-ice="anchor" id="instance-method-convertRaWAngleToVyloCoords">
+    <span class="access" data-ice="access">public</span>
+    
+    
+    
+    
+    
+    <span class="code" data-ice="name">convertRaWAngleToVyloCoords</span><span class="code" data-ice="signature">(pAngle: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span>): <span>*</span></span>
+    <span class="right-info">
+      
+      
+      <span data-ice="source"><span><a href="file/src/utils.mjs.html#lineNumber317">source</a></span></span>
+    </span>
+  </h3>
+
+  
+  
+  
+  <div data-ice="description"><p>Converts a raw angle to be the proper angle in Vylocity. By removing 180 degrees</p>
+</div>
+
+  
+
+  <div data-ice="properties"><div data-ice="properties">
+  <h4 data-ice="title">Params:</h4>
+  <table class="params">
+    <thead>
+    <tr><td>Name</td><td>Type</td><td>Attribute</td><td>Description</td></tr>
+    </thead>
+    <tbody>
+    
+    <tr data-ice="property" data-depth="0">
+      <td data-ice="name" class="code" data-depth="0">pAngle</td>
+      <td data-ice="type" class="code"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span></td>
+      <td data-ice="appendix"></td>
+      <td data-ice="description"><p>The angle to convert.</p>
+</td>
+    </tr>
+</tbody>
+  </table>
+</div>
+</div>
+
+  <div class="return-params" data-ice="returnParams">
+    <h4>Return:</h4>
+    <table>
+      <tbody>
+        <tr>
+          <td class="return-type code" data-ice="returnType"><span>*</span></td>
+          <td class="return-desc" data-ice="returnDescription"><p>The converted angle</p>
+</td>
+        </tr>
+      </tbody>
+    </table>
+    <div data-ice="returnProperties">
+</div>
+  </div>
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+</div>
+<div class="detail" data-ice="detail">
   <h3 data-ice="anchor" id="instance-method-decimalRand">
     <span class="access" data-ice="access">public</span>
     
@@ -2174,7 +2306,7 @@ const centeredCoordinates = centerRectangleOnParent(childWidth, childHeight, par
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/utils.mjs.html#lineNumber430">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/utils.mjs.html#lineNumber450">source</a></span></span>
     </span>
   </h3>
 
@@ -2417,7 +2549,7 @@ const centeredCoordinates = centerRectangleOnParent(childWidth, childHeight, par
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/utils.mjs.html#lineNumber407">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/utils.mjs.html#lineNumber427">source</a></span></span>
     </span>
   </h3>
 
@@ -2499,6 +2631,87 @@ const centeredCoordinates = centerRectangleOnParent(childWidth, childHeight, par
   
   
   <div data-ice="description"><p>Gets the angle between two points</p>
+</div>
+
+  
+
+  <div data-ice="properties"><div data-ice="properties">
+  <h4 data-ice="title">Params:</h4>
+  <table class="params">
+    <thead>
+    <tr><td>Name</td><td>Type</td><td>Attribute</td><td>Description</td></tr>
+    </thead>
+    <tbody>
+    
+    <tr data-ice="property" data-depth="0">
+      <td data-ice="name" class="code" data-depth="0">pStartPoint</td>
+      <td data-ice="type" class="code"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></span></td>
+      <td data-ice="appendix"></td>
+      <td data-ice="description"><p>The starting point</p>
+</td>
+    </tr>
+<tr data-ice="property" data-depth="0">
+      <td data-ice="name" class="code" data-depth="0">pEndPoint</td>
+      <td data-ice="type" class="code"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></span></td>
+      <td data-ice="appendix"></td>
+      <td data-ice="description"><p>The ending point</p>
+</td>
+    </tr>
+</tbody>
+  </table>
+</div>
+</div>
+
+  <div class="return-params" data-ice="returnParams">
+    <h4>Return:</h4>
+    <table>
+      <tbody>
+        <tr>
+          <td class="return-type code" data-ice="returnType"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span></td>
+          <td class="return-desc" data-ice="returnDescription"><p>The angle between the starting point and the ending point</p>
+</td>
+        </tr>
+      </tbody>
+    </table>
+    <div data-ice="returnProperties">
+</div>
+  </div>
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+</div>
+<div class="detail" data-ice="detail">
+  <h3 data-ice="anchor" id="instance-method-getAngle2">
+    <span class="access" data-ice="access">public</span>
+    
+    
+    
+    
+    
+    <span class="code" data-ice="name">getAngle2</span><span class="code" data-ice="signature">(pStartPoint: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></span>, pEndPoint: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></span>): <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span></span>
+    <span class="right-info">
+      
+      
+      <span data-ice="source"><span><a href="file/src/utils.mjs.html#lineNumber307">source</a></span></span>
+    </span>
+  </h3>
+
+  
+  
+  
+  <div data-ice="description"><p>Gets the angle between two points but in VYLO / PIXI coordinate space. Removes 180 degrees from a raw angle</p>
 </div>
 
   
@@ -2658,7 +2871,7 @@ const centeredCoordinates = centerRectangleOnParent(childWidth, childHeight, par
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/utils.mjs.html#lineNumber373">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/utils.mjs.html#lineNumber393">source</a></span></span>
     </span>
   </h3>
 
@@ -2740,7 +2953,7 @@ const direction = getDirection(angle); // Returns &apos;northeast&apos;</code></
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/utils.mjs.html#lineNumber317">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/utils.mjs.html#lineNumber337">source</a></span></span>
     </span>
   </h3>
 
@@ -3014,7 +3227,7 @@ const distance = getDistance(startPoint, endPoint); // 5
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/utils.mjs.html#lineNumber684">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/utils.mjs.html#lineNumber704">source</a></span></span>
     </span>
   </h3>
 
@@ -3117,7 +3330,7 @@ pRect.anchor.x and pRecent.anchor.y is used to control the &quot;center&quot; of
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/utils.mjs.html#lineNumber712">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/utils.mjs.html#lineNumber732">source</a></span></span>
     </span>
   </h3>
 
@@ -3199,7 +3412,7 @@ pRect.anchor.x and pRecent.anchor.y is used to control the &quot;center&quot; of
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/utils.mjs.html#lineNumber547">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/utils.mjs.html#lineNumber567">source</a></span></span>
     </span>
   </h3>
 
@@ -3256,7 +3469,7 @@ pRect.anchor.x and pRecent.anchor.y is used to control the &quot;center&quot; of
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/utils.mjs.html#lineNumber565">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/utils.mjs.html#lineNumber585">source</a></span></span>
     </span>
   </h3>
 
@@ -3347,7 +3560,7 @@ pRect.anchor.x and pRecent.anchor.y is used to control the &quot;center&quot; of
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/utils.mjs.html#lineNumber518">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/utils.mjs.html#lineNumber538">source</a></span></span>
     </span>
   </h3>
 
@@ -3437,7 +3650,7 @@ hex, hexTagless, rgb, rgbArray, rgbObject, rgbNormal, decimal formats.</p>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/utils.mjs.html#lineNumber504">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/utils.mjs.html#lineNumber524">source</a></span></span>
     </span>
   </h3>
 
@@ -3511,7 +3724,7 @@ hex, hexTagless, rgb, rgbArray, rgbObject, rgbNormal, decimal formats.</p>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/utils.mjs.html#lineNumber477">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/utils.mjs.html#lineNumber497">source</a></span></span>
     </span>
   </h3>
 
@@ -3673,7 +3886,7 @@ hex, hexTagless, rgb, rgbArray, rgbObject, rgbNormal, decimal formats.</p>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/utils.mjs.html#lineNumber395">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/utils.mjs.html#lineNumber415">source</a></span></span>
     </span>
   </h3>
 
@@ -4168,7 +4381,7 @@ The higher the number, the higher the chance of returning true.</p>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/utils.mjs.html#lineNumber495">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/utils.mjs.html#lineNumber515">source</a></span></span>
     </span>
   </h3>
 
@@ -4255,7 +4468,7 @@ The higher the number, the higher the chance of returning true.</p>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/utils.mjs.html#lineNumber461">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/utils.mjs.html#lineNumber481">source</a></span></span>
     </span>
   </h3>
 
@@ -4572,7 +4785,7 @@ The higher the number, the higher the chance of returning true.</p>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/utils.mjs.html#lineNumber583">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/utils.mjs.html#lineNumber603">source</a></span></span>
     </span>
   </h3>
 

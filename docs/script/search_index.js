@@ -342,6 +342,12 @@ window.esdocSearchIndex = [
     "method"
   ],
   [
+    "src/utils.mjs~utilssingleton#convertrawangletovylocoords",
+    "class/src/utils.mjs~UtilsSingleton.html#instance-method-convertRaWAngleToVyloCoords",
+    "src/utils.mjs~UtilsSingleton#convertRaWAngleToVyloCoords",
+    "method"
+  ],
+  [
     "src/utils.mjs~utilssingleton#decimalrand",
     "class/src/utils.mjs~UtilsSingleton.html#instance-method-decimalRand",
     "src/utils.mjs~UtilsSingleton#decimalRand",
@@ -375,6 +381,12 @@ window.esdocSearchIndex = [
     "src/utils.mjs~utilssingleton#getangle",
     "class/src/utils.mjs~UtilsSingleton.html#instance-method-getAngle",
     "src/utils.mjs~UtilsSingleton#getAngle",
+    "method"
+  ],
+  [
+    "src/utils.mjs~utilssingleton#getangle2",
+    "class/src/utils.mjs~UtilsSingleton.html#instance-method-getAngle2",
+    "src/utils.mjs~UtilsSingleton#getAngle2",
     "method"
   ],
   [

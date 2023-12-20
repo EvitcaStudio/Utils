@@ -239,24 +239,24 @@ class UtilsSingleton {
 	 */
 	getAngleFromDirection(pDirection) {
 		switch (pDirection) {
-			case 'north':
-				return (Math.PI / 2);
-			case 'south':
-				return (Math.PI * 3) / 2;
-			case 'east':
-				return (Math.PI * 2);
-			case 'west':
-				return Math.PI;
-			case 'northwest':
-				return (Math.PI * 3) / 4;
-			case 'northeast':
-				return Math.PI / 4;
-			case 'southwest':
-				return (Math.PI * 5) / 4;
-			case 'southeast':
-				return (Math.PI * 7) / 4;
-			default:
-				this.logger.prefix('Utils-Module').error(`The direction ${pDirection} is not supported.`);
+		case 'north':
+			return Math.PI / 2;
+		case 'south':
+			return (Math.PI * 3) / 2; // Corrected to 270 degrees in radians
+		case 'east':
+			return 0;
+		case 'west':
+			return Math.PI;
+		case 'northwest':
+			return (Math.PI * 3) / 4;
+		case 'northeast':
+			return Math.PI / 4;
+		case 'southwest':
+			return (Math.PI * 5) / 4;
+		case 'southeast':
+			return (Math.PI * 7) / 4;
+		default:
+			this.logger.prefix('Utils-Module').error(`The direction ${pDirection} is not supported.`);
 		}
 	}
 	/**

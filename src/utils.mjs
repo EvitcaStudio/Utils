@@ -3,7 +3,7 @@ import { Logger } from './vendor/logger.min.mjs';
 /**
 * A utilities class
 * @class UtilsSingleton
-* @version {@versionPlaceholder}
+* @version __VERSION__
 * @license Utils is free software, available under the terms of a MIT style License.
 * @author https://github.com/doubleactii
 * Copyright (c) 2023 Evitca Studio
@@ -29,7 +29,7 @@ class UtilsSingleton {
          */
         this.logger = new Logger();
         this.logger.registerType('Utils-Module', '#ff6600');
-        this.logger.prefix('Utils-Module').log(`✅@v${__VERSION__}`);
+        this.logger.prefix('Utils-Module').log(`✅@v__VERSION__`);
 	}
 	/**
 	 * Generates a random decimal number between two numbers with a specified number of decimal places.
@@ -239,24 +239,24 @@ class UtilsSingleton {
 	 */
 	getAngleFromDirection(pDirection) {
 		switch (pDirection) {
-		case 'north':
-			return Math.PI / 2;
-		case 'south':
-			return (Math.PI * 3) / 2; // Corrected to 270 degrees in radians
-		case 'east':
-			return 0;
-		case 'west':
-			return Math.PI;
-		case 'northwest':
-			return (Math.PI * 3) / 4;
-		case 'northeast':
-			return Math.PI / 4;
-		case 'southwest':
-			return (Math.PI * 5) / 4;
-		case 'southeast':
-			return (Math.PI * 7) / 4;
-		default:
-			this.logger.prefix('Utils-Module').error(`The direction ${pDirection} is not supported.`);
+			case 'north':
+				return Math.PI / 2;
+			case 'south':
+				return (Math.PI * 3) / 2; // Corrected to 270 degrees in radians
+			case 'east':
+				return 0;
+			case 'west':
+				return Math.PI;
+			case 'northwest':
+				return (Math.PI * 3) / 4;
+			case 'northeast':
+				return Math.PI / 4;
+			case 'southwest':
+				return (Math.PI * 5) / 4;
+			case 'southeast':
+				return (Math.PI * 7) / 4;
+			default:
+				this.logger.prefix('Utils-Module').error(`The direction ${pDirection} is not supported.`);
 		}
 	}
 	/**
@@ -284,6 +284,13 @@ class UtilsSingleton {
 		const centerX = pParentX + ((pParentWidth - pChildWidth) / 2);
 		const centerY = pParentY + ((pParentHeight - pChildHeight) / 2);
 		return { x: centerX, y: centerY };
+	}
+	/**
+	 * Generates a random angle in radians.
+	 * @returns {number} A random angle in radians.
+	 */
+	getRandomAngle() {
+		return Math.random() * (Math.PI * 2); // Random value between 0 and 2*pi (360 degrees)
 	}
 	/**
 	 * Gets the angle between two points

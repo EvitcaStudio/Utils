@@ -432,6 +432,12 @@ window.esdocSearchIndex = [
     "method"
   ],
   [
+    "src/utils.mjs~utilssingleton#getrandomangle",
+    "class/src/utils.mjs~UtilsSingleton.html#instance-method-getRandomAngle",
+    "src/utils.mjs~UtilsSingleton#getRandomAngle",
+    "method"
+  ],
+  [
     "src/utils.mjs~utilssingleton#getrandomcolor",
     "class/src/utils.mjs~UtilsSingleton.html#instance-method-getRandomColor",
     "src/utils.mjs~UtilsSingleton#getRandomColor",

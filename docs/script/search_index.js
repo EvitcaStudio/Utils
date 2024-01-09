@@ -564,6 +564,12 @@ window.esdocSearchIndex = [
     "member"
   ],
   [
+    "src/utils.mjs~utilssingleton#version",
+    "class/src/utils.mjs~UtilsSingleton.html#instance-member-version",
+    "src/utils.mjs~UtilsSingleton#version",
+    "member"
+  ],
+  [
     "src/utils.mjs~utilssingleton#within",
     "class/src/utils.mjs~UtilsSingleton.html#instance-method-within",
     "src/utils.mjs~UtilsSingleton#within",

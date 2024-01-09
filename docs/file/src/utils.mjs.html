@@ -41,25 +41,27 @@
 /**
 * A utilities class
 * @class UtilsSingleton
-* @version __VERSION__
 * @license Utils is free software, available under the terms of a MIT style License.
 * @author https://github.com/doubleactii
-* Copyright (c) 2023 Evitca Studio
 */
 class UtilsSingleton {
+	/**
+	 * Object storing all color objects being transitioned at the moment
+	 * @private
+	 * @type {Object}
+	 */
+	transitions = {};
+	/**
+	 * An array storing all the reserved unique IDS
+	 * @private
+	 * @type {Array}
+	 */
+	storedIDs = [];
+	/**
+	 * The version of the module.
+	 */
+	version = &quot;VERSION_REPLACE_ME&quot;;
 	constructor() {
-		/**
-		 * Object storing all color objects being transitioned at the moment
-		 * @private
-		 * @type {Object}
-		 */
-		this.transitions = {};
-		/**
-		 * An array storing all the reserved unique IDS
-		 * @private
-		 * @type {Array}
-		 */
-		this.storedIDs = [];
         // Create a logger
         /** The logger module this module uses to log errors / logs
          * @private
@@ -67,7 +69,6 @@ class UtilsSingleton {
          */
         this.logger = new Logger();
         this.logger.registerType(&apos;Utils-Module&apos;, &apos;#ff6600&apos;);
-        this.logger.prefix(&apos;Utils-Module&apos;).log(`&#x2705;@v__VERSION__`);
 	}
 	/**
 	 * Generates a random decimal number between two numbers with a specified number of decimal places.

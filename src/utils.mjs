@@ -3,25 +3,27 @@ import { Logger } from './vendor/logger.min.mjs';
 /**
 * A utilities class
 * @class UtilsSingleton
-* @version __VERSION__
 * @license Utils is free software, available under the terms of a MIT style License.
 * @author https://github.com/doubleactii
-* Copyright (c) 2023 Evitca Studio
 */
 class UtilsSingleton {
+	/**
+	 * Object storing all color objects being transitioned at the moment
+	 * @private
+	 * @type {Object}
+	 */
+	transitions = {};
+	/**
+	 * An array storing all the reserved unique IDS
+	 * @private
+	 * @type {Array}
+	 */
+	storedIDs = [];
+	/**
+	 * The version of the module.
+	 */
+	version = "VERSION_REPLACE_ME";
 	constructor() {
-		/**
-		 * Object storing all color objects being transitioned at the moment
-		 * @private
-		 * @type {Object}
-		 */
-		this.transitions = {};
-		/**
-		 * An array storing all the reserved unique IDS
-		 * @private
-		 * @type {Array}
-		 */
-		this.storedIDs = [];
         // Create a logger
         /** The logger module this module uses to log errors / logs
          * @private
@@ -29,7 +31,6 @@ class UtilsSingleton {
          */
         this.logger = new Logger();
         this.logger.registerType('Utils-Module', '#ff6600');
-        this.logger.prefix('Utils-Module').log(`✅@v__VERSION__`);
 	}
 	/**
 	 * Generates a random decimal number between two numbers with a specified number of decimal places.

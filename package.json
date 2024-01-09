@@ -1,20 +1,21 @@
 {
   "name": "utils",
-  "version": "2.1.1",
+  "version": "1.0.0",
   "description": "A utilities class",
-  "main": "utils.mjs",
-  "directories": {
-    "doc": "docs"
-  },
+  "main": "dist/utils.mjs",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build-dist": "npx webpack && uglifyjs dist/utils.min.mjs -m -c --comments -o dist/utils.min.mjs && node version-handler.js && esdoc -c esdoc.json"
+    "build": "npx webpack && npm run build:minify && node add-version-script.js && node add-banner-script.js",
+    "build:minify": "uglifyjs dist/utils.min.mjs -m -c --comments -o dist/utils.min.mjs",
+    "build:prod": "npx webpack --mode production && npm run build:minify && node add-version-script.js && node add-banner-script.js && npm run build:docs",
+    "build:docs": "esdoc -c esdoc.json"
   },
+  "author": "https://github.com/doubleactii",
+  "license": "SEE LICENSE IN LICENSE.md",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/EvitcaStudio/Utils"
   },
-  "author": "https://github.com/doubleactii",
   "bugs": {
     "url": "https://github.com/EvitcaStudio/Utils/issues"
   },

@@ -745,5 +745,35 @@ class UtilsSingleton {
 		const center = this.getPointRotated(pRect, pTheta, { 'x': pRect.x + pRect.width / 2, 'y': pRect.y + pRect.height / 2 });
 		return { 'tl': tl, 'tr': tr, 'bl': bl, 'br': br, 'center': center };
 	}
+	/**
+	 * Calculate the icon offset to compensate for a non-zero anchor.
+	 *
+	 * @param {Object} [pIconSize] - The size of the icon with properties `.x` and `.y`.
+	 * @param {number} [pIconSize.width=32] - The size of the icon's width.
+	 * @param {number} [pIconSize.height=32] - The size of the icon's height'.
+	 * @param {Object} [pAnchor] - The anchor point with properties `.x` and `.y`.
+	 * @param {number} [pAnchor.x=0.5] - The anchor's x value.
+	 * @param {number} [pAnchor.y=0.5] - The anchor's y value.
+	 * @param {Object} [pScale] - The scale factor applied to the object with properties `.x` and `.y`.
+	 * @param {number} [pScale.x=1] - The scale's y value.
+	 * @param {number} [pScale.y=1] - The scale's y value.
+	 * @returns {Object} - The calculated icon offset with properties `.x` and `.y`.
+	 */
+	calculateIconOffset(pIconSize = { width: 32, height: 32 }, pAnchor = { x: 0.5, y: 0.5 }, pScale= { x: 1, y: 1}) {
+		const scaledSize = {
+			x: pIconSize.width * pScale.x,
+			y: pIconSize.height * pScale.y,
+		};
+
+		const offset = {
+			x: pAnchor.x * (scaledSize.x - pIconSize.width),
+			y: pAnchor.y * (scaledSize.y - pIconSize.height),
+		};
+
+		return {
+			x: offset.x,
+			y: offset.y,
+		};
+	}
 }
 export const Utils = new UtilsSingleton();

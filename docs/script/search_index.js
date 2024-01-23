@@ -306,6 +306,12 @@ window.esdocSearchIndex = [
     "method"
   ],
   [
+    "src/utils.mjs~utilssingleton#calculateiconoffset",
+    "class/src/utils.mjs~UtilsSingleton.html#instance-method-calculateIconOffset",
+    "src/utils.mjs~UtilsSingleton#calculateIconOffset",
+    "method"
+  ],
+  [
     "src/utils.mjs~utilssingleton#calculatenewpositionfromdistanceandangle",
     "class/src/utils.mjs~UtilsSingleton.html#instance-method-calculateNewPositionFromDistanceAndAngle",
     "src/utils.mjs~UtilsSingleton#calculateNewPositionFromDistanceAndAngle",

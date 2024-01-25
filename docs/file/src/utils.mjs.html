@@ -160,6 +160,22 @@ class UtilsSingleton {
 		return (pVal - pMin) / (pMax - pMin);
 	}
 	/**
+	 * Normalizes a value between a minimum and maximum value, clamped to the range of -1 to 1.
+	 *
+	 * @param {number} pVal - The value to normalize.
+	 * @param {number} pMin - The minimum value for normalization.
+	 * @param {number} pMax - The maximum value for normalization.
+	 * @returns {number} The normalized and clamped value between -1 and 1 based on the input value&apos;s
+	 * position between the minimum and maximum values. If the difference between pMax and pMin is 0,
+	 * returns 1 to avoid dividing by zero.
+	 */
+	normalizeRanged(pVal, pMin, pMax) {
+		if (pMax - pMin === 0) return 1;
+		const normalizedValue = -((2 * this.normalize(pVal, pMin, pMax)) - 1);
+		// Clamp the normalized value to the range of -1 to 1
+		return this.clamp(normalizedValue, -1, 1);
+	};
+	/**
 	 * Checks if a value is within a range of minimum and maximum values (inclusive).
 	 * 
 	 * @param {number} pVal - The value to check.
@@ -438,6 +454,14 @@ class UtilsSingleton {
 	 */
 	getDirection(pAngle) {
 		const degree = Math.abs(Math.floor(((pAngle * (180 / Math.PI)) / 45) + 0.5));
+		// 0 or 360 degrees: &apos;east&apos;
+		// 45 degrees: &apos;northeast&apos;
+		// 90 degrees: &apos;north&apos;
+		// 135 degrees: &apos;northwest&apos;
+		// 180 degrees: &apos;west&apos;
+		// 225 degrees: &apos;southwest&apos;
+		// 270 degrees: &apos;south&apos;
+		// 315 degrees: &apos;southeast&apos;
 		const compassDirections = [&apos;east&apos;, &apos;northeast&apos;, &apos;north&apos;, &apos;northwest&apos;, &apos;west&apos;, &apos;southwest&apos;, &apos;south&apos;, &apos;southeast&apos;];
 		return compassDirections[(degree % 8)];
 	}

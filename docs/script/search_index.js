@@ -498,6 +498,12 @@ window.esdocSearchIndex = [
     "method"
   ],
   [
+    "src/utils.mjs~utilssingleton#normalizeranged",
+    "class/src/utils.mjs~UtilsSingleton.html#instance-method-normalizeRanged",
+    "src/utils.mjs~UtilsSingleton#normalizeRanged",
+    "method"
+  ],
+  [
     "src/utils.mjs~utilssingleton#pick",
     "class/src/utils.mjs~UtilsSingleton.html#instance-method-pick",
     "src/utils.mjs~UtilsSingleton#pick",

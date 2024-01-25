@@ -122,6 +122,22 @@ class UtilsSingleton {
 		return (pVal - pMin) / (pMax - pMin);
 	}
 	/**
+	 * Normalizes a value between a minimum and maximum value, clamped to the range of -1 to 1.
+	 *
+	 * @param {number} pVal - The value to normalize.
+	 * @param {number} pMin - The minimum value for normalization.
+	 * @param {number} pMax - The maximum value for normalization.
+	 * @returns {number} The normalized and clamped value between -1 and 1 based on the input value's
+	 * position between the minimum and maximum values. If the difference between pMax and pMin is 0,
+	 * returns 1 to avoid dividing by zero.
+	 */
+	normalizeRanged(pVal, pMin, pMax) {
+		if (pMax - pMin === 0) return 1;
+		const normalizedValue = -((2 * this.normalize(pVal, pMin, pMax)) - 1);
+		// Clamp the normalized value to the range of -1 to 1
+		return this.clamp(normalizedValue, -1, 1);
+	};
+	/**
 	 * Checks if a value is within a range of minimum and maximum values (inclusive).
 	 * 
 	 * @param {number} pVal - The value to check.

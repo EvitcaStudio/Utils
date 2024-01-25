@@ -400,6 +400,14 @@ class UtilsSingleton {
 	 */
 	getDirection(pAngle) {
 		const degree = Math.abs(Math.floor(((pAngle * (180 / Math.PI)) / 45) + 0.5));
+		// 0 or 360 degrees: 'east'
+		// 45 degrees: 'northeast'
+		// 90 degrees: 'north'
+		// 135 degrees: 'northwest'
+		// 180 degrees: 'west'
+		// 225 degrees: 'southwest'
+		// 270 degrees: 'south'
+		// 315 degrees: 'southeast'
 		const compassDirections = ['east', 'northeast', 'north', 'northwest', 'west', 'southwest', 'south', 'southeast'];
 		return compassDirections[(degree % 8)];
 	}

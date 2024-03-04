@@ -42,7 +42,7 @@ class UtilsSingleton {
 	 */
 	decimalRand(pNum1, pNum2, pPlaces = 1) {
 		const result = Number((Math.random() * (pNum1 - pNum2) + pNum2).toFixed(pPlaces));
-		return (result >= 1 ? Math.floor(result) : result);
+		return result;
 	}
 	/**
 	 * Generates a random decimal number between two numbers with a specified number of decimal places.

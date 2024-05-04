@@ -1,12 +1,27 @@
-# Utils
+# Utils Module
 
 Utils is a lightweight and versatile JavaScript utility class designed to provide commonly used functions for web development. It is a collection of various helper functions that can be used in a variety of projects.
 
-# Usage
-To use Utils in your project, simply import it as follows:
+## Installation
+
+### ES Module
 
 ```js
-import { Utils } from './utils.min.mjs';
+import { Utils } from './utils.mjs';
+```
+
+### IIFE (Immediately Invoked Function Expression)
+
+```js
+<script src="utils.js"></script>;
+// ...
+window.UtilsBundle.Utils;
+```
+
+### CommonJS (CJS) Module
+
+```js
+const { Utils } = require('./utils.cjs.js');
 ```
 
 You can then call any of the functions available in the Utils class.
@@ -112,3 +127,7 @@ getPointsOfRotatedRect(pRect, pTheta)
 - @param {object} pRect - The rectangle object to rotate the point around. **`pRect.anchor.x`** and **`pRecent.anchor.y`** is used to control the "center" of the rectangle.
 - @param {number} pTheta - The angle (in radians) to rotate the point by.
 - @returns {object} An object with the rotated rectangle's new corner points and center points.
+
+### Global Dependency
+
+Utils relies on the `VYLO` variable being globally accessible.

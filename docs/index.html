@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <base data-ice="baseUrl">
+  <title data-ice="title">Home | Utils</title>
+  <link type="text/css" rel="stylesheet" href="css/style.css">
+  <link type="text/css" rel="stylesheet" href="css/prettify-tomorrow.css">
+  <script src="script/prettify/prettify.js"></script>
+  <script src="script/manual.js"></script>
+<meta name="description" content="A utilities class"><meta property="og:type" content="website"><meta property="og:url" content="https://github.com/EvitcaStudio/Utils#readme"><meta property="og:site_name" content="Utils"><meta property="og:title" content="Utils"><meta property="og:image" content="./evitcastudio_round_branding.png"><meta property="og:description" content="A utilities class"><meta property="og:author" content="https://github.com/doubleactii"><meta property="twitter:card" content="summary"><meta property="twitter:title" content="Utils"><meta property="twitter:description" content="A utilities class"><meta property="twitter:image" content="./evitcastudio_round_branding.png"></head>
+<body class="layout-container" data-ice="rootContainer">
+
+<header>
+  <a href="./" style="display: flex; align-items: center;"><img src="./image/brand_logo.png" style="width:34px;"></a>
+  
+  <a href="identifiers.html">Reference</a>
+  <a href="source.html">Source</a>
+  
+  <div class="search-box">
+  <span>
+    <img src="./image/search.png">
+    <span class="search-input-edge"></span><input class="search-input"><span class="search-input-edge"></span>
+  </span>
+    <ul class="search-result"></ul>
+  </div>
+<a style="position:relative; top:3px;" href="https://github.com/EvitcaStudio/Utils"><img width="20px" src="./image/github.png"></a></header>
+
+<nav class="navigation" data-ice="nav"><div>
+  <ul>
+    
+  <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/utils.mjs~UtilsSingleton.html">UtilsSingleton</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-Utils">Utils</a></span></span></li>
+</ul>
+</div>
+</nav>
+
+<div class="content" data-ice="content"><div data-ice="index" class="github-markdown"><h1 id="utils-module">Utils Module</h1><p>Utils is a lightweight and versatile JavaScript utility class designed to provide commonly used functions for web development. It is a collection of various helper functions that can be used in a variety of projects.</p>
+<h2 id="installation">Installation</h2><h3 id="es-module">ES Module</h3><pre><code class="lang-js"><code class="source-code prettyprint">import { Utils } from &apos;./utils.mjs&apos;;</code>
+</code></pre>
+<h3 id="iife--immediately-invoked-function-expression-">IIFE (Immediately Invoked Function Expression)</h3><pre><code class="lang-js"><code class="source-code prettyprint">&lt;script src=&quot;utils.js&quot;&gt;&lt;/script&gt;;
+// ...
+window.UtilsBundle.Utils;</code>
+</code></pre>
+<h3 id="commonjs--cjs--module">CommonJS (CJS) Module</h3><pre><code class="lang-js"><code class="source-code prettyprint">const { Utils } = require(&apos;./utils.cjs.js&apos;);</code>
+</code></pre>
+<p>You can then call any of the functions available in the Utils class.</p>
+<h1 id="api">API</h1><p>decimalRand(pNum1, pNum2, pPlaces)</p>
+<ul>
+<li>Generates a random decimal number between <strong><code>pNum1</code></strong> and <strong><code>pNum2</code></strong> with <strong><code>pPlaces</code></strong> decimal places.</li>
+</ul>
+<p>rand(pNum1, pNum2)</p>
+<ul>
+<li>Generates a random integer between <strong><code>pNum1</code></strong> and <strong><code>pNum2</code></strong>.</li>
+</ul>
+<p>getPercentage(pValue, pTotalValue)</p>
+<ul>
+<li>Calculates the percentage of <strong><code>pValue</code></strong> in relation to <strong><code>pTotalValue</code></strong>.</li>
+</ul>
+<p>clamp(pNumber, pMin, pMax)</p>
+<ul>
+<li>Clamps <strong><code>pNumber</code></strong> between <strong><code>pMin</code></strong> and <strong><code>pMax</code></strong>.</li>
+</ul>
+<p>lerp(pStart, pEnd, pAmount)</p>
+<ul>
+<li>Linearly interpolates between <strong><code>pStart</code></strong> and <strong><code>pEnd</code></strong> by <strong><code>pAmount</code></strong>.</li>
+</ul>
+<p>flooredLerp(pStart, pEnd, pAmount)</p>
+<ul>
+<li>Linearly interpolates between <strong><code>pStart</code></strong> and <strong><code>pEnd</code></strong> by <strong><code>pAmount</code></strong>, then floors the result.</li>
+</ul>
+<p>round(pNumber, pPlace)</p>
+<ul>
+<li>Rounds pNumber to <strong><code>pPlace</code></strong> decimal places.</li>
+</ul>
+<p>normalize(pVal, pMin, pMax)</p>
+<ul>
+<li>Normalizes pVal between <strong><code>pMin</code></strong> and <strong><code>pMax</code></strong>.</li>
+</ul>
+<p>within(pVal, pMin, pMax)</p>
+<ul>
+<li>Checks if <strong><code>pVal</code></strong> is within the range of <strong><code>pMin</code></strong> and <strong><code>pMax</code></strong>.</li>
+</ul>
+<p>formatIntegerWithCommas(pNum)</p>
+<ul>
+<li>Formats <strong><code>pNum</code></strong> as a string with commas between every three digits.</li>
+</ul>
+<p>toRadians(pDegrees)</p>
+<ul>
+<li>Converts degrees to radians.</li>
+</ul>
+<p>toDegrees(pRadians)</p>
+<ul>
+<li>Converts radians to degrees.</li>
+</ul>
+<p>pick(pArray)</p>
+<ul>
+<li>Returns a random element from <strong><code>pArray</code></strong>.</li>
+</ul>
+<p>removeProperties(pObject, pExclude)</p>
+<ul>
+<li>Removes all properties from <strong><code>pObject</code></strong>, excluding those in <strong><code>pExclude</code></strong>.</li>
+</ul>
+<p>prob(pChance)</p>
+<ul>
+<li>Returns true with a probability of <strong><code>pChance</code></strong>, and false with a probability of <strong><code>100 - pChance</code></strong>.</li>
+</ul>
+<p>getInverseDirection(pDir)</p>
+<ul>
+<li>Returns the opposite direction of <strong><code>pDir</code></strong>.</li>
+</ul>
+<p>getAngleFromDirection(pDir)</p>
+<ul>
+<li>Returns the angle in radians corresponding to <strong><code>pDir</code></strong>.</li>
+</ul>
+<p>generateID(pIDLength)</p>
+<ul>
+<li>Generates a random unique ID string of length <strong><code>pIDLength</code></strong>.</li>
+</ul>
+<p>decimalToHex(pDecimal, pChars)</p>
+<ul>
+<li>Converts a decimal number to a hexadecimal color string with pChars characters. <strong><code>pChars</code></strong> can either be <strong><code>3</code></strong> or <strong><code>6</code></strong>.</li>
+</ul>
+<p>addIntensity(pColor, pPercent)</p>
+<ul>
+<li>Increases the intensity of pColor by <strong><code>pPercent</code></strong> <strong><code>percent</code></strong>.</li>
+</ul>
+<p>rgbToHex(pR, pG, pB)</p>
+<ul>
+<li>Converts an RGB color to a hexadecimal color string.</li>
+</ul>
+<p>hexToRgb(pHex)</p>
+<ul>
+<li>Converts a hexadecimal color string to an RGB color.</li>
+</ul>
+<p>rgbToDecimal(pR, pG, pB)</p>
+<ul>
+<li>Converts an RGB color to a decimal number.</li>
+</ul>
+<p>hexToDecimal(pHex)</p>
+<ul>
+<li>Converts a hexadecimal color string to a decimal number.</li>
+</ul>
+<p>grabColor(pSwitch, pG, pB)</p>
+<ul>
+<li>Returns a color object with a hexadecimal color string, tagless hexadecimal color string, RGB string, RGB color array, RGB normalized array, RGB object, and decimal color number. If <strong><code>pSwitch</code></strong> is a number, <strong><code>pG</code></strong> and <strong><code>pB</code></strong> must also be numbers and represent the green and blue components of the color respectively. If <strong><code>pSwitch</code></strong> is a string, it can either be a hexadecimal color string or a decimal color.</li>
+</ul>
+<p>getRandomColor()</p>
+<ul>
+<li>Gets a random color in the hex format.</li>
+</ul>
+<p>getRandomColorBetween(pColor1, pColor2, pAmount = 0.5)</p>
+<ul>
+<li>Gets a random color between <strong><code>pColor1</code></strong> and <strong><code>pColor2</code></strong> in the decimal format. <strong><code>pAmount</code></strong> can be used to change how close the returned color is to either <strong><code>pColor1</code></strong> or <strong><code>pColor2</code></strong>.</li>
+</ul>
+<p>transitionColor(pInstance, pStartColor=&apos;#000&apos;, pEndColor=&apos;#fff&apos;, pDuration=1000, pIterativeCallback, pEndCallback)</p>
+<ul>
+<li>Transition <strong><code>pStartColor</code></strong> to <strong><code>pEndColor</code></strong> in <strong><code>pDuration</code></strong> time with callbacks to track the animation. Where <strong><code>pIterativeCallback</code></strong> is called each frame and <strong><code>pEndCallback</code></strong> is called at the end of the animation. This API returns the <strong><code>ID</code></strong> of the transition. So that if you want to cancel it, you can use <strong><code>cancelTransitionColor(ID)</code></strong>.</li>
+</ul>
+<p>cancelTransitionColor(pID)</p>
+<ul>
+<li>Cancels an ongoing transition with the <strong><code>ID</code></strong> of <strong><code>pID</code></strong>.</li>
+</ul>
+<p>getPointRotated(pRect, pTheta, pPoint)v</p>
+<ul>
+<li>Calculates the position of a point after rotating it around a center point by a given angle.</li>
+<li>@param {object} pRect - The rectangle object to rotate the point around. pRect.anchor.x and pRecent.anchor.y is used to control the &quot;center&quot; of the rectangle.</li>
+<li>@param {number} pTheta - The angle (in radians) to rotate the point by.</li>
+<li>@param {object} pPoint - The point object to rotate around the center of the rectangle.</li>
+<li>@param {number} pPoint.x - The x-coordinate of the point to rotate.</li>
+<li>@param {number} pPoint.y - The y-coordinate of the point to rotate.</li>
+<li>@returns {object} An object with the rotated point&apos;s new x and y coordinates.</li>
+</ul>
+<p>getPointsOfRotatedRect(pRect, pTheta)</p>
+<ul>
+<li>@param {object} pRect - The rectangle object to rotate the point around. <strong><code>pRect.anchor.x</code></strong> and <strong><code>pRecent.anchor.y</code></strong> is used to control the &quot;center&quot; of the rectangle.</li>
+<li>@param {number} pTheta - The angle (in radians) to rotate the point by.</li>
+<li>@returns {object} An object with the rotated rectangle&apos;s new corner points and center points.</li>
+</ul>
+<h3 id="global-dependency">Global Dependency</h3><p>Utils relies on the <code>VYLO</code> variable being globally accessible.</p>
+</div>
+</div>
+
+<footer class="footer">
+  Generated by <a href="https://esdoc.org">ESDoc<span data-ice="esdocVersion">(1.1.0)</span><img src="./image/esdoc-logo-mini-black.png"></a>
+</footer>
+
+<script src="script/search_index.js"></script>
+<script src="script/search.js"></script>
+<script src="script/pretty-print.js"></script>
+<script src="script/inherited-summary.js"></script>
+<script src="script/test-summary.js"></script>
+<script src="script/inner-link.js"></script>
+<script src="script/patch-for-local.js"></script>
+</body>
+</html>

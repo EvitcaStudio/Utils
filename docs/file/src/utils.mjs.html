@@ -380,6 +380,18 @@ class UtilsSingleton {
 		return (pAngle - Math.PI) * -1;
 	}
 	/**
+	 * Gets the minimal value between the value to add and the maximum allowed value.
+	 * 
+	 * @param {number} pCurrent - The current value.
+	 * @param {number} pAdd - The value to add to the current value.
+	 * @param {number} pMax - The maximum value that can be reached.
+	 * @returns {number} The minimal value between the value to add and the remaining value to reach the maximum.
+	 */
+	getMinimal(pCurrent, pAdd, pMax) {
+		const max = pMax - pCurrent;
+		return Math.min(pAdd, max);
+	}
+	/**
 	 * Calculates the Euclidean distance between two points in a two-dimensional space.
 	 *
 	 * @param {Object} pStartPoint - The starting point with x and y coordinates.
@@ -610,6 +622,7 @@ class UtilsSingleton {
 		// Convert rgb to hex
 		if (typeof(pSwitch) === &apos;number&apos; &amp;&amp; typeof(pG) === &apos;number&apos; &amp;&amp; typeof(pB) === &apos;number&apos;) {
 			hex = this.rgbToHex(pSwitch, pG, pB);
+			rgb = this.hexToRgb(hex);
 		} else {
 			// Convert decimal to hex
 			if (typeof(pSwitch) === &apos;number&apos;) {

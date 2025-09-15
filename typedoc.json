@@ -29,7 +29,6 @@
   },
   "searchInComments": true,
   "cleanOutputDir": true,
-  "cname": "utils.evitcastudio.com",
   "githubPages": true,
   "gitRevision": "main",
   "excludeNotDocumented": false

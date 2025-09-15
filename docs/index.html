@@ -1,127 +1,20 @@
-<!DOCTYPE html><html class="default" lang="en"><head><meta charSet="utf-8"/><meta http-equiv="x-ua-compatible" content="IE=edge"/><title>Utils - v1.1.0</title><meta name="description" content="Documentation for Utils"/><meta name="viewport" content="width=device-width, initial-scale=1"/><link rel="stylesheet" href="assets/style.css"/><link rel="stylesheet" href="assets/highlight.css"/><script defer src="assets/main.js"></script><script async src="assets/icons.js" id="tsd-icons-script"></script><script async src="assets/search.js" id="tsd-search-script"></script><script async src="assets/navigation.js" id="tsd-nav-script"></script></head><body><script>document.documentElement.dataset.theme = localStorage.getItem("tsd-theme") || "os";document.body.style.display="none";setTimeout(() => app?app.showPage():document.body.style.removeProperty("display"),500)</script><header class="tsd-page-toolbar"><div class="tsd-toolbar-contents container"><div class="table-cell" id="tsd-search" data-base="."><div class="field"><label for="tsd-search-field" class="tsd-widget tsd-toolbar-icon search no-caption"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><use href="assets/icons.svg#icon-search"></use></svg></label><input type="text" id="tsd-search-field" aria-label="Search"/></div><div class="field"><div id="tsd-toolbar-links"></div></div><ul class="results"><li class="state loading">Preparing search index...</li><li class="state failure">The search index is not available</li></ul><a href="index.html" class="title">Utils - v1.1.0</a></div><div class="table-cell" id="tsd-widgets"><a href="#" class="tsd-widget tsd-toolbar-icon menu no-caption" data-toggle="menu" aria-label="Menu"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><use href="assets/icons.svg#icon-menu"></use></svg></a></div></div></header><div class="container container-main"><div class="col-content"><div class="tsd-page-title"><h2>Utils - v1.1.0</h2></div><div class="tsd-panel tsd-typography"><a id="md:utils-module" class="tsd-anchor"></a><h1><a href="#md:utils-module">Utils Module</a></h1><p>Utils is a lightweight and versatile JavaScript utility class designed to provide commonly used functions for web development. It is a collection of various helper functions that can be used in a variety of projects.</p>
-<a id="md:installation" class="tsd-anchor"></a><h2><a href="#md:installation">Installation</a></h2><a id="md:es-module" class="tsd-anchor"></a><h3><a href="#md:es-module">ES Module</a></h3><pre><code class="language-js"><span class="hl-0">import</span><span class="hl-1"> { </span><span class="hl-2">Utils</span><span class="hl-1"> } </span><span class="hl-0">from</span><span class="hl-1"> </span><span class="hl-3">&#39;./utils.mjs&#39;</span><span class="hl-1">;</span>
+<!DOCTYPE html><html class="default" lang="en"><head><meta charSet="utf-8"/><meta http-equiv="x-ua-compatible" content="IE=edge"/><title>Utils - v1.1.0</title><meta name="description" content="Documentation for Utils"/><meta name="viewport" content="width=device-width, initial-scale=1"/><link rel="stylesheet" href="assets/style.css"/><link rel="stylesheet" href="assets/highlight.css"/><script defer src="assets/main.js"></script><script async src="assets/icons.js" id="tsd-icons-script"></script><script async src="assets/search.js" id="tsd-search-script"></script><script async src="assets/navigation.js" id="tsd-nav-script"></script></head><body><script>document.documentElement.dataset.theme = localStorage.getItem("tsd-theme") || "os";document.body.style.display="none";setTimeout(() => app?app.showPage():document.body.style.removeProperty("display"),500)</script><header class="tsd-page-toolbar"><div class="tsd-toolbar-contents container"><div class="table-cell" id="tsd-search" data-base="."><div class="field"><label for="tsd-search-field" class="tsd-widget tsd-toolbar-icon search no-caption"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><use href="assets/icons.svg#icon-search"></use></svg></label><input type="text" id="tsd-search-field" aria-label="Search"/></div><div class="field"><div id="tsd-toolbar-links"></div></div><ul class="results"><li class="state loading">Preparing search index...</li><li class="state failure">The search index is not available</li></ul><a href="index.html" class="title">Utils - v1.1.0</a></div><div class="table-cell" id="tsd-widgets"><a href="#" class="tsd-widget tsd-toolbar-icon menu no-caption" data-toggle="menu" aria-label="Menu"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><use href="assets/icons.svg#icon-menu"></use></svg></a></div></div></header><div class="container container-main"><div class="col-content"><div class="tsd-page-title"><h2>Utils - v1.1.0</h2></div><div class="tsd-panel tsd-typography"><a id="md:utils-module" class="tsd-anchor"></a><h1><a href="#md:utils-module">Utils Module</a></h1><p>Utils is a lightweight and versatile TypeScript utility class designed to provide commonly used functions for web development. It is a collection of various helper functions that can be used in a variety of projects.</p>
+<a id="md:installation" class="tsd-anchor"></a><h2><a href="#md:installation">Installation</a></h2><a id="md:es-module" class="tsd-anchor"></a><h3><a href="#md:es-module">ES Module</a></h3><pre><code class="language-js"><span class="hl-0">import</span><span class="hl-1"> { </span><span class="hl-2">Utils</span><span class="hl-1"> } </span><span class="hl-0">from</span><span class="hl-1"> </span><span class="hl-3">&#39;./utils.js&#39;</span><span class="hl-1">;</span><br/><span class="hl-4">// or</span><br/><span class="hl-0">import</span><span class="hl-1"> { </span><span class="hl-2">utils</span><span class="hl-1"> } </span><span class="hl-0">from</span><span class="hl-1"> </span><span class="hl-3">&#39;./utils.js&#39;</span><span class="hl-1">;</span>
 </code><button>Copy</button></pre>
-<a id="md:iife-immediately-invoked-function-expression" class="tsd-anchor"></a><h3><a href="#md:iife-immediately-invoked-function-expression">IIFE (Immediately Invoked Function Expression)</a></h3><pre><code class="language-js"><span class="hl-4">&lt;</span><span class="hl-5">script</span><span class="hl-1"> </span><span class="hl-6">src</span><span class="hl-1">=</span><span class="hl-3">&quot;utils.js&quot;</span><span class="hl-4">&gt;&lt;/</span><span class="hl-5">script</span><span class="hl-4">&gt;</span><span class="hl-1">;</span><br/><span class="hl-7">// ...</span><br/><span class="hl-2">window</span><span class="hl-1">.</span><span class="hl-2">UtilsBundle</span><span class="hl-1">.</span><span class="hl-2">Utils</span><span class="hl-1">;</span>
+<a id="md:iife-immediately-invoked-function-expression" class="tsd-anchor"></a><h3><a href="#md:iife-immediately-invoked-function-expression">IIFE (Immediately Invoked Function Expression)</a></h3><pre><code class="language-js"><span class="hl-5">&lt;</span><span class="hl-6">script</span><span class="hl-1"> </span><span class="hl-7">src</span><span class="hl-1">=</span><span class="hl-3">&quot;utils-iife.js&quot;</span><span class="hl-5">&gt;&lt;/</span><span class="hl-6">script</span><span class="hl-5">&gt;</span><br/><span class="hl-4">// ...</span><br/><span class="hl-4">// Utils is available globally</span>
 </code><button>Copy</button></pre>
-<a id="md:commonjs-cjs-module" class="tsd-anchor"></a><h3><a href="#md:commonjs-cjs-module">CommonJS (CJS) Module</a></h3><pre><code class="language-js"><span class="hl-8">const</span><span class="hl-1"> { </span><span class="hl-9">Utils</span><span class="hl-1"> } = </span><span class="hl-10">require</span><span class="hl-1">(</span><span class="hl-3">&#39;./utils.cjs.js&#39;</span><span class="hl-1">);</span>
+<a id="md:typescript" class="tsd-anchor"></a><h3><a href="#md:typescript">TypeScript</a></h3><pre><code class="language-ts"><span class="hl-0">import</span><span class="hl-1"> { </span><span class="hl-2">Utils</span><span class="hl-1">, </span><span class="hl-2">UtilsSingleton</span><span class="hl-1">, </span><span class="hl-2">utils</span><span class="hl-1"> } </span><span class="hl-0">from</span><span class="hl-1"> </span><span class="hl-3">&#39;./utils&#39;</span><span class="hl-1">;</span><br/><br/><span class="hl-4">// Use the singleton instance</span><br/><span class="hl-8">const</span><span class="hl-1"> </span><span class="hl-9">randomNum</span><span class="hl-1"> = </span><span class="hl-2">Utils</span><span class="hl-1">.</span><span class="hl-10">rand</span><span class="hl-1">(</span><span class="hl-11">1</span><span class="hl-1">, </span><span class="hl-11">10</span><span class="hl-1">);</span><br/><br/><span class="hl-4">// Or use the class directly</span><br/><span class="hl-8">const</span><span class="hl-1"> </span><span class="hl-9">myUtils</span><span class="hl-1"> = </span><span class="hl-8">new</span><span class="hl-1"> </span><span class="hl-10">UtilsSingleton</span><span class="hl-1">();</span><br/><span class="hl-8">const</span><span class="hl-1"> </span><span class="hl-9">color</span><span class="hl-1"> = </span><span class="hl-2">myUtils</span><span class="hl-1">.</span><span class="hl-10">getRandomColor</span><span class="hl-1">();</span>
 </code><button>Copy</button></pre>
-<p>You can then call any of the functions available in the Utils class.</p>
-<a id="md:api" class="tsd-anchor"></a><h1><a href="#md:api">API</a></h1><p>decimalRand(pNum1, pNum2, pPlaces)</p>
-<ul>
-<li>Generates a random decimal number between <strong><code>pNum1</code></strong> and <strong><code>pNum2</code></strong> with <strong><code>pPlaces</code></strong> decimal places.</li>
+<a id="md:documentation" class="tsd-anchor"></a><h2><a href="#md:documentation">Documentation</a></h2><p>For complete API documentation with examples, visit the <a href="./docs/">generated documentation</a>.</p>
+<a id="md:features" class="tsd-anchor"></a><h2><a href="#md:features">Features</a></h2><ul>
+<li><strong>Mathematical utilities</strong>: Random numbers, interpolation, normalization, clamping</li>
+<li><strong>Color manipulation</strong>: RGB/Hex conversion, color transitions, random colors</li>
+<li><strong>Geometric calculations</strong>: Angles, distances, rotations, positioning</li>
+<li><strong>Array and object utilities</strong>: Picking, property removal, formatting</li>
+<li><strong>Animation helpers</strong>: Color transitions with callbacks</li>
+<li><strong>TypeScript support</strong>: Full type definitions and IntelliSense</li>
 </ul>
-<p>rand(pNum1, pNum2)</p>
-<ul>
-<li>Generates a random integer between <strong><code>pNum1</code></strong> and <strong><code>pNum2</code></strong>.</li>
-</ul>
-<p>getPercentage(pValue, pTotalValue)</p>
-<ul>
-<li>Calculates the percentage of <strong><code>pValue</code></strong> in relation to <strong><code>pTotalValue</code></strong>.</li>
-</ul>
-<p>clamp(pNumber, pMin, pMax)</p>
-<ul>
-<li>Clamps <strong><code>pNumber</code></strong> between <strong><code>pMin</code></strong> and <strong><code>pMax</code></strong>.</li>
-</ul>
-<p>lerp(pStart, pEnd, pAmount)</p>
-<ul>
-<li>Linearly interpolates between <strong><code>pStart</code></strong> and <strong><code>pEnd</code></strong> by <strong><code>pAmount</code></strong>.</li>
-</ul>
-<p>flooredLerp(pStart, pEnd, pAmount)</p>
-<ul>
-<li>Linearly interpolates between <strong><code>pStart</code></strong> and <strong><code>pEnd</code></strong> by <strong><code>pAmount</code></strong>, then floors the result.</li>
-</ul>
-<p>round(pNumber, pPlace)</p>
-<ul>
-<li>Rounds pNumber to <strong><code>pPlace</code></strong> decimal places.</li>
-</ul>
-<p>normalize(pVal, pMin, pMax)</p>
-<ul>
-<li>Normalizes pVal between <strong><code>pMin</code></strong> and <strong><code>pMax</code></strong>.</li>
-</ul>
-<p>within(pVal, pMin, pMax)</p>
-<ul>
-<li>Checks if <strong><code>pVal</code></strong> is within the range of <strong><code>pMin</code></strong> and <strong><code>pMax</code></strong>.</li>
-</ul>
-<p>formatIntegerWithCommas(pNum)</p>
-<ul>
-<li>Formats <strong><code>pNum</code></strong> as a string with commas between every three digits.</li>
-</ul>
-<p>toRadians(pDegrees)</p>
-<ul>
-<li>Converts degrees to radians.</li>
-</ul>
-<p>toDegrees(pRadians)</p>
-<ul>
-<li>Converts radians to degrees.</li>
-</ul>
-<p>pick(pArray)</p>
-<ul>
-<li>Returns a random element from <strong><code>pArray</code></strong>.</li>
-</ul>
-<p>removeProperties(pObject, pExclude)</p>
-<ul>
-<li>Removes all properties from <strong><code>pObject</code></strong>, excluding those in <strong><code>pExclude</code></strong>.</li>
-</ul>
-<p>prob(pChance)</p>
-<ul>
-<li>Returns true with a probability of <strong><code>pChance</code></strong>, and false with a probability of <strong><code>100 - pChance</code></strong>.</li>
-</ul>
-<p>getInverseDirection(pDir)</p>
-<ul>
-<li>Returns the opposite direction of <strong><code>pDir</code></strong>.</li>
-</ul>
-<p>getAngleFromDirection(pDir)</p>
-<ul>
-<li>Returns the angle in radians corresponding to <strong><code>pDir</code></strong>.</li>
-</ul>
-<p>generateID(pIDLength)</p>
-<ul>
-<li>Generates a random unique ID string of length <strong><code>pIDLength</code></strong>.</li>
-</ul>
-<p>decimalToHex(pDecimal, pChars)</p>
-<ul>
-<li>Converts a decimal number to a hexadecimal color string with pChars characters. <strong><code>pChars</code></strong> can either be <strong><code>3</code></strong> or <strong><code>6</code></strong>.</li>
-</ul>
-<p>addIntensity(pColor, pPercent)</p>
-<ul>
-<li>Increases the intensity of pColor by <strong><code>pPercent</code></strong> <strong><code>percent</code></strong>.</li>
-</ul>
-<p>rgbToHex(pR, pG, pB)</p>
-<ul>
-<li>Converts an RGB color to a hexadecimal color string.</li>
-</ul>
-<p>hexToRgb(pHex)</p>
-<ul>
-<li>Converts a hexadecimal color string to an RGB color.</li>
-</ul>
-<p>rgbToDecimal(pR, pG, pB)</p>
-<ul>
-<li>Converts an RGB color to a decimal number.</li>
-</ul>
-<p>hexToDecimal(pHex)</p>
-<ul>
-<li>Converts a hexadecimal color string to a decimal number.</li>
-</ul>
-<p>grabColor(pSwitch, pG, pB)</p>
-<ul>
-<li>Returns a color object with a hexadecimal color string, tagless hexadecimal color string, RGB string, RGB color array, RGB normalized array, RGB object, and decimal color number. If <strong><code>pSwitch</code></strong> is a number, <strong><code>pG</code></strong> and <strong><code>pB</code></strong> must also be numbers and represent the green and blue components of the color respectively. If <strong><code>pSwitch</code></strong> is a string, it can either be a hexadecimal color string or a decimal color.</li>
-</ul>
-<p>getRandomColor()</p>
-<ul>
-<li>Gets a random color in the hex format.</li>
-</ul>
-<p>getRandomColorBetween(pColor1, pColor2, pAmount = 0.5)</p>
-<ul>
-<li>Gets a random color between <strong><code>pColor1</code></strong> and <strong><code>pColor2</code></strong> in the decimal format. <strong><code>pAmount</code></strong> can be used to change how close the returned color is to either <strong><code>pColor1</code></strong> or <strong><code>pColor2</code></strong>.</li>
-</ul>
-<p>transitionColor(pInstance, pStartColor=&#39;#000&#39;, pEndColor=&#39;#fff&#39;, pDuration=1000, pIterativeCallback, pEndCallback)</p>
-<ul>
-<li>Transition <strong><code>pStartColor</code></strong> to <strong><code>pEndColor</code></strong> in <strong><code>pDuration</code></strong> time with callbacks to track the animation. Where <strong><code>pIterativeCallback</code></strong> is called each frame and <strong><code>pEndCallback</code></strong> is called at the end of the animation. This API returns the <strong><code>ID</code></strong> of the transition. So that if you want to cancel it, you can use <strong><code>cancelTransitionColor(ID)</code></strong>.</li>
-</ul>
-<p>cancelTransitionColor(pID)</p>
-<ul>
-<li>Cancels an ongoing transition with the <strong><code>ID</code></strong> of <strong><code>pID</code></strong>.</li>
-</ul>
-<a id="md:getpointrotatedprect-ptheta-ppointv---calculates-the-position-of-a-point-after-rotating-it-around-a-center-point-by-a-given-angle" class="tsd-anchor"></a><h2><a href="#md:getpointrotatedprect-ptheta-ppointv---calculates-the-position-of-a-point-after-rotating-it-around-a-center-point-by-a-given-angle">getPointRotated(pRect, pTheta, pPoint)v
-- Calculates the position of a point after rotating it around a center point by a given angle.</a></h2></div></div><div class="col-sidebar"><div class="page-menu"><div class="tsd-navigation settings"><details class="tsd-index-accordion"><summary class="tsd-accordion-summary"><h3><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><use href="assets/icons.svg#icon-chevronDown"></use></svg>Settings</h3></summary><div class="tsd-accordion-details"><div class="tsd-filter-visibility"><h4 class="uppercase">Member Visibility</h4><form><ul id="tsd-filter-options"><li class="tsd-filter-item"><label class="tsd-filter-input"><input type="checkbox" id="tsd-filter-protected" name="protected"/><svg width="32" height="32" viewBox="0 0 32 32" aria-hidden="true"><rect class="tsd-checkbox-background" width="30" height="30" x="1" y="1" rx="6" fill="none"></rect><path class="tsd-checkbox-checkmark" d="M8.35422 16.8214L13.2143 21.75L24.6458 10.25" stroke="none" stroke-width="3.5" stroke-linejoin="round" fill="none"></path></svg><span>Protected</span></label></li><li class="tsd-filter-item"><label class="tsd-filter-input"><input type="checkbox" id="tsd-filter-private" name="private"/><svg width="32" height="32" viewBox="0 0 32 32" aria-hidden="true"><rect class="tsd-checkbox-background" width="30" height="30" x="1" y="1" rx="6" fill="none"></rect><path class="tsd-checkbox-checkmark" d="M8.35422 16.8214L13.2143 21.75L24.6458 10.25" stroke="none" stroke-width="3.5" stroke-linejoin="round" fill="none"></path></svg><span>Private</span></label></li><li class="tsd-filter-item"><label class="tsd-filter-input"><input type="checkbox" id="tsd-filter-inherited" name="inherited" checked/><svg width="32" height="32" viewBox="0 0 32 32" aria-hidden="true"><rect class="tsd-checkbox-background" width="30" height="30" x="1" y="1" rx="6" fill="none"></rect><path class="tsd-checkbox-checkmark" d="M8.35422 16.8214L13.2143 21.75L24.6458 10.25" stroke="none" stroke-width="3.5" stroke-linejoin="round" fill="none"></path></svg><span>Inherited</span></label></li></ul></form></div><div class="tsd-theme-toggle"><h4 class="uppercase">Theme</h4><select id="tsd-theme"><option value="os">OS</option><option value="light">Light</option><option value="dark">Dark</option></select></div></div></details></div><details open class="tsd-index-accordion tsd-page-navigation"><summary class="tsd-accordion-summary"><h3><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><use href="assets/icons.svg#icon-chevronDown"></use></svg>On This Page</h3></summary><div class="tsd-accordion-details"><a href="#md:utils-module"><span>Utils <wbr/>Module</span></a><ul><li><a href="#md:installation"><span>Installation</span></a></li><li><ul><li><a href="#md:es-module"><span>ES <wbr/>Module</span></a></li><li><a href="#md:iife-immediately-invoked-function-expression"><span>IIFE (<wbr/>Immediately <wbr/>Invoked <wbr/>Function <wbr/>Expression)</span></a></li><li><a href="#md:commonjs-cjs-module"><span>CommonJS (CJS) <wbr/>Module</span></a></li></ul></li></ul><a href="#md:api"><span>API</span></a><ul><li><a href="#md:getpointrotatedprect-ptheta-ppointv---calculates-the-position-of-a-point-after-rotating-it-around-a-center-point-by-a-given-angle"><span>get<wbr/>Point<wbr/>Rotated(p<wbr/>Rect, p<wbr/>Theta, p<wbr/>Point)v
--<wbr/> <wbr/>Calculates the position of a point after rotating it around a center point by a given angle.</span></a></li></ul></div></details></div><div class="site-menu"><nav class="tsd-navigation"><a href="modules.html" class="current"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="assets/icons.svg#icon-1"></use></svg><span>Utils - v1.1.0</span></a><ul class="tsd-small-nested-navigation" id="tsd-nav-container" data-base="."><li>Loading...</li></ul></nav></div></div></div><footer><p class="tsd-generator">Generated using <a href="https://typedoc.org/" target="_blank">TypeDoc</a></p></footer><div class="overlay"></div></body></html>
+<a id="md:quick-start" class="tsd-anchor"></a><h2><a href="#md:quick-start">Quick Start</a></h2><pre><code class="language-ts"><span class="hl-0">import</span><span class="hl-1"> { </span><span class="hl-2">Utils</span><span class="hl-1"> } </span><span class="hl-0">from</span><span class="hl-1"> </span><span class="hl-3">&#39;./utils&#39;</span><span class="hl-1">;</span><br/><br/><span class="hl-4">// Generate random numbers</span><br/><span class="hl-8">const</span><span class="hl-1"> </span><span class="hl-9">randomInt</span><span class="hl-1"> = </span><span class="hl-2">Utils</span><span class="hl-1">.</span><span class="hl-10">rand</span><span class="hl-1">(</span><span class="hl-11">1</span><span class="hl-1">, </span><span class="hl-11">100</span><span class="hl-1">);</span><br/><span class="hl-8">const</span><span class="hl-1"> </span><span class="hl-9">randomDecimal</span><span class="hl-1"> = </span><span class="hl-2">Utils</span><span class="hl-1">.</span><span class="hl-10">decimalRand</span><span class="hl-1">(</span><span class="hl-11">0</span><span class="hl-1">, </span><span class="hl-11">1</span><span class="hl-1">, </span><span class="hl-11">2</span><span class="hl-1">);</span><br/><br/><span class="hl-4">// Work with colors</span><br/><span class="hl-8">const</span><span class="hl-1"> </span><span class="hl-9">hexColor</span><span class="hl-1"> = </span><span class="hl-2">Utils</span><span class="hl-1">.</span><span class="hl-10">rgbToHex</span><span class="hl-1">(</span><span class="hl-11">255</span><span class="hl-1">, </span><span class="hl-11">0</span><span class="hl-1">, </span><span class="hl-11">0</span><span class="hl-1">); </span><span class="hl-4">// &quot;#ff0000&quot;</span><br/><span class="hl-8">const</span><span class="hl-1"> </span><span class="hl-9">randomColor</span><span class="hl-1"> = </span><span class="hl-2">Utils</span><span class="hl-1">.</span><span class="hl-10">getRandomColor</span><span class="hl-1">();</span><br/><br/><span class="hl-4">// Calculate distances and angles</span><br/><span class="hl-8">const</span><span class="hl-1"> </span><span class="hl-9">distance</span><span class="hl-1"> = </span><span class="hl-2">Utils</span><span class="hl-1">.</span><span class="hl-10">getDistance</span><span class="hl-1">({</span><span class="hl-2">x:</span><span class="hl-1"> </span><span class="hl-11">0</span><span class="hl-1">, </span><span class="hl-2">y:</span><span class="hl-1"> </span><span class="hl-11">0</span><span class="hl-1">}, {</span><span class="hl-2">x:</span><span class="hl-1"> </span><span class="hl-11">3</span><span class="hl-1">, </span><span class="hl-2">y:</span><span class="hl-1"> </span><span class="hl-11">4</span><span class="hl-1">}); </span><span class="hl-4">// 5</span><br/><span class="hl-8">const</span><span class="hl-1"> </span><span class="hl-9">angle</span><span class="hl-1"> = </span><span class="hl-2">Utils</span><span class="hl-1">.</span><span class="hl-10">getAngle</span><span class="hl-1">({</span><span class="hl-2">x:</span><span class="hl-1"> </span><span class="hl-11">0</span><span class="hl-1">, </span><span class="hl-2">y:</span><span class="hl-1"> </span><span class="hl-11">0</span><span class="hl-1">}, {</span><span class="hl-2">x:</span><span class="hl-1"> </span><span class="hl-11">1</span><span class="hl-1">, </span><span class="hl-2">y:</span><span class="hl-1"> </span><span class="hl-11">1</span><span class="hl-1">});</span><br/><br/><span class="hl-4">// Format numbers</span><br/><span class="hl-8">const</span><span class="hl-1"> </span><span class="hl-9">formatted</span><span class="hl-1"> = </span><span class="hl-2">Utils</span><span class="hl-1">.</span><span class="hl-10">formatIntegerWithCommas</span><span class="hl-1">(</span><span class="hl-11">1234567</span><span class="hl-1">); </span><span class="hl-4">// &quot;1,234,567&quot;</span><br/><br/>
+</code><button>Copy</button></pre>
+<a id="md:global-dependency" class="tsd-anchor"></a><h3><a href="#md:global-dependency">Global Dependency</a></h3><p>Utils relies on the <code>VYLO</code> variable being globally accessible in some APIs.</p>
+</div></div><div class="col-sidebar"><div class="page-menu"><div class="tsd-navigation settings"><details class="tsd-index-accordion"><summary class="tsd-accordion-summary"><h3><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><use href="assets/icons.svg#icon-chevronDown"></use></svg>Settings</h3></summary><div class="tsd-accordion-details"><div class="tsd-filter-visibility"><h4 class="uppercase">Member Visibility</h4><form><ul id="tsd-filter-options"><li class="tsd-filter-item"><label class="tsd-filter-input"><input type="checkbox" id="tsd-filter-protected" name="protected"/><svg width="32" height="32" viewBox="0 0 32 32" aria-hidden="true"><rect class="tsd-checkbox-background" width="30" height="30" x="1" y="1" rx="6" fill="none"></rect><path class="tsd-checkbox-checkmark" d="M8.35422 16.8214L13.2143 21.75L24.6458 10.25" stroke="none" stroke-width="3.5" stroke-linejoin="round" fill="none"></path></svg><span>Protected</span></label></li><li class="tsd-filter-item"><label class="tsd-filter-input"><input type="checkbox" id="tsd-filter-private" name="private"/><svg width="32" height="32" viewBox="0 0 32 32" aria-hidden="true"><rect class="tsd-checkbox-background" width="30" height="30" x="1" y="1" rx="6" fill="none"></rect><path class="tsd-checkbox-checkmark" d="M8.35422 16.8214L13.2143 21.75L24.6458 10.25" stroke="none" stroke-width="3.5" stroke-linejoin="round" fill="none"></path></svg><span>Private</span></label></li><li class="tsd-filter-item"><label class="tsd-filter-input"><input type="checkbox" id="tsd-filter-inherited" name="inherited" checked/><svg width="32" height="32" viewBox="0 0 32 32" aria-hidden="true"><rect class="tsd-checkbox-background" width="30" height="30" x="1" y="1" rx="6" fill="none"></rect><path class="tsd-checkbox-checkmark" d="M8.35422 16.8214L13.2143 21.75L24.6458 10.25" stroke="none" stroke-width="3.5" stroke-linejoin="round" fill="none"></path></svg><span>Inherited</span></label></li></ul></form></div><div class="tsd-theme-toggle"><h4 class="uppercase">Theme</h4><select id="tsd-theme"><option value="os">OS</option><option value="light">Light</option><option value="dark">Dark</option></select></div></div></details></div><details open class="tsd-index-accordion tsd-page-navigation"><summary class="tsd-accordion-summary"><h3><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><use href="assets/icons.svg#icon-chevronDown"></use></svg>On This Page</h3></summary><div class="tsd-accordion-details"><a href="#md:utils-module"><span>Utils <wbr/>Module</span></a><ul><li><a href="#md:installation"><span>Installation</span></a></li><li><ul><li><a href="#md:es-module"><span>ES <wbr/>Module</span></a></li><li><a href="#md:iife-immediately-invoked-function-expression"><span>IIFE (<wbr/>Immediately <wbr/>Invoked <wbr/>Function <wbr/>Expression)</span></a></li><li><a href="#md:typescript"><span>Type<wbr/>Script</span></a></li></ul></li><li><a href="#md:documentation"><span>Documentation</span></a></li><li><a href="#md:features"><span>Features</span></a></li><li><a href="#md:quick-start"><span>Quick <wbr/>Start</span></a></li><li><ul><li><a href="#md:global-dependency"><span>Global <wbr/>Dependency</span></a></li></ul></li></ul></div></details></div><div class="site-menu"><nav class="tsd-navigation"><a href="modules.html" class="current"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="assets/icons.svg#icon-1"></use></svg><span>Utils - v1.1.0</span></a><ul class="tsd-small-nested-navigation" id="tsd-nav-container" data-base="."><li>Loading...</li></ul></nav></div></div></div><footer><p class="tsd-generator">Generated using <a href="https://typedoc.org/" target="_blank">TypeDoc</a></p></footer><div class="overlay"></div></body></html>

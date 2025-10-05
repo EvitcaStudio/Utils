@@ -90,6 +90,5 @@ for (const file of filesToUpdate) {
     }
 }
 
-
 const elapsed = Date.now() - startTime;
 logMessage('info', `Build completed in ${elapsed}ms`);
